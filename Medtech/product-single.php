@@ -4,8 +4,8 @@
 		<div class="row">
 			<div class="col-md-6">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="shop.html">Shop</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="shop.php">Shop</a></li>
 					<li class="active">Single Product</li>
 				</ol>
 			</div>
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 
-					<a href="cart.html" class="btn btn-main mt-20">Add To Cart</a>
+					<a href="cart.php" class="btn btn-main mt-20">Add To Cart</a>
 				</div>
 			</div>
 		</div>
@@ -152,7 +152,7 @@
 						</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Reef Boardsport</a></h4>
+						<h4><a href="product-single.php">Reef Boardsport</a></h4>
 						<p class="price">$200</p>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 						</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Bradley Mid</a></h4>
+						<h4><a href="product-single.php">Bradley Mid</a></h4>
 						<p class="price">$200</p>
 					</div>
 				</div>

@@ -9,7 +9,7 @@
 				<div class="content">
 					<h1 class="page-name">Cart</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">cart</li>
 					</ol>
 				</div>
@@ -75,7 +75,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <a href="checkout.html" class="btn btn-main pull-right">Checkout</a>
+                <a href="checkout.php" class="btn btn-main pull-right">Checkout</a>
               </form>
             </div>
           </div>

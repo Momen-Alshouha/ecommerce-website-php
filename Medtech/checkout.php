@@ -6,7 +6,7 @@
 				<div class="content">
 					<h1 class="page-name">Checkout</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">checkout</li>
 					</ol>
 				</div>
@@ -49,7 +49,7 @@
                <div class="block">
                   <h4 class="widget-title">Payment Method</h4>
                   <p>Cash On Delivery</p>
-                  <a href="confirmation.html" class="btn btn-main mt-20">Place Order</a >
+                  <a href="confirmation.php" class="btn btn-main mt-20">Place Order</a >
                   <div class="checkout-product-details">
                      <div class="payment">
                        
@@ -62,11 +62,11 @@
                   <div class="block">
                      <h4 class="widget-title">Order Summary</h4>
                      <div class="media product-card">
-                        <a class="pull-left" href="product-single.html">
+                        <a class="pull-left" href="product-single.php">
                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
                         </a>
                         <div class="media-body">
-                           <h4 class="media-heading"><a href="product-single.html">Ambassador Heritage 1921</a></h4>
+                           <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4>
                            <p class="price">1 x $249</p>
                            <span class="remove" >Remove</span>
                         </div>

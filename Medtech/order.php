@@ -5,82 +5,88 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">Contact Us</h1>
+					<h1 class="page-name">Dashboard</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.php">Home</a></li>
-						<li class="active">contact</li>
+						<li><a href="index.html">Home</a></li>
+						<li class="active">my account</li>
 					</ol>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-
-
-
-
-<section class="page-wrapper">
-	<div class="contact-section">
-		<div class="container">
-			<div class="row" style="margin-bottom: 200px;">
-				
-				<!-- Contact Form -->
-				<div class="contact-form col-md-6 " >
-					<form id="contact-form" method="post" action="" role="form">
-						<h3 class="text-center">HOW CAN WE HELP YOU?</h3>
-						<div class="form-group">
-							<input type="text" placeholder="Your Name" class="form-control" name="name" id="name">
-						</div>
-						
-						<div class="form-group">
-							<input type="email" placeholder="Your Email" class="form-control" name="email" id="email">
-						</div>
-						
-						<div class="form-group">
-							<input type="text" placeholder="Subject" class="form-control" name="subject" id="subject">
-						</div>
-						
-						<div class="form-group">
-							<textarea rows="6" placeholder="Message" class="form-control" name="message" id="message"></textarea>	
-						</div>
-						
-						<div id="mail-success" class="success">
-							Thank you. The Mailman is on His Way :)
-						</div>
-						
-						<div id="mail-fail" class="error">
-							Sorry, don't know what happened. Try later :(
-						</div>
-						
-						<div id="cf-submit">
-							<input type="submit" id="contact-submit" class="btn btn-transparent" value="Send" style="background-color:#1BB2FB">
-						</div>						
-						
-					</form>
-				</div>
-				<!-- ./End Contact Form -->
-				
-				<!-- Contact Details -->
-				<div class="contact-details col-md-6 " >
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53808.189083562684!2d35.84740965!3d32.55252984999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c76916dac0453%3A0x5416e113d81f7d82!2sIrbid!5e0!3m2!1sen!2sjo!4v1652938206958!5m2!1sen!2sjo"
-						width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<section class="user-dashboard page-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="list-inline dashboard-menu text-center">
 					
+					<li><a class="active" href="order.php">Orders</a></li>
 				
+					<li><a href="profile-details.php">Profile Details</a></li>
+				</ul>
+				<div class="dashboard-wrapper user-dashboard">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Order ID</th>
+									<th>Date</th>
+									<th>Items</th>
+									<th>Total Price</th>
+									<th>Status</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>#451231</td>
+									<td>Mar 25, 2016</td>
+									<td>2</td>
+									<td>$99.00</td>
+									<td><span class="label label-primary">Processing</span></td>
+									<td><a href="order.html" class="btn btn-default">View</a></td>
+								</tr>
+								<tr>
+									<td>#451231</td>
+									<td>Mar 25, 2016</td>
+									<td>3</td>
+									<td>$150.00</td>
+									<td><span class="label label-success">Completed</span></td>
+									<td><a href="order.html" class="btn btn-default">View</a></td>
+								</tr>
+								<tr>
+									<td>#451231</td>
+									<td>Mar 25, 2016</td>
+									<td>3</td>
+									<td>$150.00</td>
+									<td><span class="label label-danger">Canceled</span></td>
+									<td><a href="order.html" class="btn btn-default">View</a></td>
+								</tr>
+								<tr>
+									<td>#451231</td>
+									<td>Mar 25, 2016</td>
+									<td>2</td>
+									<td>$99.00</td>
+									<td><span class="label label-info">On Hold</span></td>
+									<td><a href="order.html" class="btn btn-default">View</a></td>
+								</tr>
+								<tr>
+									<td>#451231</td>
+									<td>Mar 25, 2016</td>
+									<td>3</td>
+									<td>$150.00</td>
+									<td><span class="label label-warning">Pending</span></td>
+									<td><a href="order.html" class="btn btn-default">View</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-				<!-- / End Contact Details -->
-					
-				
-			
-			</div> <!-- end row -->
 			</div>
-				<!--/. End Footer Social Links -->
-		</div> <!-- end container -->
+		</div>
 	</div>
 </section>
-	
 <footer class="footer section text-center">
 	<div class="container">
 		<div class="row">
@@ -109,16 +115,16 @@
 				</ul>
 				<ul class="footer-menu text-uppercase">
 					<li>
-						<a href="contact.php">CONTACT</a>
+						<a href="contact.html">CONTACT</a>
 					</li>
 					<li>
-						<a href="shop.php">SHOP</a>
+						<a href="shop.html">SHOP</a>
 					</li>
 					<li>
-						<a href="pricing.php">Pricing</a>
+						<a href="pricing.html">Pricing</a>
 					</li>
 					<li>
-						<a href="contact.php">PRIVACY POLICY</a>
+						<a href="contact.html">PRIVACY POLICY</a>
 					</li>
 				</ul>
 				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
@@ -126,13 +132,6 @@
 		</div>
 	</div>
 </footer>
-
-
-
-
-
-
-
     <!-- 
     Essential Scripts
     =====================================-->

@@ -6,7 +6,7 @@
 				<div class="content">
 					<h1 class="page-name">Dashboard</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">my account</li>
 					</ol>
 				</div>
@@ -20,23 +20,71 @@
       <div class="col-md-12">
         <ul class="list-inline dashboard-menu text-center">
           
-          <li><a href="order.html">Orders</a></li>
+          <li><a href="order.php">Orders</a></li>
          
-          <li><a class="active"  href="profile-details.html">Profile Details</a></li>
+          <li><a class="active"  href="profile-details.php">Profile Details</a></li>
         </ul>
         <div class="dashboard-wrapper dashboard-user-profile">
           <div class="media">
             <div class="pull-left text-center" href="#!">
-              <img class="media-object user-img" src="images/avater.jpg" alt="Image">
+              <img class="media-object user-img" src="images/team/team-1.jpg" alt="Image">
               <a href="#x" class="btn btn-transparent mt-20">Change Image</a>
             </div>
             <div class="media-body">
               <ul class="user-profile-list">
-                <li><span>Full Name:</span>Johanna Doe</li>
-                <li><span>Country:</span>USA</li>
-                <li><span>Email:</span>mail@gmail.com</li>
-                <li><span>Phone:</span>+880123123</li>
-                <li><span>Date of Birth:</span>Dec , 22 ,1991</li>
+
+<!-- update user info -->
+    <!-- start of the form -->
+
+   <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+
+    <!-- update user info -->
+    <!-- start of the form -->
               </ul>
             </div>
           </div>
@@ -45,7 +93,7 @@
     </div>
   </div>
 </section>
-<?php  include_once('footer.php') ?>
+<?php include_once('footer.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->

@@ -8,7 +8,7 @@
 				<div class="content">
 					<h1 class="page-name">About Us</h1>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">about us</li>
 					</ol>
 				</div>
@@ -24,10 +24,10 @@
 				<img class="img-responsive" src="images/new/about2.jpg" style="width: 100%; height:350px;">
 			</div>
 			<div class="col-md-6">
-				<h1 class="mt-40">Who we are</h1>
+				<h1 class="mt-40">Who We Are</h1>
 				<h4><b>We positively impact health</b></h4>
 					<p>We’re an impact-driven organization that touches virtually every aspect of health. Every decision we make is guided by our I 2 CARE and ILEAD principles.</p>
-					<h1 class="mt-40">What we do</h1>
+					<h1 class="mt-40">What We Do</h1>
 					<h4><b>We help improve health outcomes for a better tomorrow</b></h4>
 					<p>We work with biopharma companies, care providers, pharmacies, manufacturers, governments, and others to deliver insights, products and services that make quality care more accessible and affordable.</p>
 			</div>
@@ -125,16 +125,16 @@
 				</ul>
 				<ul class="footer-menu text-uppercase">
 					<li>
-						<a href="contact.html">CONTACT</a>
+						<a href="contact.php">CONTACT</a>
 					</li>
 					<li>
-						<a href="shop.html">SHOP</a>
+						<a href="shop.php">SHOP</a>
 					</li>
 					<li>
-						<a href="pricing.html">Pricing</a>
+						<a href="pricing.php">Pricing</a>
 					</li>
 					<li>
-						<a href="contact.html">PRIVACY POLICY</a>
+						<a href="contact.php">PRIVACY POLICY</a>
 					</li>
 				</ul>
 				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>

@@ -7,7 +7,7 @@
 				<div class="content">
 					<h2 class="page-name">Shop<span style="font-size: 20px;">/Complementary Furniture</span></h2>
 					<ol class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li class="active">shop</li>
 					</ol>
 				</div>
@@ -28,7 +28,7 @@
 						<div class="panel panel-default">
 							<div class="panel-heading" role="tab" id="headingTwo">
 							  <h4 class="panel-title">
-								<a class="collapsed"  href="shop-beds.html" aria-expanded="false" aria-controls="collapseTwo">
+								<a class="collapsed"  href="shop-beds.php" aria-expanded="false" aria-controls="collapseTwo">
 									Hospital Beds
 								</a>
 							  </h4>
@@ -39,7 +39,7 @@
 					  <div class="panel panel-default">
 					    <div class="panel-heading" role="tab" id="headingThree">
 					      <h4 class="panel-title">
-					        <a class="collapsed" href="shop-surgical.html" aria-expanded="false" aria-controls="collapseThree">
+					        <a class="collapsed" href="shop-surgical.php" aria-expanded="false" aria-controls="collapseThree">
 					          	Surgical supplies
 					        </a>
 					      </h4>
@@ -73,7 +73,7 @@
                       	</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Rainbow Shoes</a></h4>
+						<h4><a href="product-single.php">Rainbow Shoes</a></h4>
 						<p class="price">$200</p>
 					</div>
 				</div>
@@ -100,8 +100,8 @@
 			        				<p class="product-short-description">
 			        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
 			        				</p>
-			        				<a href="cart.html" class="btn btn-main">Add To Cart</a>
-			        				<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+			        				<a href="cart.php" class="btn btn-main">Add To Cart</a>
+			        				<a href="product-single.php" class="btn btn-transparent">View Product Details</a>
 			        			</div>
 			        		</div>
 			        	</div>

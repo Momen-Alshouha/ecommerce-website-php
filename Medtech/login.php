@@ -20,7 +20,7 @@ FACEBOOK: https://www.facebook.com/themefisher
   <!-- Basic Page Needs
   ================================================== -->
   <meta charset="utf-8">
-  <title>Aviato | E-commerce template</title>
+  <title>MedTech</title>
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -56,11 +56,11 @@ FACEBOOK: https://www.facebook.com/themefisher
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-          <a class="logo" href="index.html">
+          <a class="logo" href="index.php">
             <img src="images/logo.png" alt="">
           </a>
           <h2 class="text-center">Welcome Back</h2>
-          <form class="text-left clearfix" action="index.html" >
+          <form class="text-left clearfix" action="index.php" >
             <div class="form-group">
               <input type="email" class="form-control"  placeholder="Email">
             </div>
@@ -71,7 +71,7 @@ FACEBOOK: https://www.facebook.com/themefisher
               <button type="submit" class="btn btn-main text-center" >Login</button>
             </div>
           </form>
-          <p class="mt-20">New in this site ?<a href="signin.html"> Create New Account</a></p>
+          <p class="mt-20">New in this site ?<a href="signin.php"> Create New Account</a></p>
         </div>
       </div>
     </div>

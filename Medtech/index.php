@@ -7,7 +7,7 @@
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">TOTAL HEALTH CARE SOLUTION</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your Most Trusted <br>  Health Partner.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-beds.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-uppercase">Best Quality At Top Prices</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Safe And Profissional.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-comp.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="col-lg-8 text-right">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your supplier of medical <br>equipment and furniture </h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop.html">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-surgical.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="category-box">
-					<a href="shop-beds.html">
+					<a href="shop-beds.php">
 						<img src="images/new/image (7).png" alt="" />
 						<div class="content">
 							<h3>Hospital Beds</h3>
@@ -55,7 +55,7 @@
 					</a>	
 				</div>
 				<div class="category-box">
-					<a href="shop-comp.html">
+					<a href="shop-comp.php">
 						<img src="images/new/Chairs.jpg" alt="" />
 						<div class="content">
 							<h3>Complementary Furniture</h3>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="category-box category-box-2">
-					<a href="shop-surgical.html">
+					<a href="shop-surgical.php">
 						<img src="images/new/surgical.jpg" alt="" />
 						<div class="content">
 							<h3 style="color: white;">Surgical Supplies</h3>
@@ -103,7 +103,7 @@
                       	</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Reef Boardsport</a></h4>
+						<h4><a href="product-single.php">Reef Boardsport</a></h4>
 						<p class="price">$200</p>
 					</div>
 				</div>
@@ -141,7 +141,7 @@
                       	</div>
 					</div>
 					<div class="product-content">
-						<h4><a href="product-single.html">Strayhorn SP</a></h4>
+						<h4><a href="product-single.php">Strayhorn SP</a></h4>
 						<p class="price">$230</p>
 					</div>
 				</div>
@@ -170,8 +170,8 @@
 			        				<p class="product-short-description">
 			        					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
 			        				</p>
-			        				<a href="cart.html" class="btn btn-main">Add To Cart</a>
-			        				<a href="product-single.html" class="btn btn-transparent">View Product Details</a>
+			        				<a href="cart.php" class="btn btn-main">Add To Cart</a>
+			        				<a href="product-single.php" class="btn btn-transparent">View Product Details</a>
 			        			</div>
 			        		</div>
 			        	</div>
@@ -254,7 +254,6 @@ Start Call To Action
 		<br><br>
     </div>
 </div>
-
 
 <?php  include_once('footer.php') ?>
 
