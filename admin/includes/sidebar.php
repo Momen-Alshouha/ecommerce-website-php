@@ -8,10 +8,6 @@ echo "<script>window.open('login.php','_self')</script>";
 }
 
 else {
-
-
-
-
 ?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" ><!-- navbar navbar-inverse navbar-fixed-top Starts -->
