@@ -35,7 +35,7 @@
 
 </head>
 
-<body id="body">
+<body id="body" >
 
 <section class="top-header">
 	<div class="container">

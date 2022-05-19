@@ -54,12 +54,14 @@ FACEBOOK: https://www.facebook.com/themefisher
 <section class="signin-page account">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="block text-center">
+      <div class="col-md-6 col-md-offset-3" >
+        <div class="block text-center " style="border:2px solid #1BB2FB;background-color:white;border-radius: 25px;">
           <a class="logo" href="index.php">
             <img src="images/logo.png" alt="">
           </a>
+          <img class="img-responsive" src="images/new/1.jpeg" alt="menu image" style="width: 340px; height:100px; margin-left:auto;margin-right:auto;" />
           <h2 class="text-center">Welcome Back</h2>
+          
           <form class="text-left clearfix" action="index.php" >
             <div class="form-group">
               <input type="email" class="form-control"  placeholder="Email">
@@ -68,7 +70,7 @@ FACEBOOK: https://www.facebook.com/themefisher
               <input type="password" class="form-control" placeholder="Password">
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" >Login</button>
+              <button type="submit" class="btn btn-main text-center" style="background-color:#1BB2FB" >Login</button>
             </div>
           </form>
           <p class="mt-20">New in this site ?<a href="signin.php"> Create New Account</a></p>
