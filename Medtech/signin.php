@@ -55,20 +55,15 @@ FACEBOOK: https://www.facebook.com/themefisher
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <div class="block text-center">
+        <div class="block text-center"  style="border:2px solid #1BB2FB;border-radius: 25px;background-color:white;">
           <a class="logo" href="index.php">
             <img src="images/logo.png" alt="">
           </a>
+          <img class="img-responsive" src="images/new/1.jpeg" alt="menu image" style="width: 340px; height:100px; margin-left:auto;margin-right:auto;" />
           <h2 class="text-center">Create Your Account</h2>
           <form class="text-left clearfix" action="index.php">
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="First Name">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Last Name">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Username">
+              <input type="text" class="form-control"  placeholder="Full Name">
             </div>
             <div class="form-group">
               <input type="email" class="form-control"  placeholder="Email">
@@ -77,7 +72,7 @@ FACEBOOK: https://www.facebook.com/themefisher
               <input type="password" class="form-control"  placeholder="Password">
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center">Sign In</button>
+              <button type="submit" class="btn btn-main text-center" style="background-color:#1BB2FB">Sign In</button>
             </div>
           </form>
           <p class="mt-20">Already hava an account ?<a href="login.php"> Login</a></p>
