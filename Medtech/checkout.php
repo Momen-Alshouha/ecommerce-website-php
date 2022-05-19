@@ -72,7 +72,7 @@
                         </div>
                      </div>
                      <div class="discount-code">
-                        <p>Have a discount ? <a data-toggle="modal" data-target="#coupon-modal" href="#!">enter it here</a></p>
+                        <p>Have a discount ? <a  data-target="#coupon-modal" href="#!">enter it here</a></p>
                      </div>
                      <ul class="summary-prices">
                         <li>
@@ -98,6 +98,20 @@
 </div>
    <!-- Modal -->
    
+   <div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                     <input class="form-control" type="text" placeholder="Enter Coupon Code">
+                  </div>
+                  <button type="submit" class="btn btn-main">Apply Coupon</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
    
    <?php  include_once('footer.php') ?>
     <!-- 

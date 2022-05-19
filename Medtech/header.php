@@ -150,7 +150,7 @@
 						<a  href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Shop <span
 								class="tf-ion-ios-arrow-down"></span></a>
-						<div class="dropdown-menu" style="background-color: #efeeee86;">
+						<div class="dropdown-menu" style="background-color: white;">
 							<div class="row">
 
 								<!-- Basic -->
@@ -194,7 +194,7 @@
 						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="350"
 							role="button" aria-haspopup="true" aria-expanded="false">Account <span
 								class="tf-ion-ios-arrow-down"></span></a>
-						<ul class="dropdown-menu" style="background-color: #efeeee86;">
+						<ul class="dropdown-menu" style="background-color: white;">
 							<li><a href="login.php">log-in</a></li>
 							<li><a href="profile-details.php">MyProfile</a></li>
 						
