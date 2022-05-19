@@ -216,7 +216,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#users">
 
-<i class="fa fa-fw fa-gear"></i> Users
+<i class="fa fa-fw fa-gear"></i> Admin
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -226,11 +226,11 @@ else {
 <ul id="users" class="collapse">
 
 <li>
-<a href="index.php?insert_user"> Insert User </a>
+<a href="index.php?insert_user"> Insert Admin </a>
 </li>
 
 <li>
-<a href="index.php?view_users"> View Users </a>
+<a href="index.php?view_users"> View Admins </a>
 </li>
 
 <li>

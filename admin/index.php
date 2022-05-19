@@ -63,12 +63,6 @@ $run_completed_orders = mysqli_query($con,$get_completed_orders);
 $count_completed_orders = mysqli_num_rows($run_completed_orders);
 
 
-$get_total_earnings = "SELECT SUM( due_amount) as Total FROM customer_orders WHERE order_status = 'Complete'";
-$run_total_earnings = mysqli_query($con, $get_total_earnings);
-$row = mysqli_fetch_assoc($run_total_earnings);                       
-$count_total_earnings = $row['Total'];
-
-
 $get_coupons = "SELECT * FROM coupons";
 $run_coupons = mysqli_query($con,$get_coupons);
 $count_coupons = mysqli_num_rows($run_coupons);

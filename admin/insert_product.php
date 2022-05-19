@@ -293,7 +293,7 @@ move_uploaded_file($temp_name1,"product_images/$product_img1");
 move_uploaded_file($temp_name2,"product_images/$product_img2");
 move_uploaded_file($temp_name3,"product_images/$product_img3");
 
-$insert_product = "insert into products (cat_id,date,product_title,product_img1,product_img2,product_img3,product_price,product_psp_price,product_desc,status) values (,'$cat',NOW(),'$product_title','$product_img1','$product_img2','$product_img3','$product_price','$psp_price','$product_desc','$status')";
+$insert_product = "insert into products (cat_id,date,product_title,product_img1,product_img2,product_img3,product_price,product_psp_price,product_desc,status) values ('$cat',NOW(),'$product_title','$product_img1','$product_img2','$product_img3','$product_price','$psp_price','$product_desc','$status')";
 
 $run_product = mysqli_query($con,$insert_product);
 
