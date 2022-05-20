@@ -40,7 +40,7 @@ session_start(); include_once('header.php') ?>
 			<div class="col-md-6">
 				<ol class="breadcrumb">
 					<li><a href="index.php">Home</a></li>
-					<li><a href="shop.php">Shop</a></li>
+					<li><a href="products.php?cat=1">Shop</a></li>
 					<li class="active">Single Product</li>
 				</ol>
 			</div>
