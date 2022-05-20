@@ -1,6 +1,11 @@
 <?php
+	include("connection.php");
+
 session_reset();
 $WelcomeMsg = $_SESSION['loggedName'];
+$get_cats = "select * from categories";
+    
+$run_cats = mysqli_query($con,$get_cats);
 
 ?>
 <!DOCTYPE php>
@@ -157,15 +162,21 @@ $WelcomeMsg = $_SESSION['loggedName'];
 
 									<!-- Basic -->
 									<div class="col-lg-12 col-md-6 mb-sm-3">
+									<?php 
+									 while($row_cats=mysqli_fetch_array($run_cats)){
+										 $cat_id = $row_cats['cat_id'];
+										 $cat_title = $row_cats['cat_title'];
+        
+										 echo "
+        
+       
 										<ul>
 
+											<a href='products.php?cat=$cat_id'><li>$cat_title</li></a>
 
-											<li><a href="shop-beds.php">Hospital Beds</a></li>
-											<li><a href="shop-comp.php">Complementery Furniture</a></li>
-											<li><a href="shop-surgical.php">Surgical Supplies</a></li>
-
-
-										</ul>
+										</ul>";
+									}
+									?>
 									</div>
 
 

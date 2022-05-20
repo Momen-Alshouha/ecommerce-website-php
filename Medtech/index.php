@@ -71,7 +71,7 @@ session_start();
         echo "
         
        
-        <div class='row'>
+        <div class='col-md-12'>
 				<div class='category-box'>
 					<a href='products.php?cat=$cat_id'>
 						<img src='../admin/other_images/$cat_img' alt='' />
@@ -81,6 +81,7 @@ session_start();
 						</div>
 					</a>	
 				</div>
+        
     
     ";
     
