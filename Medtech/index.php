@@ -71,7 +71,7 @@ session_start();
         echo "
         
        
-        <div class='col-md'>
+        <div class='row'>
 				<div class='category-box'>
 					<a href='products.php?cat=$cat_id'>
 						<img src='../admin/other_images/$cat_img' alt='' />

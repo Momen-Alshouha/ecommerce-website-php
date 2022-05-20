@@ -157,61 +157,7 @@ session_start(); include_once('header.php') ?>
 		</div>
 	</div>
 </section>
-<section class="products related-products section">
-	<div class="container">
-		<div class="row">
-			<div class="title text-center">
-				<h2>Related Products</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="product-item">
-					<div class="product-thumb">
-						<span class="bage">Sale</span>
-						<img class="img-responsive" src="images/shop/products/product-5.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								
-								
-								<li>
-									<a href="#!"><i class="tf-ion-android-cart"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.php">Reef Boardsport</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
-			
-			
-			
-			<div class="col-md-3">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-3.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								
-								<li>
-									<a href="#!"><i class="tf-ion-android-cart"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.php">Bradley Mid</a></h4>
-						<p class="price">$200</p>
-					</div>
-				</div>
-			</div>
 
-		</div>
-	</div>
-</section>
 
 
 
