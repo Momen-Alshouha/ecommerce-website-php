@@ -54,61 +54,72 @@
 				</div>
 				
 			<?php 
+			/*
+			$Cid =$_GET['cat']; 
+			$query = "SELECT * FROM  `products` p , `categories` c
+			   WHERE  p.`cat_id` = c.`cat_id`  AND p.`product_id`=" . $Cid;
+			   $run_cat = mysqli_query($con,$query);
+	 
+	 
+				 while($row_cats=mysqli_fetch_array($run_cat)){
+			 
+				 $cat_title = $row_cats['product_title'];
+				 
+				 $cat_img1 = $row_cats['product_img1'];
+				 $cat_img2 = $row_cats['product_img2'];
+				 $cat_img3 = $row_cats['product_img3'];
+				 $cat_price = $row_cats['product_price'];
+				 */
+
+				 
+				/*$Cid =$_GET['cat']; 
 				$get_products = "SELECT * FROM products";
 				$run_products = mysqli_query($con,$get_products);
-				while($row_products=mysqli_fetch_array($run_products)) {
+				while($row_products=mysqli_fetch_array($run_products)) {*/
+					$Cid =$_GET['cat']; 
+			$query = "SELECT * FROM  `products` p , `categories` c
+			   WHERE  p.`cat_id` = c.`cat_id`  AND p.`product_id`=" . $Cid;
+			   $run_cat = mysqli_query($con,$query);
+	 
+	 
+				 while($row_cats=mysqli_fetch_array($run_cat)){
 				
-					$pro_id = $row_products['product_id'];
+					$pro_id = $row_cats['product_id'];
 					
-					$pro_title = $row_products['product_title'];
+					$pro_title = $row_cats['product_title'];
 					
-					$pro_price = $row_products['product_price'];
+					$pro_price = $row_cats['product_price'];
 					
-					$pro_img1 = $row_products['product_img1'];
+					$pro_img1 = $row_cats['product_img1'];
+					echo "
+        
+       
+					<div class='col-md'>
+							<div class='category-box'>
+								<a href='product-single.php?cat=$pro_id'>
+									<img src='../admin/product_images/$pro_img1' alt='' />
+									<div class='content' style='background-color: #ffffffdb;'>
+										<h3>$pro_title</h3>
+										<p style='color: black;'>$pro_price JD</p>
+									</div>
+								</a>
+							</div>
+							<a href='#' class='btn btn-primary'>Add to cart</a>	
+
+				
+				";
+				
+				}
+					
+				 
 		
 		?>
 		
-			<div class="d-flex flex-row mx-4">
-				<div class="card p-2" style="width: 25rem;">
-				<a href=""><img class="card-img-top" src="../admin/product_images/<?php echo $pro_img1?>" alt="Card image"></a>
-				<div class="card-body">
-					<h4 class="card-title">product title <?php echo $pro_title ?></h4>
-					<h4 class="card-title">product price <?php echo $pro_price ?></h4>
-					<a href="#" class="btn btn-primary">Add to cart</a>
-				</div><br>
-				</div>
-			<?php } ?>
+		
+			
 		
 			<!-- Modal -->
-			<div class="modal product-modal fade" id="product-modal">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<i class="tf-ion-close"></i>
-				</button>
-				  <div class="modal-dialog " role="document">
-					<div class="modal-content">
-						  <div class="modal-body">
-							<div class="row">
-								<div class="col-md-8 col-sm-6 col-xs-12">
-									<div class="modal-image">
-										<img class="img-responsive" src="images/shop/products/modal-product.jpg" alt="product-img" />
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-6 col-xs-12">
-									<div class="product-short-details">
-										<h2 class="product-title">GM Pendant, Basalt Grey</h2>
-										<p class="product-price">$200</p>
-										<p class="product-short-description">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem iusto nihil cum. Illo laborum numquam rem aut officia dicta cumque.
-										</p>
-										<a href="cart.php" class="btn btn-main">Add To Cart</a>
-										<a href="product-single.php" class="btn btn-transparent">View Product Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				  </div>
-			</div><!-- /.modal -->
+			<!-- /.modal -->
 	
 					</div>				
 				</div>
