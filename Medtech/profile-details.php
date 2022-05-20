@@ -1,8 +1,9 @@
 <?php  
 
-
+session_start();
 include_once('header.php');
 require_once("config.php");
+
 
 ?>
 <section class="page-header">
@@ -50,9 +51,10 @@ require_once("config.php");
 
    <?php 
 
-       
-
-     $view="SELECT * FROM customers WHERE customer_name ='ahmad' ";
+    $current=	$_SESSION['loggedIn'];
+      
+      
+     $view="SELECT * FROM customers WHERE customer_id ='$current' ";
 
      $getresults=mysqli_query($conn,$view);
     
@@ -67,7 +69,7 @@ require_once("config.php");
 
               <div class="form-group col-md-6">
               <label for="Name">FullName:</label>
-              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>">
+              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>" disabled >
             </div>
                 
 
@@ -75,19 +77,19 @@ require_once("config.php");
 
             <div class="form-group col-md-6">
               <label for="inputEmail4">Email</label>
-              <input type="email" class="form-control" name="email" placeholder="Email" value="<?php  echo $row['customer_email']?>">
+              <input type="email" class="form-control" name="email" placeholder="Email" value="<?php  echo $row['customer_email']?>" disabled>
             </div>
         
           </div>
           <div class="form-group col-md-6">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor" value="<?php  echo $row['customer_address']?>">
+            <input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor" value="<?php  echo $row['customer_address']?>" disabled>
           </div>
         
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCity">City</label>
-              <input type="text" class="form-control" name="city" placeholder="city" value="<?php  echo $row['customer_city']?>">
+              <input type="text" class="form-control" name="city" placeholder="city" value="<?php  echo $row['customer_city']?>" disabled>
             </div>
          
            <a href="updateUser.php?id=<?php echo $row['customer_id'];?>" style="margin-left:15px;" type="submit" name="button" class="btn btn-main btn-large btn-round">Edit your Info</a>

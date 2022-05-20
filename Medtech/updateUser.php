@@ -1,6 +1,7 @@
 <?php  
 
 
+session_start();
 include_once('header.php');
 require_once("config.php");
 
@@ -34,7 +35,7 @@ require_once("config.php");
           <div class="media">
             <div class="pull-left text-center" href="#!">
               <img class="media-object user-img" src="images/team/team-1.jpg" alt="Image">
-              <a href="#x" class="btn btn-transparent mt-20">Change Image</a>
+            
             </div>
             <div class="media-body">
               <ul class="user-profile-list">
@@ -69,10 +70,13 @@ require_once("config.php");
         
         
         if($update){
-            echo "you updated you info successfully";
+            echo "<br>";
+            echo "<h1>" ."You've Updated Your Information Successfully!" . "</h1>" ;
        }
 
-       // header('Location:profile-details.php')
+       exit();
+
+       //header('Location:profile-details.php');
       
      
     }
@@ -89,8 +93,8 @@ require_once("config.php");
      //$custmer_session = $_SESSION['name'];
     
 
-
-     $view="SELECT * FROM customers WHERE customer_name ='ahmad' ";
+     $current=	$_SESSION['loggedIn'];
+     $view="SELECT * FROM customers WHERE customer_id ='$current' ";
 
      $getresults=mysqli_query($conn,$view);
      
@@ -107,7 +111,7 @@ require_once("config.php");
 
               <div class="form-group col-md-6">
               <label for="Name">FullName:</label>
-              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>">
+              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>" >
             </div>
                 
 
