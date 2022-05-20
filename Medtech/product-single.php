@@ -1,4 +1,5 @@
-<?php include_once('header.php') ?>
+<?php 
+session_start(); include_once('header.php') ?>
 <section class="single-product">
 	<div class="container">
 		<div class="row">
