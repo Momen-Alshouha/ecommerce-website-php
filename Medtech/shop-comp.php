@@ -1,6 +1,12 @@
 
+<<<<<<< HEAD
 <?php 
 session_start(); include_once('header.php') ?>
+=======
+<?php  include_once('header.php') ?>
+<?php include '../admin/includes/db.php' ?>
+
+>>>>>>> 4a6a984653d7572faac98768149d93f3228c4811
 <section class="page-header">
 	<div class="container">
 		<div class="row">
@@ -53,32 +59,35 @@ session_start(); include_once('header.php') ?>
 			</div>
 			<div class="col-md-9">
 				<div class="row">
+
+				
+				<?php 
+				$get_products = "SELECT * FROM products";
+				$run_products = mysqli_query($con,$get_products);
+				while($row_products=mysqli_fetch_array($run_products)) {
+				
+					$pro_id = $row_products['product_id'];
 					
+					$pro_title = $row_products['product_title'];
+					
+					$pro_price = $row_products['product_price'];
+					
+					$pro_img1 = $row_products['product_img1'];
 		
+		?>
 		
-			
-	
-	
-		
-			<div class="col-md-4">
-				<div class="product-item">
-					<div class="product-thumb">
-						<img class="img-responsive" src="images/shop/products/product-9.jpg" alt="product-img" />
-						<div class="preview-meta">
-							<ul>
-								
-								<li>
-									<a href="#!"><i class="tf-ion-android-cart"></i></a>
-								</li>
-							</ul>
-                      	</div>
-					</div>
-					<div class="product-content">
-						<h4><a href="product-single.php">Rainbow Shoes</a></h4>
-						<p class="price">$200</p>
-					</div>
+			<div class="d-flex flex-row mx-4">
+				<div class="card p-2" style="width: 25rem;">
+				<a href=""><img class="card-img-top" src="../admin/product_images/<?php echo $pro_img1?>" alt="Card image"></a>
+				<div class="card-body">
+					<h4 class="card-title">product title <?php echo $pro_title ?></h4>
+					<h4 class="card-title">product price <?php echo $pro_price ?></h4>
+					<a href="#" class="btn btn-primary">Add to cart</a>
+				</div><br>
 				</div>
-			</div>
+			<?php } ?>
+		
+				
 		
 		<!-- Modal -->
 		<div class="modal product-modal fade" id="product-modal">
@@ -124,7 +133,7 @@ session_start(); include_once('header.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->
-    
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Main jQuery -->
     <script src="plugins/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.1 -->
