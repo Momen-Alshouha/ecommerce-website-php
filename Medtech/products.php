@@ -1,10 +1,13 @@
 
 
 	<?php 
-	session_start(); include_once('header.php') ?>
+	session_start(); include_once('header.php');
+	?>
 
 	<?php  include_once('header.php') ?>
-	<?php include '../admin/includes/db.php' ?>
+	<?php 	include("connection.php");
+;
+	 ?>
 	
 	<section class="page-header">
 		<div class="container">
@@ -23,6 +26,7 @@
 	</section>
 	
 	
+
 	<section class="products section">
 		<div class="container">
 			<div class="row">
@@ -31,27 +35,35 @@
 					<div class="widget product-category">
 						<h4 class="widget-title">Categories</h4>
 						<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
-							<div class="panel panel-default">
-								<div class="panel-heading" role="tab" id="headingTwo">
-								  <h4 class="panel-title">
-									<a class="collapsed"  href="shop-surgical.php" aria-expanded="false" aria-controls="collapseTwo">
-										Surgical Supplies
-									</a>
-								  </h4>
-								</div>
-					
-						  </div>
+			 			<?php
+						   $get_cats = "select * from categories";
+    
+						   $run_cats = mysqli_query($con,$get_cats);
+						   
+						   while($row_cats=mysqli_fetch_array($run_cats)){
+							   
+							   $cat_id = $row_cats['cat_id'];
+							   
+							   $cat_title = $row_cats['cat_title'];
+							   
+							   echo "
+							   <div class='panel panel-default'>
+
+
+								   
+								   <h1 class='panel-title'>
+									   <a href='products.php?cat=$cat_id'> $cat_title </a>
+									   </h1>
+								   
+								   
+								   </div>
+							   
+							   ";
+							   
+						   }
 						
-						  <div class="panel panel-default">
-							<div class="panel-heading" role="tab" id="headingThree">
-							  <h4 class="panel-title">
-								<a class="collapsed" href="shop-comp.php" aria-expanded="false" aria-controls="collapseThree">
-									  Complementery Furniture
-								</a>
-							  </h4>
-							</div>
-						
-						  </div>
+						?>
+						 
 						</div>
 						
 					</div>
