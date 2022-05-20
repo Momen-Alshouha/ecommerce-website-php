@@ -10,10 +10,10 @@ require_once("config.php");
 		<div class="row">
 			<div class="col-md-12">
 				<div class="content">
-					<h1 class="page-name">Dashboard</h1>
+					<h1 class="page-name">My Profile</h1>
 					<ol class="breadcrumb">
 						<li><a href="index.php">Home</a></li>
-						<li class="active">my account</li>
+						<li class="active">my profile</li>
 					</ol>
 				</div>
 			</div>
@@ -42,41 +42,64 @@ require_once("config.php");
 <!-- update user info -->
     <!-- start of the form -->
 
-   <form action="" method="">
+   
+ 
 
+   <form action="updateUser.php" method="Post">
+   <div class="form-row">
 
    <?php 
-     $view="SELECT customer_name , customer_email ,customer_address , customer_city FROM customers WHERE "
+
+       
+
+     $view="SELECT * FROM customers WHERE customer_name ='ahmad' ";
+
+     $getresults=mysqli_query($conn,$view);
+    
    
-   ?>
+     if($getresults){
+          if(mysqli_num_rows($getresults)>0){
+            
+            while($row= mysqli_fetch_array($getresults)){
 
 
-  <div class="form-row">
+              ?>
 
-  <div class="form-group col-md-6">
-      <label for="Name">FullName:</label>
-      <input type="text" class="form-control" placeholder="Full Name">
-    </div>
+              <div class="form-group col-md-6">
+              <label for="Name">FullName:</label>
+              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>">
+            </div>
+                
 
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
+            <input type="hidden" name="ID" value="<?php  echo $row['customer_id']?>">
 
-  </div>
-  <div class="form-group col-md-6">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor">
-  </div>
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" name="email" placeholder="Email" value="<?php  echo $row['customer_email']?>">
+            </div>
+        
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" name="address" placeholder="Apartment, studio, or floor" value="<?php  echo $row['customer_address']?>">
+          </div>
+        
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" name="city" placeholder="city" value="<?php  echo $row['customer_city']?>">
+            </div>
+         
+           <a href="updateUser.php?id=<?php echo $row['customer_id'];?>" style="margin-left:15px;" type="submit" name="button" class="btn btn-main btn-large btn-round">Edit your Info</a>
+           <!-- <button style="margin-left:15px;" type="submit" name="button" class="btn btn-main btn-large btn-round">Edit your Info</button> --> 
+          </div>
+                  <?php
+            }
+           
+          }
+     }
+     ?>  
 
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="city">
-    </div>
- 
-    <button  style="margin-left:15px;" type="submit" class="btn btn-main btn-large btn-round">Edit your Info</button>
-  </div>
  
 </form>
 

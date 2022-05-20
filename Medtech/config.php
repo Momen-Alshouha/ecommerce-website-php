@@ -4,7 +4,7 @@
 $host="localhost";
 $user="root";
 $pass="";
-$DB="";
+$DB="ecom_store";
 
 $conn=mysqli_connect($host,$user,$pass,$DB);
 
