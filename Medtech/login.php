@@ -31,6 +31,9 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 					$_SESSION['loggedIn'] = $user_data['customer_id'];
+          $_SESSION['loggedName'] = $user_data['customer_name'];
+          
+            
 					if($user_data['customer_pass'] === $password)
 					{
 
@@ -46,6 +49,7 @@ session_start();
 		{
 			echo "wrong username or password!";
 		}
+   
 	}
 
 ?>

@@ -118,7 +118,7 @@ Start Call To Action
 <!--
 Start Call To Action
 ==================================== -->
-<div class="py-5 service-7" style="background-color:#DDF3FF; ">
+<div class="py-5 service-7" style="background-color:#f9f9f9; ">
     <div class="container">
         <!-- Row  -->
 		<br><br>

@@ -44,7 +44,7 @@ require_once("config.php");
     <!-- start of the form -->
 
      <?php 
-     
+     $WelcomeMsg = $_SESSION['loggedName'];
      $id=$_GET['id'];
      
      if(isset($_POST['button'])){
@@ -72,9 +72,12 @@ require_once("config.php");
         if($update){
             echo "<br>";
             echo "<h1>" ."You've Updated Your Information Successfully!" . "</h1>" ;
-       }
-
-       exit();
+            exit();
+       } 
+         else if(empty($WelcomeMsg)){
+          echo "<br>";
+          echo "<h1>" ."You're Not logged In!" . "</h1>" ;
+         }
 
        //header('Location:profile-details.php');
       
@@ -111,7 +114,7 @@ require_once("config.php");
 
               <div class="form-group col-md-6">
               <label for="Name">FullName:</label>
-              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>" >
+              <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['customer_name']?>">
             </div>
                 
 
