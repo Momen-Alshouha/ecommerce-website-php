@@ -1,5 +1,14 @@
-<?php  include_once('header.php') ?>
+<?php  
 
+session_start();
+
+    include_once('header.php') ;
+	include("connection.php");
+	include("functions.php");
+
+
+
+?>
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/imageh.png);">
     <div class="container">

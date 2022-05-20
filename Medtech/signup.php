@@ -1,17 +1,35 @@
-<!-- 
-THEME: Aviato | E-commerce template
-VERSION: 1.0.0
-AUTHOR: Themefisher
+<?php 
+session_start();
 
-HOMEPAGE: https://themefisher.com/products/aviato-e-commerce-template/
-DEMO: https://demo.themefisher.com/aviato/
-GITHUB: https://github.com/themefisher/Aviato-E-Commerce-Template/
+	include("connection.php");
+	include("functions.php");
 
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
--->
 
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$user_name = $_POST['user_name'];
+    $email = $_POST['email'];
+		$password = $_POST['password'];
+    $passcon = $_POST['passcon'];
+
+		if(!empty($user_name) && !empty($password) && !is_numeric($user_name) && $password == $passcon)
+		{
+
+			//save to database
+			
+			$query = "insert into customers (customer_name,customer_email,customer_pass) values ('$user_name','$email','$password')";
+
+			mysqli_query($con, $query);
+
+			header("Location: login.php");
+			die;
+		}else
+		{
+			echo "Please enter some valid information!";
+		}
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,22 +79,24 @@ FACEBOOK: https://www.facebook.com/themefisher
           </a>
           <img class="img-responsive" src="images/new/1.jpeg" alt="menu image" style="width: 340px; height:100px; margin-left:auto;margin-right:auto;" />
           <h2 class="text-center">Create Your Account</h2>
-          <form class="text-left clearfix" action="index.php">
+          <form class="text-left clearfix" method="POST" >
             <div class="form-group">
-              <input type="text" class="form-control"  placeholder="Full Name">
+              <input type="text" class="form-control" name="user_name" placeholder="Full Name" required>
             </div>
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
+              <input type="email" class="form-control" name="email" placeholder="Email" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control"  placeholder="Password">
+              <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="passcon" placeholder="Password Confirmation" required>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" style="background-color:#1BB2FB">Sign In</button>
+            <input id="button" type="submit" value="Signup" style="background-color:#1BB2FB; width:130px;">
             </div>
           </form>
           <p class="mt-20">Already hava an account ?<a href="login.php"> Login</a></p>
-          <p><a href="forget-password.php"> Forgot your password?</a></p>
         </div>
       </div>
     </div>
