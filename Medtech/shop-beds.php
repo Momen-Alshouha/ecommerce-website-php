@@ -1,13 +1,11 @@
 
-<<<<<<< HEAD
-	<?php 
-session_start(); include_once('header.php') ?>
 
-=======
+	<?php 
+	session_start(); include_once('header.php') ?>
+
 	<?php  include_once('header.php') ?>
 	<?php include '../admin/includes/db.php' ?>
 	
->>>>>>> 4a6a984653d7572faac98768149d93f3228c4811
 	<section class="page-header">
 		<div class="container">
 			<div class="row">
