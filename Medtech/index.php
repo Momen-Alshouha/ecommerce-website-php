@@ -57,7 +57,7 @@ session_start();
 				<div class="category-box">
 					<a href="shop-beds.php">
 						<img src="images/new/image (7).png" alt="" />
-						<div class="content">
+						<div class="content" style="background-color: #ffffffdb;">
 							<h3>Hospital Beds</h3>
 							<p style="color: black;">Most Comforting Beds</p>
 						</div>
@@ -66,7 +66,7 @@ session_start();
 				<div class="category-box">
 					<a href="shop-comp.php">
 						<img src="images/new/Chairs.jpg" alt="" />
-						<div class="content">
+						<div class="content" style="background-color: #ffffffdb;">
 							<h3>Complementary Furniture</h3>
 							<p >Get Wide Range Selection</p>
 						</div>
@@ -77,9 +77,9 @@ session_start();
 				<div class="category-box category-box-2">
 					<a href="shop-surgical.php">
 						<img src="images/new/surgical.jpg" alt="" />
-						<div class="content">
-							<h3 style="color: white;">Surgical Supplies</h3>
-							<p style="color: white;">Best Quality Equipment Comes First</p>
+						<div class="content" style="background-color: #ffffffdb;">
+							<h3 >Surgical Supplies</h3>
+							<p >Best Quality Equipment Comes First</p>
 						</div>
 					</a>	
 				</div>
