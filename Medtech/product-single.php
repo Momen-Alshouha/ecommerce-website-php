@@ -15,6 +15,7 @@ $Cid =$_GET['cat'];
 		    while($row_cats=mysqli_fetch_array($run_cat)){
         
 			$cat_title = $row_cats['product_title'];
+			$cat_desc = $row_cats['product_desc'];
 			
 			$cat_img1 = $row_cats['product_img1'];
 			$cat_img2 = $row_cats['product_img2'];
@@ -25,6 +26,7 @@ $Cid =$_GET['cat'];
 	}
 
 ?>
+
 
 
 <section class="single-product">
@@ -105,9 +107,8 @@ $Cid =$_GET['cat'];
 					<p class="product-price"><?php echo $cat_price.' '.'JD'; ?></p>
 
 					<p class="product-description mt-20">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ipsum dicta quod, quia doloremque aut deserunt commodi quis. Totam a consequatur beatae nostrum, earum consequuntur? Eveniet consequatur ipsum dicta recusandae.
+						<?php echo $cat_desc; ?>
 					</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, velit, sunt temporibus, nulla accusamus similique sapiente tempora, at atque cumque assumenda minus asperiores est esse sequi dolore magnam. Debitis, explicabo.</p>
 
 
 					<div class="product-quantity">
@@ -133,10 +134,11 @@ $Cid =$_GET['cat'];
 						<div id="details" class="tab-pane fade active in">
 							<div class="form-floating">
 						
-								<textarea class="form-control mt-20" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-								<a href="confirmation.php" class="btn btn-main mt-20">Submit Your Review</a >
+						<textarea class="form-control mt-20" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+						<input type="submit" href="confirmation.php" name="review" class="btn btn-main mt-20"  >Submit Your Review</input >
 							</div>
 						</div>
+						
 						
 
 									
@@ -151,7 +153,26 @@ $Cid =$_GET['cat'];
 	</div>
 </section>
 
+               <?php
 
+                       if(isset($_GET['review'])){
+
+                       $cat_comment = $_GET['comment'];
+
+
+                       $insert_comm = "insert into `comments` (commentDesc) values ('$cat_comment')";
+
+                        $run_comm = mysqli_query($con,$insert_comm);
+  
+                       if($run_comm){
+
+                        echo "<div> $cat_comment </div>";
+
+
+                   }
+
+                              }
+                      ?>
 
 
 <!-- Modal -->

@@ -25,7 +25,7 @@ $run_cats = mysqli_query($con,$get_cats);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 	<meta name="author" content="Themefisher">
 	<meta name="generator" content="Themefisher Constra HTML Template v1.0">
-
+	<script src="https://kit.fontawesome.com/5a3ad4e25b.js" crossorigin="anonymous"></script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="images/new/icon.png" />
 
@@ -52,9 +52,22 @@ $run_cats = mysqli_query($con,$get_cats);
 			<div class="row">
 				<div class="col-md-4 col-md-12 col-sm-4 h1">
 					<div class="contact-number h1 ">
+						<?php
+						if (!isset($_SESSION['loggedIn'])) { ?>
+							<div class="contact-number">
+								<i class="tf-ion-ios-telephone" style="font-size:20px ;"></i>
+								<span style="font-size:14px ;">0129- 12323-123123</span>
+							</div>
+						<?php
+						} else { ?>
+							<h3>WELCOME <?php echo '<span style="color:#1BB2FB;"> ' . strtoupper($WelcomeMsg)  . '!</span>'; ?></h3>
+						
+						<?php
+						}
 
-						<h3>WELCOME <?php echo '<span style="color:#1BB2FB;"> ' . strtoupper($WelcomeMsg)  . '!</span>'; ?></h3>
-						<a href="logout.php">log-out</a>
+						?>
+
+
 					</div>
 				</div>
 				<div class="col-md-4 col-xs-12 col-sm-4">
@@ -70,8 +83,8 @@ $run_cats = mysqli_query($con,$get_cats);
 
 					<!-- Cart -->
 					<ul class="top-menu text-right list-inline">
-						<li class="dropdown cart-nav dropdown-slide">
-							<a style="font-size: 18px;" href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i style="font-size: 22px;" class="tf-ion-android-cart"></i>Cart</a>
+						<li class="dropdown cart-nav dropdown-slide"> 
+							<a style="font-size: 15px;" href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i style="font-size: 20px; margin-left:100px;" class="tf-ion-android-cart"></i>Cart</a>
 							<div class="dropdown-menu cart-dropdown">
 								<!-- Cart Item -->
 								<div class="media">
@@ -116,9 +129,16 @@ $run_cats = mysqli_query($con,$get_cats);
 							</div>
 
 						</li><!-- / Cart -->
-
+					
 						<!-- Search -->
-						<li class="dropdown search dropdown-slide"></li><!-- / Search -->
+						<li class="dropdown search dropdown-slide">
+
+
+
+							<a href="logout.php" data-toggle="tooltip" data-placement="bottom" title="logout">
+
+								<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+</li><!-- / Search -->
 
 						<!-- Languages -->
 
@@ -172,18 +192,13 @@ $run_cats = mysqli_query($con,$get_cats);
        
 										<ul>
 
-											<a href='products.php?cat=$cat_id'><li>$cat_title</li></a>
+											<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>
 
 										</ul>";
 									}
 									?>
 									</div>
 
-
-
-								</div><!-- / .row -->
-							</div><!-- / .dropdown-menu -->
-						</li><!-- / Elements -->
 
 
 						<!-- contact -->
@@ -206,11 +221,11 @@ $run_cats = mysqli_query($con,$get_cats);
 							<ul class="dropdown-menu" style="background-color: white;">
 
 								<?php
-								if (empty($WelcomeMsg)) {
-								?> <li><a href="logout.php">log-out</a></li>
+								if (!isset($_SESSION['loggedIn'])) {
+								?> <li><a href="signup.php">Register</a></li>
 
 								<?php } else { ?>
-									<li><a href="login.php">log-in</a></li>
+									<li><a href="logout.php">log-out</a></li>
 								<?php
 								}  ?>
 								<li><a href="profile-details.php">MyProfile</a></li>

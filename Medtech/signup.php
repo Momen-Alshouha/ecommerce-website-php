@@ -64,7 +64,7 @@ session_start();
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="shortcut icon" type="image/x-icon" href="images/new/icon.png" />
 </head>
 
 <body id="body">
@@ -93,10 +93,10 @@ session_start();
               <input type="password" class="form-control" name="passcon" placeholder="Password Confirmation" required>
             </div>
             <div class="text-center">
-            <input id="button" type="submit" value="Signup" style="background-color:#1BB2FB; width:130px;">
+            <input class="btn btn-main" id="button" type="submit" value="signup" style="background-color:#1BB2FB;font-size:13px;border-radius :5px;">
             </div>
           </form>
-          <p class="mt-20">Already hava an account ?<a href="login.php"> Login</a></p>
+          <p class="mt-20">Already Have An Account ?<a href="login.php"> Log-In</a></p>
         </div>
       </div>
     </div>
