@@ -1,11 +1,11 @@
 <?php
-	include("connection.php");
+include("connection.php");
 
 session_reset();
 $WelcomeMsg = $_SESSION['loggedName'];
 $get_cats = "select * from categories";
-    
-$run_cats = mysqli_query($con,$get_cats);
+
+$run_cats = mysqli_query($con, $get_cats);
 
 ?>
 <!DOCTYPE php>
@@ -61,7 +61,7 @@ $run_cats = mysqli_query($con,$get_cats);
 						<?php
 						} else { ?>
 							<h3>WELCOME <?php echo '<span style="color:#1BB2FB;"> ' . strtoupper($WelcomeMsg)  . '!</span>'; ?></h3>
-						
+
 						<?php
 						}
 
@@ -83,62 +83,70 @@ $run_cats = mysqli_query($con,$get_cats);
 
 					<!-- Cart -->
 					<ul class="top-menu text-right list-inline">
-						<li class="dropdown cart-nav dropdown-slide"> 
+						<li class="dropdown cart-nav dropdown-slide">
 							<a style="font-size: 15px;" href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i style="font-size: 20px; margin-left:100px;" class="tf-ion-android-cart"></i>Cart</a>
 							<div class="dropdown-menu cart-dropdown">
 								<!-- Cart Item -->
-								<div class="media">
-									<a class="pull-left" href="#!">
-										<img class="media-object" src="images/shop/cart/cart-1.jpg" alt="image" />
-									</a>
 
-									<div class="media-body">
-										<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-										<div class="cart-price">
-											<span>1 x</span>
-											<span>1250.00</span>
-										</div>
-										<h5><strong>$1200</strong></h5>
-									</div>
-									<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-								</div><!-- / Cart Item -->
-								<!-- Cart Item -->
-								<div class="media">
-									<a class="pull-left" href="#!">
-										<img class="media-object" src="images/shop/cart/cart-2.jpg" alt="image" />
-									</a>
-									<div class="media-body">
-										<h4 class="media-heading"><a href="#!">Ladies Bag</a></h4>
-										<div class="cart-price">
-											<span>1 x</span>
-											<span>1250.00</span>
-										</div>
-										<h5><strong>$1200</strong></h5>
-									</div>
-									<a href="#!" class="remove"><i class="tf-ion-close"></i></a>
-								</div><!-- / Cart Item -->
+								<!-- / Cart Item -->
 
 								<div class="cart-summary">
-									<span>Total</span>
-									<span class="total-price">$1799.00</span>
+									<span style="font-size:20px ;">Total</span>
+									<span class="total-price"><?php echo $_SESSION['Total_Price'] . ".00jd"; ?></span>
 								</div>
 								<ul class="text-center cart-buttons">
 									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>
-									<li><a href="checkout.php" class="btn btn-small btn-solid-border">Checkout</a></li>
+									<li> <?php
+											function check()
+											{
+												if (!isset($_SESSION['loggedIn'])) { ?>
+												<script type="text/javascript">
+													$(document).ready(function() {
+														Swal.fire({
+															title: '<strong> Are you <a href="login.php"><u>Logged In</u></a>?</strong>',
+															icon: 'info',
+															html: 'Please <b> login </b> To Proceed To CheckOut ',
+
+															showCloseButton: true,
+
+															focusConfirm: false,
+															confirmButtonText: '<a href="login.php"><i class="fa fa-thumbs-up" style="color:white;"></i> OK!</a>',
+
+															confirmButtonAriaLabel: 'Thumbs up, great!',
+
+														})
+
+													});
+												</script><?php
+														} else {
+															header("Location: checkout.php");
+														}
+													}
+
+													if (isset($_GET['name'])) {
+
+														check();
+													}
+															?>
+
+										<a href="cart.php?name=true" class="btn btn-small btn-solid-border">Checkout</a>
+									</li>
 								</ul>
 							</div>
 
 						</li><!-- / Cart -->
-					
+
 						<!-- Search -->
 						<li class="dropdown search dropdown-slide">
+							<?php
+							if (!isset($_SESSION['loggedIn'])) {
+							} else { ?>
 
+								<a href="logout.php" data-toggle="tooltip" data-placement="bottom" title="logout">
+									<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
 
-
-							<a href="logout.php" data-toggle="tooltip" data-placement="bottom" title="logout">
-
-								<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-</li><!-- / Search -->
+							<?php } ?>
+						</li><!-- / Search -->
 
 						<!-- Languages -->
 
@@ -182,12 +190,12 @@ $run_cats = mysqli_query($con,$get_cats);
 
 									<!-- Basic -->
 									<div class="col-lg-12 col-md-6 mb-sm-3">
-									<?php 
-									 while($row_cats=mysqli_fetch_array($run_cats)){
-										 $cat_id = $row_cats['cat_id'];
-										 $cat_title = $row_cats['cat_title'];
-        
-										 echo "
+										<?php
+										while ($row_cats = mysqli_fetch_array($run_cats)) {
+											$cat_id = $row_cats['cat_id'];
+											$cat_title = $row_cats['cat_title'];
+
+											echo "
         
        
 										<ul>
@@ -195,13 +203,13 @@ $run_cats = mysqli_query($con,$get_cats);
 											<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>
 
 										</ul>";
-									}
-									?>
+										}
+										?>
 									</div>
 
 
 
-						<!-- contact -->
+									<!-- contact -->
 						<li class="dropdown full-width">
 							<a href="contact.php" data-delay="350" role="button" aria-haspopup="true" aria-expanded="false">Contact Us <span c></span></a>
 
@@ -239,3 +247,4 @@ $run_cats = mysqli_query($con,$get_cats);
 			</div><!-- / .container -->
 		</nav>
 	</section>
+	
