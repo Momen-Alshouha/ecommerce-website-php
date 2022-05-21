@@ -83,7 +83,7 @@ session_start();
   <!-- Slick Carousel -->
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick/slick-theme.css">
-  
+  <link rel="shortcut icon" type="image/x-icon" href="images/new/icon.png" />
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -110,7 +110,8 @@ session_start();
               <input type="password" class="form-control" placeholder="Password" name="password" required>
             </div>
             <div class="text-center">
-            <input id="button" type="submit" value="Login" style="background-color:#1BB2FB;width:130px;">
+           
+            <input class="btn btn-main" id="button" type="submit" value="Login" style="background-color:#1BB2FB;font-size:13px;border-radius :5px;">
             </div>
           </form>
           <p class="mt-20">New in this site ?<a href="signup.php"> Create New Account</a></p>

@@ -192,18 +192,13 @@ $run_cats = mysqli_query($con,$get_cats);
        
 										<ul>
 
-											<a href='products.php?cat=$cat_id'><li>$cat_title</li></a>
+											<li><a href='products.php?cat=$cat_id'>$cat_title</a></li>
 
 										</ul>";
 									}
 									?>
 									</div>
 
-
-
-								</div><!-- / .row -->
-							</div><!-- / .dropdown-menu -->
-						</li><!-- / Elements -->
 
 
 						<!-- contact -->
