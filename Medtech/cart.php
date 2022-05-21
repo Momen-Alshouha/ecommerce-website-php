@@ -44,18 +44,6 @@ if (isset($_POST['update_update_btn'])) {
   };
 };
 
-if (isset($_GET['remove'])) {
-  $remove_id = $_GET['remove'];
-  mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
-  header('location:cart.php');
-};
-
-if (isset($_GET['delete_all'])) {
-  //Redirect to the same page(cart.php) after delete
-  mysqli_query($conn, "DELETE FROM `cart`");
-  header('location:cart.php');
-
-}
 
 
 
@@ -186,7 +174,7 @@ if (isset($_GET['delete_all'])) {
                   
 
                   <tbody>
-                    <?php
+                    <?php }
                     // Query that select all content of the cart table
                     //SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
                     $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
