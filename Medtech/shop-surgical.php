@@ -1,10 +1,6 @@
 
-<?php 
-session_start(); include_once('header.php') ?>
-
 	<?php  include_once('header.php') ?>
 	<?php include '../admin/includes/db.php' ?>
-
 	<section class="page-header">
 		<div class="container">
 			<div class="row">

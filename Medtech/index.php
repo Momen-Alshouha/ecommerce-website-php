@@ -6,7 +6,12 @@ session_start();
     include_once('header.php') ;
 	include("connection.php");
 	include("functions.php");
-
+  $get_cats = "select * from categories";
+    
+    $run_cats = mysqli_query($con,$get_cats);
+    
+   
+        
 
 
 ?>
@@ -17,7 +22,7 @@ session_start();
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">TOTAL HEALTH CARE SOLUTION</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your Most Trusted <br>  Health Partner.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-beds.php">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=1">Shop Now</a>
         </div>
       </div>
     </div>
@@ -28,7 +33,8 @@ session_start();
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-uppercase">Best Quality At Top Prices</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Safe And Profissional.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-comp.php">Shop Now</a>
+        
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=1">Shop Now</a>
         </div>
       </div>
     </div>
@@ -39,51 +45,50 @@ session_start();
         <div class="col-lg-8 text-right">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your supplier of medical <br>equipment and furniture </h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="shop-surgical.php">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=1">Shop Now</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="product-category section">
-	<div class="container">
-		<div class="row">
+<section class='product-category section'>
+	<div class='container'>
+		<div class='row'>
 			<div class="col-md-12">
-				<div class="title text-center">
+				<div class='title text-center'>
 					<h2>HAVE A LOOK AT OUR PRODUCTS</h2>
 				</div>
 			</div>
-			<div class="col-md-6">
-				<div class="category-box">
-					<a href="shop-beds.php">
-						<img src="images/new/image (7).png" alt="" />
-						<div class="content" style="background-color: #ffffffdb;">
-							<h3>Hospital Beds</h3>
-							<p style="color: black;">Most Comforting Beds</p>
+<?php  while($row_cats=mysqli_fetch_array($run_cats)){
+        
+        $cat_id = $row_cats['cat_id'];
+        
+        $cat_title = $row_cats['cat_title'];
+
+        $cat_top = $row_cats['cat_top'];
+
+        $cat_img = $row_cats['cat_image'];
+        echo "
+        
+       
+        <div class='col-md-12'>
+				<div class='category-box'>
+					<a href='products.php?cat=$cat_id'>
+						<img src='../admin/other_images/$cat_img' alt='' />
+						<div class='content' style='background-color: #ffffffdb;'>
+							<h3>$cat_title</h3>
+							<p style='color: black;'>$cat_top</p>
 						</div>
 					</a>	
 				</div>
-				<div class="category-box">
-					<a href="shop-comp.php">
-						<img src="images/new/Chairs.jpg" alt="" />
-						<div class="content" style="background-color: #ffffffdb;">
-							<h3>Complementary Furniture</h3>
-							<p >Get Wide Range Selection</p>
-						</div>
-					</a>	
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="category-box category-box-2">
-					<a href="shop-surgical.php">
-						<img src="images/new/surgical.jpg" alt="" />
-						<div class="content" style="background-color: #ffffffdb;">
-							<h3 >Surgical Supplies</h3>
-							<p >Best Quality Equipment Comes First</p>
-						</div>
-					</a>	
-				</div>
+        
+    
+    ";
+    
+}?>
+
+
 			</div>
 		</div>
 	</div>
