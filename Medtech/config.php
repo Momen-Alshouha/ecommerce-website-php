@@ -4,7 +4,7 @@
 $host="localhost";
 $user="root";
 $pass="";
-$DB="";
+$DB="medical";
 
 $conn=mysqli_connect($host,$user,$pass,$DB);
 

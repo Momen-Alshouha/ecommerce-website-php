@@ -1,4 +1,19 @@
+<?php
+// Start User session
+session_start(); 
+
+// Start connection with the database server
+include 'config.php';
+
+
+?>
+
+
+
 <?php  include_once('header.php') ?>
+
+
+
 <section class="page-header">
 	<div class="container">
 		<div class="row">
@@ -14,10 +29,19 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+
+
+
+<!-- Billing Address Form -->
 <div class="page-wrapper">
    <div class="checkout shopping">
       <div class="container">
          <div class="row">
+            
             <div class="col-md-8">
                <div class="block billing-details">
                   <h4 class="widget-title">Billing Details</h4>
@@ -46,6 +70,12 @@
                      </div>
                   </form>
                </div>
+
+
+
+
+
+<!-- Payment Method -->
                <div class="block">
                   <h4 class="widget-title">Payment Method</h4>
                   <p>Cash On Delivery</p>
@@ -57,27 +87,90 @@
                   </div>
                </div>
             </div>
+
+
+
+
+
+
+<!-- Fetch the customer order deatils  -->
+<?php
+              $select_order = mysqli_query($conn, "SELECT * FROM `customer_orders`");
+              $fetch_order = mysqli_fetch_assoc($select_order);
+?>
+
+
+
+
+<!-- Product checkout details -->
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
                      <h4 class="widget-title">Order Summary</h4>
+
                      <div class="media product-card">
-                        <a class="pull-left" href="product-single.php">
+                        <!-- <a class="pull-left" href="product-single.php">
                            <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
-                        </a>
+                        </a> -->
+
+
                         <div class="media-body">
-                           <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4>
-                           <p class="price">1 x $249</p>
-                           <span class="remove" >Remove</span>
+                           <!-- <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4> -->
+
+                           <p class="order-id">Invoice no.: <?php echo $fetch_order['invoice_no']; ?></p>
+                           <p class="order-id">Order ID: <?php echo $fetch_order['order_id']; ?></p>
+                           <p class="order-id">Order Date: <?php echo $fetch_order['order_date']; ?></p>
+                           <p class="order-id">Order Status: <?php echo $fetch_order['order_status']; ?></p>
+
+                           <!-- <span class="remove" >Remove</span> -->
                         </div>
                      </div>
+
+
+                     <!-- Discount code -->
                      <div class="discount-code">
-                        <p>Have a discount ? <a  data-target="#coupon-modal" href="#!">enter it here</a></p>
+                        <!-- <p>Have a discount ? <a  data-target="#coupon-modal" href="#">enter it here</a></p> -->
+                     
+                        <form action="" method="post">
+                           <div class="form-group">
+                           <label>Have a discount ?  </label> <input type="text" class="text" placeholder="   Enter your code here" name="User_Copoun">
+                           </div>
+                        </form>
+                    <!-- Check the inputted copoun -->
+                        <?php
+                           
+                           $Copoun_DB = mysqli_query($conn, "SELECT * FROM `coupons`");
+                           $fetch_code = mysqli_fetch_assoc($coupon_code);
+                           $fetch_discount = mysqli_fetch_assoc($coupon_price);
+
+                            if(isset($_POST['User_Copoun']))
+                               {
+                                 
+                                 $User_Copoun = $_POST['User_Copoun'];
+
+                                 if($User_Copoun == $fetch_code)
+                                 {
+                                    $_SESSION['Total_Price'] = $_SESSION['Total_Price']   - $fetch_discount ;
+
+                                 }
+
+                                 // else
+                                 // {
+
+                                 // }
+
+
+                               }
+                         ?>
                      </div>
+
+                     
+
+                     <!-- Summary Prices -->
                      <ul class="summary-prices">
                         <li>
                            <span>Subtotal:</span>
-                           <span class="price">$190</span>
+                           <span class="Price "><?php echo$_SESSION['Total_Price']?> JOD</span>
                         </li>
                         <li>
                            <span>Shipping:</span>
@@ -86,7 +179,7 @@
                      </ul>
                      <div class="summary-total">
                         <span>Total:</span>
-                        <span>$250</span>
+                        <span><?php echo$_SESSION['Total_Price']?> JOD</span>
                      </div>
                     
                   </div>
@@ -102,16 +195,18 @@
       <div class="modal-dialog" role="document">
          <div class="modal-content">
             <div class="modal-body">
+
                <form>
                   <div class="form-group">
                      <input class="form-control" type="text" placeholder="Enter Coupon Code">
                   </div>
                   <button type="submit" class="btn btn-main">Apply Coupon</button>
                </form>
+
             </div>
          </div>
       </div>
-   </div>
+   </div>   
    
    <?php  include_once('footer.php') ?>
     <!-- 
