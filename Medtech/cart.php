@@ -7,7 +7,7 @@ session_start();
 // Start connection with the database server
 include 'config.php';
 
-
+///////// When update button is clicked/////////////
 if(isset($_POST['update_update_btn'])){
    $update_value = $_POST['update_quantity'];
    $update_id = $_POST['update_quantity_id'];//update_quantity_id will take its value from the cart form 
@@ -19,17 +19,24 @@ if(isset($_POST['update_update_btn'])){
    };
 };
 
+
+/////////// When rmove button is clicked  //////////////
 if(isset($_GET['remove'])){
    $remove_id = $_GET['remove'];
    mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
    header('location:cart.php');
 };
 
+/////////// when Delete all button is clicked /////////////
 if(isset($_GET['delete_all'])){
    //Redirect to the same page(cart.php) after delete
    mysqli_query($conn, "DELETE FROM `cart`");
    header('location:cart.php');
 }
+
+
+
+
 
 ?>
 
@@ -54,7 +61,7 @@ if(isset($_GET['delete_all'])){
 <?php include 'header.php'; ?>
 
 <?php 
-session_start(); include_once('header.php') ?>
+ include_once('header.php') ?>
 
 
 
@@ -81,7 +88,7 @@ session_start(); include_once('header.php') ?>
   <div class="cart shopping">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-1">
           <div class="block">
             <div class="product-list">
 
@@ -101,9 +108,11 @@ session_start(); include_once('header.php') ?>
 
               <tbody>
                <?php 
-              // Query that select all content of the cart table
-              //SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+              // Query that select all content of the cart table joint with products table
+              
               $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
+              
+              //Select quantity from cart
               $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
               $grand_total = 0;
               
@@ -118,6 +127,7 @@ session_start(); include_once('header.php') ?>
                   <td><img src="../admin/product_images/<?php echo $fetch_cart['product_img1']; ?>" height="100" alt=""></td>
                   <td><?php echo $fetch_cart['product_title']; ?></td>
                   <td>JOD <?php echo number_format($fetch_cart['product_price']); ?></td>
+                
                   
                   <td>
                     <form action="" method="post">
@@ -130,9 +140,9 @@ session_start(); include_once('header.php') ?>
 
 
                   <td>JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?>/-</td>
+                  
 
-
-                  <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+                  <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> Remove</a></td>
                   
 
               </tr>
@@ -143,10 +153,10 @@ session_start(); include_once('header.php') ?>
               ?>
 
               <tr class="table-bottom">
-                  <td><a href="contact.php" class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
-                  <td colspan="3">grand total</td>
-                  <td>$<?php echo $grand_total; ?>/-</td>
-                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
+                  <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                  <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
+                  <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
+                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
               </tr>
 
             </tbody>
@@ -154,9 +164,11 @@ session_start(); include_once('header.php') ?>
 
 
                 </table>
-                <a href="checkout.php" class="btn btn-main pull-right">Checkout</a>
-              
 
+                
+                <a href="checkout.php" class="btn btn-main pull-right" style="margin-top:20px;" name="checkout_btn">Checkout</a>
+           
+               
 
 
             </div>
