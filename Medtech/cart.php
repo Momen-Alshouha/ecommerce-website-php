@@ -32,30 +32,8 @@ if(isset($_GET['delete_all'])){
    mysqli_query($conn, "DELETE FROM `cart`");
    header('location:cart.php');
 
-
-if (isset($_POST['update_update_btn'])) {
-  $update_value = $_POST['update_quantity'];
-  $update_id = $_POST['update_quantity_id']; //update_quantity_id will take its value from the cart form 
-  $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cartID = '$update_id'");
-
-  if ($update_quantity_query) {
-    //Redirect to the same page(cart.php) after update
-    header('location:cart.php');
-  };
-};
-
-if (isset($_GET['remove'])) {
-  $remove_id = $_GET['remove'];
-  mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
-  header('location:cart.php');
-};
-
-if (isset($_GET['delete_all'])) {
-  //Redirect to the same page(cart.php) after delete
-  mysqli_query($conn, "DELETE FROM `cart`");
-  header('location:cart.php');
-
 }
+
 
 
 
@@ -185,8 +163,9 @@ if (isset($_GET['delete_all'])) {
                   <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> Remove</a></td>
                   
 
-                  <tbody>
+                  <tbody> 
                     <?php
+                  }}
                     // Query that select all content of the cart table
                     //SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
                     $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
@@ -220,12 +199,6 @@ if (isset($_GET['delete_all'])) {
 
 
 
-              <tr class="table-bottom">
-                  <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
-                  <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
-                  <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
-                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
-              </tr>
 
                           <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
 
@@ -233,17 +206,18 @@ if (isset($_GET['delete_all'])) {
 
                         </tr>
                     <?php
-                        $grand_total = $grand_total + $sub_total;
-                      };
-                    };
+                       @ $grand_total = $grand_total + $sub_total;
+                      }
+                    }
                     ?>
 
-                    <tr class="table-bottom">
-                      <td><a href="contact.php" class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
-                      <td colspan="3">grand total</td>
-                      <td>$<?php echo $grand_total; ?>/-</td>
-                      <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
-                    </tr>
+<tr class="table-bottom">
+                  <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                  <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
+                  <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
+                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
+              </tr>
+
 
                   </tbody>
 
@@ -286,7 +260,6 @@ if (isset($_GET['delete_all'])) {
                           }
                               ?>
 
-                <a href="cart.php?name=true" class="btn btn-main pull-right">Checkout</a>
 
 
                 

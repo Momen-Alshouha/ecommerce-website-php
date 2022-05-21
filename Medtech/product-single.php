@@ -121,13 +121,13 @@ include("connection.php");
 						</div>
 					</div>
 
-					<form action="AddToCart.php" method='get'>
+					<!-- <form action="AddToCart.php" method='get'>
 
 
 					<input type='submit' name='atc' value='Add To Cart'>
 
-					</form>
-					
+					</form> -->
+
 				</div>
 			</div>
 		</div>

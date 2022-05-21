@@ -107,7 +107,7 @@ include("connection.php");
 
 							echo "
 								
-							
+							<div class='col-md-12' > 
 							<a  class='row' href='product-single.php?cat=$pro_id'>
 
 								      <div class='product-thumb'>
@@ -116,7 +116,6 @@ include("connection.php");
 									  
 							</a>  
 		     
-							<div class='product-content'>
 
 									<h4>$pro_title</h4>
 									<p class='price'>$pro_price JD</p>
@@ -124,7 +123,9 @@ include("connection.php");
 
 						
 
-				         </div>
+				         <hr> 
+						 </div> 
+						
 				";
 						}
 
