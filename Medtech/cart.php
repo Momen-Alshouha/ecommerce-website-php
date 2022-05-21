@@ -7,32 +7,6 @@ include 'config.php';
 
 
 ///////// When update button is clicked/////////////
-if(isset($_POST['update_update_btn'])){
-   $update_value = $_POST['update_quantity'];
-   $update_id = $_POST['update_quantity_id'];//update_quantity_id will take its value from the cart form 
-   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cartID = '$update_id'");
-   
-   if($update_quantity_query){
-      //Redirect to the same page(cart.php) after update
-      header('location:cart.php');
-   };
-};
-
-
-/////////// When rmove button is clicked  //////////////
-if(isset($_GET['remove'])){
-   $remove_id = $_GET['remove'];
-   mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
-   header('location:cart.php');
-};
-
-/////////// when Delete all button is clicked /////////////
-if(isset($_GET['delete_all'])){
-   //Redirect to the same page(cart.php) after delete
-   mysqli_query($conn, "DELETE FROM `cart`");
-   header('location:cart.php');
-
-
 if (isset($_POST['update_update_btn'])) {
   $update_value = $_POST['update_quantity'];
   $update_id = $_POST['update_quantity_id']; //update_quantity_id will take its value from the cart form 
@@ -45,8 +19,19 @@ if (isset($_POST['update_update_btn'])) {
 };
 
 
+/////////// When rmove button is clicked  //////////////
+if (isset($_GET['remove'])) {
+  $remove_id = $_GET['remove'];
+  mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
+  header('location:cart.php');
+};
 
-
+/////////// when Delete all button is clicked /////////////
+if (isset($_GET['delete_all'])) {
+  //Redirect to the same page(cart.php) after delete
+  mysqli_query($conn, "DELETE FROM `cart`");
+  header('location:cart.php');
+};
 
 
 ?>
@@ -80,14 +65,6 @@ if (isset($_POST['update_update_btn'])) {
   <?php include 'header.php'; ?>
 
 
-<?php 
- include_once('header.php') ?>
-
-  <?php
-  include_once('header.php') ?>
-
-
-
 
   <section class="page-header">
     <div class="container">
@@ -95,17 +72,17 @@ if (isset($_POST['update_update_btn'])) {
         <div class="col-md-12 col-md-offset-1">
           <div class="block">
             <div class="product-list">
-        <div class="col-md-12">
-          <div class="content">
-            <h1 class="page-name">Cart</h1>
-            <ol class="breadcrumb">
-              <li><a href="index.php">Home</a></li>
-              <li class="active">cart</li>
-            </ol>
+              <div class="col-md-12">
+                <div class="content">
+                  <h1 class="page-name">Cart</h1>
+                  <ol class="breadcrumb">
+                    <li><a href="index.php">Home</a></li>
+                    <li class="active">cart</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
   </section>
 
 
@@ -115,7 +92,7 @@ if (isset($_POST['update_update_btn'])) {
     <div class="cart shopping">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-10 col-md-offset-2">
             <div class="block">
               <div class="product-list">
 
@@ -134,47 +111,8 @@ if (isset($_POST['update_update_btn'])) {
 
 
 
-              <tbody>
-               <?php 
-              // Query that select all content of the cart table joint with products table
-              
-              $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
-              
-              //Select quantity from cart
-              $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
-              $grand_total = 0;
-              
-              if(mysqli_num_rows($select_cart) > 0){
-                  while($fetch_cart = mysqli_fetch_assoc($select_cart)){
-                    $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
-              ?>
-
-              
-
-              <tr>
-                  <td><img src="../admin/product_images/<?php echo $fetch_cart['product_img1']; ?>" height="100" alt=""></td>
-                  <td><?php echo $fetch_cart['product_title']; ?></td>
-                  <td>JOD <?php echo number_format($fetch_cart['product_price']); ?></td>
-                
-                  
-                  <td>
-                    <form action="" method="post">
-                        <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart_quantity['cartID']; ?>" >
-                        <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart_quantity['quantity']; ?>" >
-                        <input type="submit" value="update" name="update_update_btn">
-                    </form> 
-
-                  </td>
-
-
-                  <td>JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?>/-</td>
-                  
-
-                  <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> Remove</a></td>
-                  
-
                   <tbody>
-                    <?php }
+                    <?php
                     // Query that select all content of the cart table
                     //SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
                     $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
@@ -208,18 +146,14 @@ if (isset($_POST['update_update_btn'])) {
 
 
 
-              <tr class="table-bottom">
-                  <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
-                  <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
-                  <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
-                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
-              </tr>
 
                           <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
 
 
 
                         </tr>
+
+
                     <?php
                         $grand_total = $grand_total + $sub_total;
                       };
@@ -227,10 +161,10 @@ if (isset($_POST['update_update_btn'])) {
                     ?>
 
                     <tr class="table-bottom">
-                      <td><a href="contact.php" class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
-                      <td colspan="3">grand total</td>
-                      <td>$<?php echo $grand_total; ?>/-</td>
-                      <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
+                      <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                      <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
+                      <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
+                      <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
                     </tr>
 
                   </tbody>
@@ -238,6 +172,8 @@ if (isset($_POST['update_update_btn'])) {
 
 
                 </table>
+
+
 
 
 
@@ -254,9 +190,9 @@ if (isset($_POST['update_update_btn'])) {
 
                           showCloseButton: true,
 
-                          focusConfirm: false, 
+                          focusConfirm: false,
                           confirmButtonText: '<a href="login.php"><i class="fa fa-thumbs-up" style="color:white;"> OK!</i></a>',
-                         
+
                           confirmButtonAriaLabel: 'Thumbs up, great!',
 
                         })
@@ -268,6 +204,9 @@ if (isset($_POST['update_update_btn'])) {
                             }
                           }
 
+
+                          
+
                           if (isset($_GET['name'])) {
 
                             checkRegister();
@@ -277,10 +216,8 @@ if (isset($_POST['update_update_btn'])) {
                 <a href="cart.php?name=true" class="btn btn-main pull-right">Checkout</a>
 
 
-                
-                <a href="checkout.php" class="btn btn-main pull-right" style="margin-top:20px;" name="checkout_btn">Checkout</a>
-           
-               
+
+
 
 
 
