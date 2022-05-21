@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 include_once('header.php');
 include("connection.php");
@@ -20,19 +22,14 @@ $Cid =$_GET['cat'];
 			$cat_img3 = $row_cats['product_img3'];
 			$cat_price = $row_cats['product_price'];
 	
-			
-			
-			
-		
-		
+	
 	}
 
-
-
 ?>
-=======
-<?php 
-session_start(); include_once('header.php') ?>
+
+
+
+
 <section class="single-product">
 	<div class="container">
 		<div class="row">
