@@ -1,13 +1,16 @@
 
 <?php
-// Start User session
-session_start(); 
+
+
 
 // Start connection with the database server
 include 'config.php';
+session_start(); 
+include_once('header.php') 
 
 
 ?>
+
 
 
 
@@ -19,6 +22,7 @@ include 'config.php';
 <?php 
 
  include_once('header.php') ?>
+
 
 <section class="page-header">
 	<div class="container">
@@ -130,11 +134,19 @@ include 'config.php';
                         <div class="media-body">
                            <!-- <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4> -->
 
+
                            <!-- <p class="order-id">Invoice no.: <?php echo $fetch_cart['invoice_no']; ?></p> -->
                            <p class="order-id">Product: <?php echo $fetch_cart['product_title']; ?></p>
                            <p class="order-id"> Quantity: <?php echo $fetch_cart_quantity['quantity']; ?></p>
                            <p class="order-id">Price: JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?></p>
                          
+
+                           <p class="order-id">Invoice no: <?php echo $fetch_order['invoice_no']; ?></p>
+                           <p class="order-id">Order ID: <?php echo $fetch_order['order_id']; ?></p>
+                           <p class="order-id">Order Date: <?php echo $fetch_order['order_date']; ?></p>
+                           <p class="order-id">Order Status: <?php echo $fetch_order['order_status']; ?></p>
+
+
                            <!-- <span class="remove" >Remove</span> -->
                         </div>
                      </div>

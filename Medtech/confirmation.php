@@ -6,9 +6,9 @@ session_start(); include_once('header.php') ?>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="block text-center">
-        	<i class="tf-ion-android-checkmark-circle"></i>
-          <h2 class="text-center">Thank you! For your payment</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, sed.</p>
+        	<i class="tf-ion-android-checkmark-circle" style="background-color:#1BB2FB"></i>
+          <h2 class="text-center">Thank you For Trusting Medtech!</h2>
+          <p>We’re so glad that you found what you were looking for.</p>
           <a href="shop.php" class="btn btn-main mt-20">Continue Shopping</a>
         </div>
       </div>

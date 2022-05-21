@@ -1,20 +1,21 @@
 
 
 	<?php 
-	session_start(); include_once('header.php');
+	session_start(); 
+	include_once('header.php');
+	include("connection.php");
 	?>
 
-	<?php  include_once('header.php') ?>
-	<?php 	include("connection.php");
-;
-	 ?>
+		
+
 	
-	<section class="page-header">
+	
+<section class="page-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="content">
-						<h2 class="page-name">Shop<span style="font-size: 20px;">/Hospital Beds</span></h2>
+						<h2 class="page-name">Shop<span style="font-size: 20px;"></span></h2>
 						<ol class="breadcrumb">
 							<li><a href="index.php">Home</a></li>
 							<li class="active">shop</li>
@@ -36,6 +37,8 @@
 						<h4 class="widget-title">Categories</h4>
 						<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
 			 			<?php
+
+
 						   $get_cats = "select * from categories";
     
 						   $run_cats = mysqli_query($con,$get_cats);
@@ -93,8 +96,10 @@
 				$run_products = mysqli_query($con,$get_products);
 				while($row_products=mysqli_fetch_array($run_products)) {*/
 					$Cid =$_GET['cat']; 
-			$query = "SELECT * FROM  `products` p , `categories` c
-			   WHERE  p.`cat_id` = c.`cat_id`  AND p.`product_id`=" . $Cid;
+					
+			$query = "SELECT  * FROM  `products` p , `categories` c
+			   WHERE  p.`cat_id` =c.`cat_id`  AND c.`cat_id`=$Cid";
+
 			   $run_cat = mysqli_query($con,$query);
 	 
 	 
@@ -107,6 +112,7 @@
 					$pro_price = $row_cats['product_price'];
 					
 					$pro_img1 = $row_cats['product_img1'];
+					
 					echo "
         
        

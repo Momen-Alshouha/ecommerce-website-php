@@ -66,33 +66,31 @@ session_start();
         
         $cat_title = $row_cats['cat_title'];
 
-        $cat_top = $row_cats['cat_top'];
 
         $cat_img = $row_cats['cat_image'];
         echo "
         
        
-        <div class='col-md-12'>
+        <div class='col-md-6'>
 				<div class='category-box'>
 					<a href='products.php?cat=$cat_id'>
 						<img src='../admin/other_images/$cat_img' alt='' />
 						<div class='content' style='background-color: #ffffffdb;'>
 							<h3>$cat_title</h3>
-							<p style='color: black;'>$cat_top</p>
 						</div>
 					</a>	
 				</div>
-        
+        </div>
     
     ";
     
 }?>
+    </div>
+  </div>
+</section>		 
+						  		
 
 
-			</div>
-		</div>
-	</div>
-</section>
 <!--
 Start Call To Action
 ==================================== -->
