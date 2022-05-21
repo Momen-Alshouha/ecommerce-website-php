@@ -39,7 +39,7 @@ session_start();
       </div>
     </div>
   </div>
-  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/slide3.jpg);">
+  <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/hero-industry-medical-equipment.jpg);">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 text-right">

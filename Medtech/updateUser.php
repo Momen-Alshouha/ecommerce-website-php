@@ -67,8 +67,6 @@ require_once("config.php");
        ");
 
         
-        
-        
         if($update){
             echo "<br>";
             echo "<h1>" ."You've Updated Your Information Successfully!" . "</h1>" ;
