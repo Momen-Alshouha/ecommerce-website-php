@@ -1,4 +1,5 @@
 
+
 <?php
 // Start User session
 session_start(); 
@@ -51,6 +52,10 @@ if(isset($_GET['delete_all'])){
 
 <!-- Include the navbar code -->
 <?php include 'header.php'; ?>
+
+<?php 
+session_start(); include_once('header.php') ?>
+
 
 
 <section class="page-header">

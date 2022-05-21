@@ -2666,7 +2666,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .footer {
-  background: #F7F7F7;
+  background:#fff;
   padding: 50px 0;
 }
 

@@ -1,4 +1,5 @@
-<?php  include_once('header.php') ?>
+<?php 
+session_start(); include_once('header.php') ?>
 
 <section class="page-header">
 	<div class="container">
@@ -25,6 +26,12 @@
 				
 					<li><a href="profile-details.php">Profile Details</a></li>
 				</ul>
+
+
+
+
+
+
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">
@@ -45,7 +52,7 @@
 									<td>2</td>
 									<td>$99.00</td>
 									<td><span class="label label-primary">Processing</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
+									
 								</tr>
 								<tr>
 									<td>#451231</td>
@@ -53,7 +60,7 @@
 									<td>3</td>
 									<td>$150.00</td>
 									<td><span class="label label-success">Completed</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
+									
 								</tr>
 								<tr>
 									<td>#451231</td>
@@ -61,7 +68,7 @@
 									<td>3</td>
 									<td>$150.00</td>
 									<td><span class="label label-danger">Canceled</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
+									
 								</tr>
 								<tr>
 									<td>#451231</td>
@@ -69,7 +76,7 @@
 									<td>2</td>
 									<td>$99.00</td>
 									<td><span class="label label-info">On Hold</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
+									
 								</tr>
 								<tr>
 									<td>#451231</td>
@@ -77,7 +84,7 @@
 									<td>3</td>
 									<td>$150.00</td>
 									<td><span class="label label-warning">Pending</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
+									
 								</tr>
 							</tbody>
 						</table>

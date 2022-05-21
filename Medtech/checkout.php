@@ -1,3 +1,4 @@
+
 <?php
 // Start User session
 session_start(); 
@@ -13,6 +14,10 @@ include 'config.php';
 <?php  include_once('header.php') ?>
 
 
+
+
+<?php 
+session_start(); include_once('header.php') ?>
 
 <section class="page-header">
 	<div class="container">
@@ -136,7 +141,7 @@ include 'config.php';
                            <label>Have a discount ?  </label> <input type="text" class="text" placeholder="   Enter your code here" name="User_Copoun">
                            </div>
                         </form>
-                    <!-- Check the inputted copoun -->
+                   
                         <?php
                            
                            $Copoun_DB = mysqli_query($conn, "SELECT * FROM `coupons`");

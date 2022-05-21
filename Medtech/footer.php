@@ -1,5 +1,5 @@
 <footer class="footer section text-center">
-	<div class="container">
+	<div class="container"style="color:#DDF3FF" >
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="social-media">

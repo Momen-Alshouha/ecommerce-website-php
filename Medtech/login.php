@@ -1,17 +1,58 @@
-<!-- 
-THEME: Aviato | E-commerce template
-VERSION: 1.0.0
-AUTHOR: Themefisher
+<?php 
 
-HOMEPAGE: https://themefisher.com/products/aviato-e-commerce-template/
-DEMO: https://demo.themefisher.com/aviato/
-GITHUB: https://github.com/themefisher/Aviato-E-Commerce-Template/
+session_start();
 
-WEBSITE: https://themefisher.com
-TWITTER: https://twitter.com/themefisher
-FACEBOOK: https://www.facebook.com/themefisher
--->
+	include("connection.php");
+	include("functions.php");
 
+
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+	
+    $user_name = $_POST['user_name'];
+		$password = $_POST['password'];
+  
+		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		{
+
+			//read from database
+			$query = "select * from customers where customer_name = '$user_name' limit 1";
+
+      
+			$result = mysqli_query($con, $query);
+     
+
+      
+			if($result)
+			{
+				if($result && mysqli_num_rows($result) > 0)
+				{
+
+					$user_data = mysqli_fetch_assoc($result);
+					$_SESSION['loggedIn'] = $user_data['customer_id'];
+          $_SESSION['loggedName'] = $user_data['customer_name'];
+          
+            
+					if($user_data['customer_pass'] === $password)
+					{
+
+						$_SESSION['user_id'] = $user_data['user_id'];
+						header("Location: index.php");
+						die;
+					}
+				}
+			}
+			
+			echo "wrong username or password!";
+		}else
+		{
+			echo "wrong username or password!";
+		}
+   
+	}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,18 +103,18 @@ FACEBOOK: https://www.facebook.com/themefisher
           <img class="img-responsive" src="images/new/1.jpeg" alt="menu image" style="width: 340px; height:100px; margin-left:auto;margin-right:auto;" />
           <h2 class="text-center">Welcome Back</h2>
           
-          <form class="text-left clearfix" action="index.php" >
+          <form class="text-left clearfix"  method="POST" >
             <div class="form-group">
-              <input type="email" class="form-control"  placeholder="Email">
+              <input type="text" class="form-control"  placeholder="User name" name="user_name" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" class="form-control" placeholder="Password" name="password" required>
             </div>
             <div class="text-center">
-              <button type="submit" class="btn btn-main text-center" style="background-color:#1BB2FB" >Login</button>
+            <input id="button" type="submit" value="Login" style="background-color:#1BB2FB;width:130px;">
             </div>
           </form>
-          <p class="mt-20">New in this site ?<a href="signin.php"> Create New Account</a></p>
+          <p class="mt-20">New in this site ?<a href="signup.php"> Create New Account</a></p>
         </div>
       </div>
     </div>

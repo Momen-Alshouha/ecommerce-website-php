@@ -22,7 +22,11 @@
         color:white;
     }
     .container { 
+<<<<<<< HEAD
+        background-color:black ;
+=======
        margin-right:600px;
+>>>>>>> c5c32f6f35eec865bd7eb85ed9cfcdf28119ecb4
         padding:50px;
         margin-top: 10%;;
         width:500px;

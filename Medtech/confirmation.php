@@ -1,4 +1,5 @@
-<?php  include_once('header.php') ?>
+<?php 
+session_start(); include_once('header.php') ?>
 <!-- Page Wrapper -->
 <section class="page-wrapper success-msg">
   <div class="container">
