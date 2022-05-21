@@ -1,6 +1,61 @@
 
+
+<?php
+// Start User session
+session_start(); 
+
+// Start connection with the database server
+include 'config.php';
+
+
+if(isset($_POST['update_update_btn'])){
+   $update_value = $_POST['update_quantity'];
+   $update_id = $_POST['update_quantity_id'];//update_quantity_id will take its value from the cart form 
+   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cartID = '$update_id'");
+   
+   if($update_quantity_query){
+      //Redirect to the same page(cart.php) after update
+      header('location:cart.php');
+   };
+};
+
+if(isset($_GET['remove'])){
+   $remove_id = $_GET['remove'];
+   mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
+   header('location:cart.php');
+};
+
+if(isset($_GET['delete_all'])){
+   //Redirect to the same page(cart.php) after delete
+   mysqli_query($conn, "DELETE FROM `cart`");
+   header('location:cart.php');
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>shopping cart</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="ecommerce-website-php/Medtech/css/cart_style.css">
+
+</head>
+<body>
+
+<!-- Include the navbar code -->
+<?php include 'header.php'; ?>
+
 <?php 
 session_start(); include_once('header.php') ?>
+
 
 
 <section class="page-header">
@@ -21,6 +76,7 @@ session_start(); include_once('header.php') ?>
 
 
 
+
 <div class="page-wrapper">
   <div class="cart shopping">
     <div class="container">
@@ -28,56 +84,81 @@ session_start(); include_once('header.php') ?>
         <div class="col-md-8 col-md-offset-2">
           <div class="block">
             <div class="product-list">
-              <form method="post">
+
+
+              
                 <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="">Item Name</th>
-                      <th class="">Item Price</th>
-                      <th class="">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-1.jpg" alt="no image" />
-                          <a href="#!">Sunglass</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-2.jpg" alt="" />
-                          <a href="#!">Airspace</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                    <tr class="">
-                      <td class="">
-                        <div class="product-info">
-                          <img width="80" src="images/shop/cart/cart-3.jpg" alt="" />
-                          <a href="#!">Bingo</a>
-                        </div>
-                      </td>
-                      <td class="">$200.00</td>
-                      <td class="">
-                        <a class="product-remove" href="#!">Remove</a>
-                      </td>
-                    </tr>
-                  </tbody>
+
+                <thead>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total price</th>
+                <th>Action</th>
+                </thead>
+
+
+              <tbody>
+               <?php 
+              // Query that select all content of the cart table
+              //SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+              $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
+              $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
+              $grand_total = 0;
+              
+              if(mysqli_num_rows($select_cart) > 0){
+                  while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+                    $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
+              ?>
+
+              
+
+              <tr>
+                  <td><img src="../admin/product_images/<?php echo $fetch_cart['product_img1']; ?>" height="100" alt=""></td>
+                  <td><?php echo $fetch_cart['product_title']; ?></td>
+                  <td>JOD <?php echo number_format($fetch_cart['product_price']); ?></td>
+                  
+                  <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart_quantity['cartID']; ?>" >
+                        <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart_quantity['quantity']; ?>" >
+                        <input type="submit" value="update" name="update_update_btn">
+                    </form> 
+
+                  </td>
+
+
+                  <td>JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?>/-</td>
+
+
+                  <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+                  
+
+              </tr>
+              <?php
+                $grand_total = $grand_total + $sub_total;  
+                  };
+              };
+              ?>
+
+              <tr class="table-bottom">
+                  <td><a href="contact.php" class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                  <td colspan="3">grand total</td>
+                  <td>$<?php echo $grand_total; ?>/-</td>
+                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
+              </tr>
+
+            </tbody>
+
+
+
                 </table>
                 <a href="checkout.php" class="btn btn-main pull-right">Checkout</a>
-              </form>
+              
+
+
+
             </div>
           </div>
         </div>
@@ -85,6 +166,13 @@ session_start(); include_once('header.php') ?>
     </div>
   </div>
 </div>
+
+<?php 
+// For passing the total price to checkout page
+$_SESSION['Total_Price'] =  $grand_total;
+
+//  echo$_SESSION['Total_Price'];
+?>
 
 
 <?php  include_once('footer.php') ?>
@@ -117,7 +205,8 @@ session_start(); include_once('header.php') ?>
     <!-- Main Js File -->
     <script src="js/script.js"></script>
     
-
+    <!-- custom js file link  -->
+<script src="/ecommerce-website-php/Medtech/js/script_cart.js"></script>
 
   </body>
   </html>

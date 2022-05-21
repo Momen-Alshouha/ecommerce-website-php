@@ -48,7 +48,7 @@ require_once("config.php");
      $id=$_GET['id'];
      
      if(isset($_POST['button'])){
-
+     
       $name = $_POST['fullname'];
       $email = $_POST['email'];
       $address = $_POST['address'];
@@ -72,20 +72,16 @@ require_once("config.php");
         if($update){
             echo "<br>";
             echo "<h1>" ."You've Updated Your Information Successfully!" . "</h1>" ;
-            exit();
-       } 
-         else if(empty($WelcomeMsg)){
-          echo "<br>";
-          echo "<h1>" ."You're Not logged In!" . "</h1>" ;
-         }
+             exit();
+       }  }
+
 
        //header('Location:profile-details.php');
       
      
-    }
+    
 
   
-     
      ?>
    <form action="" method="Post">
    <div class="form-row">
@@ -93,7 +89,7 @@ require_once("config.php");
    <?php 
 
 
-     //$custmer_session = $_SESSION['name'];
+    //  $custmer_session = $_SESSION['name'];
     
 
      $current=	$_SESSION['loggedIn'];
