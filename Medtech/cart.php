@@ -6,6 +6,33 @@ session_start();
 include 'config.php';
 
 
+///////// When update button is clicked/////////////
+if(isset($_POST['update_update_btn'])){
+   $update_value = $_POST['update_quantity'];
+   $update_id = $_POST['update_quantity_id'];//update_quantity_id will take its value from the cart form 
+   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cartID = '$update_id'");
+   
+   if($update_quantity_query){
+      //Redirect to the same page(cart.php) after update
+      header('location:cart.php');
+   };
+};
+
+
+/////////// When rmove button is clicked  //////////////
+if(isset($_GET['remove'])){
+   $remove_id = $_GET['remove'];
+   mysqli_query($conn, "DELETE FROM `cart` WHERE cartID = '$remove_id'");
+   header('location:cart.php');
+};
+
+/////////// when Delete all button is clicked /////////////
+if(isset($_GET['delete_all'])){
+   //Redirect to the same page(cart.php) after delete
+   mysqli_query($conn, "DELETE FROM `cart`");
+   header('location:cart.php');
+
+
 if (isset($_POST['update_update_btn'])) {
   $update_value = $_POST['update_quantity'];
   $update_id = $_POST['update_quantity_id']; //update_quantity_id will take its value from the cart form 
@@ -27,7 +54,12 @@ if (isset($_GET['delete_all'])) {
   //Redirect to the same page(cart.php) after delete
   mysqli_query($conn, "DELETE FROM `cart`");
   header('location:cart.php');
+
 }
+
+
+
+
 
 ?>
 
@@ -59,14 +91,22 @@ if (isset($_GET['delete_all'])) {
   <!-- Include the navbar code -->
   <?php include 'header.php'; ?>
 
+
+<?php 
+ include_once('header.php') ?>
+
   <?php
   include_once('header.php') ?>
+
 
 
 
   <section class="page-header">
     <div class="container">
       <div class="row">
+        <div class="col-md-12 col-md-offset-1">
+          <div class="block">
+            <div class="product-list">
         <div class="col-md-12">
           <div class="content">
             <h1 class="page-name">Cart</h1>
@@ -105,6 +145,46 @@ if (isset($_GET['delete_all'])) {
                   </thead>
 
 
+
+              <tbody>
+               <?php 
+              // Query that select all content of the cart table joint with products table
+              
+              $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
+              
+              //Select quantity from cart
+              $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
+              $grand_total = 0;
+              
+              if(mysqli_num_rows($select_cart) > 0){
+                  while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+                    $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
+              ?>
+
+              
+
+              <tr>
+                  <td><img src="../admin/product_images/<?php echo $fetch_cart['product_img1']; ?>" height="100" alt=""></td>
+                  <td><?php echo $fetch_cart['product_title']; ?></td>
+                  <td>JOD <?php echo number_format($fetch_cart['product_price']); ?></td>
+                
+                  
+                  <td>
+                    <form action="" method="post">
+                        <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart_quantity['cartID']; ?>" >
+                        <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart_quantity['quantity']; ?>" >
+                        <input type="submit" value="update" name="update_update_btn">
+                    </form> 
+
+                  </td>
+
+
+                  <td>JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?>/-</td>
+                  
+
+                  <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> Remove</a></td>
+                  
+
                   <tbody>
                     <?php
                     // Query that select all content of the cart table
@@ -138,7 +218,17 @@ if (isset($_GET['delete_all'])) {
                           <td>JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?>/-</td>
 
 
+
+
+              <tr class="table-bottom">
+                  <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                  <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
+                  <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
+                  <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
+              </tr>
+
                           <td><a href="cart.php?remove=<?php echo $fetch_cart_quantity['cartID']; ?>" onclick="return confirm('Remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+
 
 
                         </tr>
@@ -160,6 +250,8 @@ if (isset($_GET['delete_all'])) {
 
 
                 </table>
+
+
 
                 <?php
                 function checkRegister()
@@ -196,6 +288,11 @@ if (isset($_GET['delete_all'])) {
 
                 <a href="cart.php?name=true" class="btn btn-main pull-right">Checkout</a>
 
+
+                
+                <a href="checkout.php" class="btn btn-main pull-right" style="margin-top:20px;" name="checkout_btn">Checkout</a>
+           
+               
 
 
 

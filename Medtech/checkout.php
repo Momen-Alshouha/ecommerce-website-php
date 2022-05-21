@@ -11,6 +11,19 @@ include_once('header.php')
 
 ?>
 
+
+
+
+<?php  include_once('header.php') ?>
+
+
+
+
+<?php 
+
+ include_once('header.php') ?>
+
+
 <section class="page-header">
 	<div class="container">
 		<div class="row">
@@ -90,20 +103,27 @@ include_once('header.php')
 
 
 
-<!-- Fetch the customer order deatils  -->
-<?php
-              $select_order = mysqli_query($conn, "SELECT * FROM `customer_orders`");
-              $fetch_order = mysqli_fetch_assoc($select_order);
-?>
-
-
-
-
-<!-- Product checkout details -->
-            <div class="col-md-4">
+<!-- Order Summary -->
+<div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
-                     <h4 class="widget-title">Order Summary</h4>
+                     <h4 class="discount-code">Order Summary</h4>
+
+<?php 
+              // Query that select all content of the cart table joint with products table
+              
+              $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
+              
+              //Select quantity from cart
+              $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
+              $grand_total = 0;
+              
+              if(mysqli_num_rows($select_cart) > 0){
+                  while($fetch_cart = mysqli_fetch_assoc($select_cart)){
+                     $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
+              ?>
+
+
 
                      <div class="media product-card">
                         <!-- <a class="pull-left" href="product-single.php">
@@ -114,14 +134,30 @@ include_once('header.php')
                         <div class="media-body">
                            <!-- <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4> -->
 
+
+                           <!-- <p class="order-id">Invoice no.: <?php echo $fetch_cart['invoice_no']; ?></p> -->
+                           <p class="order-id">Product: <?php echo $fetch_cart['product_title']; ?></p>
+                           <p class="order-id"> Quantity: <?php echo $fetch_cart_quantity['quantity']; ?></p>
+                           <p class="order-id">Price: JOD <?php echo $sub_total = number_format($fetch_cart['product_price'] * $fetch_cart_quantity['quantity']); ?></p>
+                         
+
                            <p class="order-id">Invoice no: <?php echo $fetch_order['invoice_no']; ?></p>
                            <p class="order-id">Order ID: <?php echo $fetch_order['order_id']; ?></p>
                            <p class="order-id">Order Date: <?php echo $fetch_order['order_date']; ?></p>
                            <p class="order-id">Order Status: <?php echo $fetch_order['order_status']; ?></p>
 
+
                            <!-- <span class="remove" >Remove</span> -->
                         </div>
                      </div>
+                  <?php
+                  };
+                  
+               };
+            ?> 
+             <br><br> <b><p style="color-text:black;">Total Price: <?php echo $_SESSION['Total_Price']?> JOD </p></b>
+
+
 
 
                      <!-- Discount code -->
@@ -137,46 +173,48 @@ include_once('header.php')
                         <?php
                            
                            $Copoun_DB = mysqli_query($conn, "SELECT * FROM `coupons`");
-                           $fetch_code = mysqli_fetch_assoc($coupon_code);
-                           $fetch_discount = mysqli_fetch_assoc($coupon_price);
+                           $fetch_code = mysqli_fetch_assoc($Copoun_DB);
+                           
 
                             if(isset($_POST['User_Copoun']))
                                {
                                  
                                  $User_Copoun = $_POST['User_Copoun'];
 
-                                 if($User_Copoun == $fetch_code)
+                                 if($User_Copoun === $fetch_code['coupon_code'])
                                  {
-                                    $_SESSION['Total_Price'] = $_SESSION['Total_Price']   - $fetch_discount ;
+                                    $_SESSION['Total_Price'] = $_SESSION['Total_Price']   - ($_SESSION['Total_Price'] *$fetch_code['coupon_price'] ) ;
 
                                  }
 
-                                 // else
-                                 // {
+                                 else
+                                 {
+                                    echo '<div class="alert alert-danger" role="alert">
+                                       Invalid Copoun.
+                                    </div>';
 
-                                 // }
+                                 }
 
 
                                }
                          ?>
+                          </div>
+                          </div>
                      </div>
 
                      
 
                      <!-- Summary Prices -->
-                     <ul class="summary-prices">
+                     <ul class="summary-prices" style = "font-size:20px" >
+
                         <li>
-                           <span>Subtotal:</span>
-                           <span class="Price "><?php echo$_SESSION['Total_Price']?> JOD</span>
-                        </li>
-                        <li>
-                           <span>Shipping:</span>
-                           <span>Free</span>
-                        </li>
+                           <b><span>Shipping:</span>
+                           <span> Free</span></b>
+                        </li><br>
                      </ul>
-                     <div class="summary-total">
-                        <span>Total:</span>
-                        <span><?php echo$_SESSION['Total_Price']?> JOD</span>
+                     <div class="summary-total" style = "font-size:20px; ">
+                        <b><span>Total:</span>
+                        <span><?php echo$_SESSION['Total_Price']?> JOD</span></b>
                      </div>
                     
                   </div>
