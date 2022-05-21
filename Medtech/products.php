@@ -1,7 +1,8 @@
 
 
 	<?php 
-	session_start(); include_once('header.php');
+	session_start(); 
+	include_once('header.php');
 	include("connection.php");
 	?>
 
@@ -9,12 +10,12 @@
 
 	
 	
-	<section class="page-header">
+<section class="page-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="content">
-						<h2 class="page-name">Shop<span style="font-size: 20px;">/Hospital Beds</span></h2>
+						<h2 class="page-name">Shop<span style="font-size: 20px;"></span></h2>
 						<ol class="breadcrumb">
 							<li><a href="index.php">Home</a></li>
 							<li class="active">shop</li>

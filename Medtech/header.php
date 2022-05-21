@@ -110,7 +110,7 @@ $run_cats = mysqli_query($con, $get_cats);
 															showCloseButton: true,
 
 															focusConfirm: false,
-															confirmButtonText: '<a href="login.php"><i class="fa fa-thumbs-up" style="color:white;"> OK!</i></a>',
+															confirmButtonText: '<a href="login.php"><i class="fa fa-thumbs-up" style="color:white;"></i> OK!</a>',
 
 															confirmButtonAriaLabel: 'Thumbs up, great!',
 
@@ -247,3 +247,4 @@ $run_cats = mysqli_query($con, $get_cats);
 			</div><!-- / .container -->
 		</nav>
 	</section>
+	

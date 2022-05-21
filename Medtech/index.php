@@ -71,7 +71,7 @@ session_start();
         echo "
         
        
-        <div class='col-md-12'>
+        <div class='col-md-6'>
 				<div class='category-box'>
 					<a href='products.php?cat=$cat_id'>
 						<img src='../admin/other_images/$cat_img' alt='' />
@@ -80,17 +80,17 @@ session_start();
 						</div>
 					</a>	
 				</div>
-        
+        </div>
     
     ";
     
 }?>
+    </div>
+  </div>
+</section>		 
+						  		
 
 
-			</div>
-		</div>
-	</div>
-</section>
 <!--
 Start Call To Action
 ==================================== -->
