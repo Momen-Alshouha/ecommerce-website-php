@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 include_once('header.php');
@@ -34,7 +33,6 @@ $Cid =$_GET['cat'];
 =======
 <?php 
 session_start(); include_once('header.php') ?>
->>>>>>> a4487290a1ca136f07d4c50d74275b4e3d97c455
 <section class="single-product">
 	<div class="container">
 		<div class="row">
@@ -140,10 +138,11 @@ session_start(); include_once('header.php') ?>
 						<div id="details" class="tab-pane fade active in">
 							<div class="form-floating">
 						
-								<textarea class="form-control mt-20" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-								<a href="confirmation.php" class="btn btn-main mt-20">Submit Your Review</a >
+						<textarea class="form-control mt-20" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+						<input type="submit" href="confirmation.php" name="review" class="btn btn-main mt-20"  >Submit Your Review</input >
 							</div>
 						</div>
+						
 						
 
 									
@@ -158,7 +157,26 @@ session_start(); include_once('header.php') ?>
 	</div>
 </section>
 
+               <?php
 
+                       if(isset($_GET['review'])){
+
+                       $cat_comment = $_GET['comment'];
+
+
+                       $insert_comm = "insert into `comments` (commentDesc) values ('$cat_comment')";
+
+                        $run_comm = mysqli_query($con,$insert_comm);
+  
+                       if($run_comm){
+
+                        echo "<div> $cat_comment </div>";
+
+
+                   }
+
+                              }
+                      ?>
 
 
 <!-- Modal -->

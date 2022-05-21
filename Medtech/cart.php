@@ -54,7 +54,7 @@ if(isset($_GET['delete_all'])){
 <?php include 'header.php'; ?>
 
 <?php 
-session_start(); include_once('header.php') ?>
+ include_once('header.php') ?>
 
 
 
