@@ -6,9 +6,11 @@ include_once('header.php');
 include("connection.php");
 
 
-$Cid =$_GET['cat']; 
+         $Cid =$_GET['cat']; 
+
        $query = "SELECT * FROM  `products` p , `categories` c
           WHERE  p.`cat_id` = c.`cat_id`  AND p.`product_id`=" . $Cid;
+
 		  $run_cat = mysqli_query($con,$query);
 
 
@@ -16,12 +18,12 @@ $Cid =$_GET['cat'];
         
 			$cat_title = $row_cats['product_title'];
 			$cat_desc = $row_cats['product_desc'];
+			$cat_id = $row_cats['product_id'];
 			
 			$cat_img1 = $row_cats['product_img1'];
 			$cat_img2 = $row_cats['product_img2'];
 			$cat_img3 = $row_cats['product_img3'];
 			$cat_price = $row_cats['product_price'];
-	
 	
 	}
 
@@ -119,7 +121,13 @@ $Cid =$_GET['cat'];
 						</div>
 					</div>
 
-					<a href="cart.php" class="btn btn-main mt-20">Add To Cart</a>
+					<form action="AddToCart.php" method='get'>
+
+
+					<input type='submit' name='atc' value='Add To Cart'>
+
+					</form>
+					
 				</div>
 			</div>
 		</div>
@@ -136,9 +144,11 @@ $Cid =$_GET['cat'];
 							<div class="form-floating">
 						
 						<textarea class="form-control mt-20" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-						<input type="submit" href="confirmation.php" name="review" class="btn btn-main mt-20"  >Submit Your Review</input >
+						<input type="submit"  name="review" class="btn btn-main mt-20"  >
+						
 							</div>
 						</div>
+						
 						
 						
 
@@ -154,27 +164,7 @@ $Cid =$_GET['cat'];
 	</div>
 </section>
 
-               <?php
-
-                       if(isset($_GET['review'])){
-
-                       $cat_comment = $_GET['comment'];
-
-
-                       $insert_comm = "insert into `comments` (commentDesc) values ('$cat_comment')";
-
-                        $run_comm = mysqli_query($con,$insert_comm);
-  
-                       if($run_comm){
-
-                        echo "<div> $cat_comment </div>";
-
-
-                   }
-
-                              }
-                      ?>
-
+					  
 
 <!-- Modal -->
 <div class="modal product-modal fade" id="product-modal">
