@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 include_once('header.php');
@@ -33,6 +34,7 @@ $Cid =$_GET['cat'];
 =======
 <?php 
 session_start(); include_once('header.php') ?>
+>>>>>>> a4487290a1ca136f07d4c50d74275b4e3d97c455
 <section class="single-product">
 	<div class="container">
 		<div class="row">
