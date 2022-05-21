@@ -2,12 +2,12 @@
 
 	<?php 
 	session_start(); include_once('header.php');
+	include("connection.php");
 	?>
 
-	<?php  include_once('header.php') ?>
-	<?php 	include("connection.php");
-;
-	 ?>
+		
+
+	
 	
 	<section class="page-header">
 		<div class="container">
