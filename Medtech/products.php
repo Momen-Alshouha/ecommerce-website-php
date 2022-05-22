@@ -5,9 +5,6 @@ include("connection.php");
 ?>
 
 
-
-
-
 <section class="page-header">
 	<div class="container">
 		<div class="row">
@@ -29,28 +26,28 @@ include("connection.php");
 <section class="products section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-lg-3">
 
 				<div class="widget product-category">
 					<h4 class="widget-title">Categories</h4>
 					<div class="panel-group commonAccordion" id="accordion" role="tablist" aria-multiselectable="true">
 						<div class="panel panel-default">
 							<div class="panel-heading" role="tab" id="headingOne">
-							
-									<?php
+
+								<?php
 
 
-									$get_cats = "select * from categories";
+								$get_cats = "select * from categories";
 
-									$run_cats = mysqli_query($con, $get_cats);
+								$run_cats = mysqli_query($con, $get_cats);
 
-									while ($row_cats = mysqli_fetch_array($run_cats)) {
+								while ($row_cats = mysqli_fetch_array($run_cats)) {
 
-										$cat_id = $row_cats['cat_id'];
+									$cat_id = $row_cats['cat_id'];
 
-										$cat_title = $row_cats['cat_title'];
+									$cat_title = $row_cats['cat_title'];
 
-										echo "
+									echo "
 							   <div class='panel panel-default'>
 
 
@@ -63,26 +60,25 @@ include("connection.php");
 								   </div>
 							   
 							   ";
-									}
+								}
 
-									?>
+								?>
 
 							</div>
 						</div>
-						</div>
-						</div>
+					</div>
+				</div>
 			</div>
 
 			<!-- end of categories -->
 
 			<!-- start of products -->
-                     
-			<div class="col-md-9">
+
+			<div class="col-lg-9">
 				<div class="row ">
 
-				<div class='col-md-4 '>
-				<div class='product-item '>
-					
+					<div class='product-item '>
+
 
 
 						<?php
@@ -104,46 +100,35 @@ include("connection.php");
 							$pro_price = $row_cats['product_price'];
 
 							$pro_img1 = $row_cats['product_img1'];
-
-							echo "
-								
-							<div class='col-md-12' > 
-							<a  class='row' href='product-single.php?cat=$pro_id'>
-
-								      <div class='product-thumb'>
-									      <img class='img-thumbnail' src='../admin/product_images/$pro_img1' alt='' />
-									  </div>
-									  
-							</a>  
-		     
-
-									<h4>$pro_title</h4>
-									<p class='price'>$pro_price JD</p>
-									<a href='#' class='btn btn-main btn-small btn-round'>Add to cart</a>
-
-						
-
-				         <hr> 
-						 </div> 
-						
-				";
-						}
-
-
-
 						?>
 
+							<div class="card" style="width: 25rem;display:inline-block;margin-left:20px;margin-bottom:20px">
+								<a class='row' href='product-single.php?cat=<?php echo $pro_id ?>'>
+								<img class="card-img-top" src="../admin/product_images/<?php echo $pro_img1 ?>" alt="Card image cap">
+								</a>
+								<div class="card-body">
+								
+									<h5 class="card-title d-flex justify-content-center"><?php echo $pro_title ?></h5>
+									<p class="card-text d-flex justify-content-center" ><?php echo $pro_price . 'JD' ?></p>
+					
+									<a href="#" class="btn btn-main d-flex justify-content-center">Add To Cart</a>
+								</div>
+								
+							</div>
+							
+						<?php	}?>
 
 
-<!-- col md 4 -->
+
+						<!-- col md 4 -->
 					</div>
-				</div>
-<!-- col md 9 -->
-					</div>
-				</div>
 
+					<!-- col md 9 -->
+				</div>
 			</div>
+
 		</div>
+	</div>
 </section>
 
 

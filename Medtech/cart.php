@@ -135,7 +135,9 @@ if (isset($_GET['delete_all'])) {
                             <form action="" method="post">
                               <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart_quantity['cartID']; ?>">
                               <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart_quantity['quantity']; ?>">
-                              <input type="submit" value="update" name="update_update_btn">
+                              <input type="submit" class='btn btn-main btn-small btn-round' value="update"   style="background-color:#1BB2FB;" name="update_update_btn">
+                              
+                             
                             </form>
 
                           </td>
@@ -155,7 +157,7 @@ if (isset($_GET['delete_all'])) {
 
 
                     <?php
-                        $grand_total = $grand_total + $sub_total;
+                      @$grand_total = $grand_total + $sub_total;
                       };
                     };
                     ?>
@@ -205,7 +207,7 @@ if (isset($_GET['delete_all'])) {
                           }
 
 
-                          
+
 
                           if (isset($_GET['name'])) {
 
