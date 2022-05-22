@@ -92,7 +92,7 @@ if (isset($_GET['delete_all'])) {
     <div class="cart shopping">
       <div class="container">
         <div class="row">
-          <div class="col-md-10 col-md-offset-2">
+          <div class="col-md-12">
             <div class="block">
               <div class="product-list">
 
@@ -135,7 +135,7 @@ if (isset($_GET['delete_all'])) {
                             <form action="" method="post">
                               <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart_quantity['cartID']; ?>">
                               <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart_quantity['quantity']; ?>">
-                              <input type="submit" class='btn btn-main btn-small btn-round' value="update"   style="background-color:#1BB2FB;" name="update_update_btn">
+                              <input type="submit" class='btn btn-main btn-small btn-round' value="update"   style="background-color:black;" name="update_update_btn">
                               
                              
                             </form>
