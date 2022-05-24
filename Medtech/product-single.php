@@ -1,4 +1,6 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 <?php
+
 session_start();
 
 
@@ -27,7 +29,26 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 }
 
 ?>
+<?php
+	
+	include 'connection.php';
 
+	if (isset($_POST['post_comment'])) {
+
+		$name = $_POST['name'];
+		$message = $_POST['message'];
+		
+		
+		$sql = "INSERT INTO comments (name, message)
+		VALUES ('$name', '$message') where productid = '$cat_id'  ";
+
+		if ($con->query($sql) === TRUE) {
+		  echo " ";
+		} else {
+		  echo "Error: " . $sql . "<br>" . $con->error;
+		}
+	}
+?>
 
 
 
@@ -141,19 +162,19 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 					<div class="tab-content patternbg">
 						<div id="details" class="tab-pane fade active in">
 							<div class="form-floating">
-
-								<textarea class="form-control mt-20" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-								<input type="submit" name="review" class="btn btn-main mt-20">
-
+							<form action="" method="post" class="form">
+                                <input type="text" name="name" placeholder="your name here" class="form-control mt-20">
+								<textarea class="form-control mt-20" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+								<input type="submit" name="post_comment" class="btn btn-main mt-20">
+								</form>
+								<div class="content">
+	
+	</div>
+	
 							</div>
 						</div>
-
-
-
-
-
-
 						</ul>
+						
 					</div>
 				</div>
 			</div>
@@ -163,7 +184,36 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 	</div>
 </section>
 
+<?php
 
+$sql = "SELECT * FROM comments";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  $count=0;
+  while($row = $result->fetch_assoc()) {
+   
+?>
+<div class="container" style="background-color:lightgrey;">
+<div class="card" style="border:1px solid white;">
+  <div class="card-body"><h4><?php echo $row['name']." said :"; ?></h4></div>
+  <div class="card-body"><p><?php echo $row['message']; ?></p></div>
+  <div class="card-footer" ><p style="color:#1BB2FB;"><?php echo "Data and time : ".$row['Submittime']; ?></p></div>
+</div>
+  </div><br>
+  <script>
+			Swal.fire({
+			  title: 'Yuor comment was succssefully submitted',
+			  showCancelButton: false,
+			  confirmButtonText: 'OK',
+			  confirmButtonColor: '#1BB2FB',
+			  cancelButtonColor: '#ff0099',
+			})</script>
+<?php } }
+
+exit;
+?>
 
 <!-- Modal -->
 <div class="modal product-modal fade" id="product-modal">
@@ -194,7 +244,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 			</div>
 		</div>
 	</div>
-</div>
+  </div>
 <?php include_once('footer.php') ?>
 <!-- 
     Essential Scripts
@@ -224,6 +274,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 <!-- Main Js File -->
 <script src="js/script.js"></script>
 
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
 
 </body>
