@@ -128,15 +128,7 @@ echo $customer_email;
 
 </div><!-- table-responsive Ends -->
 
-<div class="text-right" ><!-- text-right Starts -->
 
-<a href="index.php?view_orders" >
-
-View All Orders <i class="fa fa-arrow-circle-right" ></i>
-
-</a>
-
-</div><!-- text-right Ends -->
 
 
 </div><!-- panel-body Ends -->
