@@ -102,33 +102,33 @@ include("connection.php");
 							$pro_img1 = $row_cats['product_img1'];
 						?>
 
-							<div class="card" style="width: 25rem;display:inline-block;margin-left:20px;margin-bottom:20px">
+							<div class="card" style="width: 25rem;display:inline-block;margin-left:24px;margin-bottom:20px">
 								<a class='row' href='product-single.php?cat=<?php echo $pro_id ?>'>
-									<img class="card-img-top" src="../admin/product_images/<?php echo $pro_img1 ?>" alt="Card image cap">
+									<img class="card-img-top " src="../admin/product_images/<?php echo $pro_img1 ?>" alt="Card image cap">
 								</a>
 								<div class="card-body">
 
 									<h5 class="card-title d-flex justify-content-center"><?php echo $pro_title ?></h5>
 									<p class="card-text d-flex justify-content-center"><?php echo $pro_price . 'JD' ?></p>
 
-									<div>
+									
 										<form action='AddToCart.php' method='get'>
 											<input type='hidden' name='p_id' value=<?php echo $pro_id; ?>>
 
-											<input type='submit' name="addtc" class="btn btn-main d-flex justify-content-center" value='Add to cart'>
+											<input   style="margin:auto;" type='submit' name="addtc" class="btn btn-main d-flex justify-content-center" value='Add to cart'>
 										</form>
-									</div>
+									
 
 
 								</div>
 
-							<?php	} ?>
+							
 
 
 
 							<!-- col md 4 -->
 							</div>
-
+							<?php	} ?>
 							<!-- col md 9 -->
 					</div>
 				</div>

@@ -8,7 +8,7 @@ $get_cats = "select * from categories";
 $run_cats = mysqli_query($con, $get_cats);
 
 ?>
-<!DOCTYPE php>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>

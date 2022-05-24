@@ -205,16 +205,16 @@ include_once('header.php')
                      
 
                      <!-- Summary Prices -->
-                     <ul class="summary-prices" style = "font-size:20px" >
+                     <ul class="summary-prices" style = "font-size:20px ;margin-left:20px" >
 
                         <li>
-                           <b><span>Shipping:</span>
-                           <span> Free</span></b>
-                        </li><br>
+                           <b><span>Shipping:</span></b>
+                           <span> Free.</span>
+                        </li>
                      </ul>
-                     <div class="summary-total" style = "font-size:20px; ">
-                        <b><span>Total:</span>
-                        <span><?php echo$_SESSION['Total_Price']?> JOD</span></b>
+                     <div class="summary-total" style = "font-size:20px; margin-left:20px">
+                        <b><span>Total:</span></b>
+                        <span><?php echo$_SESSION['Total_Price']?> JOD.</span>
                      </div>
                     
                   </div>
