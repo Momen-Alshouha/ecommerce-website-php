@@ -66,7 +66,10 @@ require_once("config.php");
        customer_city = '$city' WHERE customer_id = '$id'
        ");
 
-        
+
+
+
+
         if($update){
             echo "<br>";
             echo "<h1>" ."You've Updated Your Information Successfully!" . "</h1>" ;
@@ -75,9 +78,7 @@ require_once("config.php");
 
 
        //header('Location:profile-details.php');
-      
-     
-    
+  
 
   
      ?>
