@@ -151,8 +151,9 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 
 					<form action='AddToCart.php' method='get'>
 						<input type='hidden' name='p_id' value=<?php echo $cat_id; ?>>
+						<br>
 
-						<input type='submit' name="addtc" " class="btn btn-main pull-left" value='add to cart'>
+						<input type='submit' name="addtc" class="btn btn-main pull-left" value='add to cart'>
                     </form>
 
 
@@ -213,7 +214,6 @@ if ($result->num_rows > 0) {
   <div class="card-footer" ><p style="color:#1BB2FB;"><?php echo "Data and time : ".$row['Submittime']; ?></p></div>
 </div>
   </div><br>
-<<<<<<< HEAD
   <!-- <script>
 			Swal.fire({
 			  title: 'Your comment was succssefully submitted',
@@ -223,8 +223,6 @@ if ($result->num_rows > 0) {
 			  cancelButtonColor: '#ff0099',
 			})</script> -->
 			
-=======
->>>>>>> fa07852533a3f01dd1872ad2d1d5cb100dc0e4bc
 <?php } }
 
 

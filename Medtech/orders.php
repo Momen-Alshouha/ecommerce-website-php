@@ -32,7 +32,7 @@ require_once("config.php");
 
 
 
-                
+
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">
@@ -40,54 +40,49 @@ require_once("config.php");
 								<tr>
 									<th>Order ID</th>
 									<th>Date</th>
-									<th>Items</th>
+									<th>Invoice Number</th>
 									<th>Total Price</th>
-									<th>Status</th>
-									<th></th>
+									
 								</tr>
 							</thead>
+                            <?php 
+                            
+                            
+                            $current =	$_SESSION['loggedIn'];
+                            $view="SELECT * FROM pending_orders WHERE customer_id ='$current' ";
+                       
+                            $getresults=mysqli_query($conn,$view);
+                            
+                          
+                            if($getresults){
+                       
+                             
+                                 if(mysqli_num_rows($getresults)>0){
+                                   
+                                   while($row= mysqli_fetch_array($getresults)){
+                                                
+                                    $order_id = $row['order_id'];
+                                    $order_date = $row['orderDate'];
+                                    $invoice_no = $row['invoice_no'];
+                                    $price = $row['price'];
+                                       
+                                     ?>
+                            
+                            
 							<tbody>
 								<tr>
-									<td>#451231</td>
-									<td>Mar 25, 2016</td>
-									<td>2</td>
-									<td>$99.00</td>
-									<td><span class="label label-primary">Processing</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
-								</tr>
-								<tr>
-									<td>#451231</td>
-									<td>Mar 25, 2016</td>
-									<td>3</td>
-									<td>$150.00</td>
-									<td><span class="label label-success">Completed</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
-								</tr>
-								<tr>
-									<td>#451231</td>
-									<td>Mar 25, 2016</td>
-									<td>3</td>
-									<td>$150.00</td>
-									<td><span class="label label-danger">Canceled</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
-								</tr>
-								<tr>
-									<td>#451231</td>
-									<td>Mar 25, 2016</td>
-									<td>2</td>
-									<td>$99.00</td>
-									<td><span class="label label-info">On Hold</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
-								</tr>
-								<tr>
-									<td>#451231</td>
-									<td>Mar 25, 2016</td>
-									<td>3</td>
-									<td>$150.00</td>
-									<td><span class="label label-warning">Pending</span></td>
-									<td><a href="order.html" class="btn btn-default">View</a></td>
-								</tr>
+									<td><?php echo $order_id ?></td>
+									<td><?php echo $order_date ?></td>
+									<td><?php echo $invoice_no ?></td>
+									<td><?php echo $price ?></td>
+									
+								</tr>	
 							</tbody>
+                            <?php 
+                                   }
+                                }
+                            }
+                        ?>
 						</table>
 					</div>
 				</div>
