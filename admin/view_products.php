@@ -76,9 +76,15 @@ else {
 
 <?php
 
+$names=['name1'=> "ahmad",'name2'=>'mohammad'.'name3'=>'hala'];
+
+foreach($names as $key => $value) {
+    
+}
+
 $i = 0;
 
-$get_pro = "select * from products where status='product'";
+$get_pro = "SELECT * from products where status='product'";
 
 $run_pro = mysqli_query($con,$get_pro);
 

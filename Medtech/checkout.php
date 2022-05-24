@@ -46,30 +46,33 @@ include_once('header.php')
             <div class="col-md-8">
                <div class="block billing-details">
                   <h4 class="widget-title">Billing Details</h4>
-                  <form class="checkout-form">
+
+                  <form class="checkout-form" action="confirmation.php" method='get'>
                      <div class="form-group">
                         <label for="full_name">Full Name</label>
-                        <input type="text" class="form-control" id="full_name" placeholder="">
+                        <input type="text" class="form-control" id="full_name" placeholder="" required>
                      </div>
                      <div class="form-group">
                         <label for="user_address">Address</label>
-                        <input type="text" class="form-control" id="user_address" placeholder="">
+                        <input type="text" class="form-control" id="user_address" placeholder="" required>
                      </div>
                      <div class="checkout-country-code clearfix">
                         <div class="form-group">
                            <label for="user_post_code">Zip Code</label>
-                           <input type="text" class="form-control" id="user_post_code" name="zipcode" value="">
+                           <input type="text" class="form-control" id="user_post_code" name="zipcode" value="" required>
                         </div>
                         <div class="form-group" >
                            <label for="user_city">City</label>
-                           <input type="text" class="form-control" id="user_city" name="city" value="">
+                           <input type="text" class="form-control" id="user_city" name="city" value="" required>
                         </div>
                      </div>
                      <div class="form-group">
                         <label for="user_country">Country</label>
-                        <input type="text" class="form-control" id="user_country" placeholder="">
+                        <input type="text" class="form-control" id="user_country" placeholder="" required>
                      </div>
+                     <input type='submit' name='chkout' class="btn btn-main mt-20" value='Place Order'>
                   </form>
+
                </div>
 
 
@@ -80,7 +83,12 @@ include_once('header.php')
                <div class="block">
                   <h4 class="widget-title">Payment Method</h4>
                   <p>Cash On Delivery</p>
-                  <a href="confirmation.php" class="btn btn-main mt-20">Place Order</a >
+
+               
+
+                  </form>
+
+
                   <div class="checkout-product-details">
                      <div class="payment">
                        
@@ -150,7 +158,7 @@ include_once('header.php')
                      
                         <form action="" method="post">
                            <div class="form-group">
-                           <label>Have a discount ?  </label> <input type="text" class="text" placeholder="   Enter your code here" name="User_Copoun">
+                           <label>Have a discount ?  </label> <input type="text" class="text" placeholder="press enter" name="User_Copoun">
                            </div>
                         </form>
                    

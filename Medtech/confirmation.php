@@ -1,5 +1,23 @@
 <?php 
-session_start(); include_once('header.php') ?>
+session_start(); 
+include_once('header.php');
+include("connection.php");
+
+$cid=$_SESSION['loggedIn'];
+$invnum=rand();
+$ttl=$_SESSION['Total_Price'];
+if(isset($_GET['chkout']))
+{
+  $qur= "INSERT into `pending_orders` (customer_id,invoice_no,price) values ($cid,$invnum,$ttl) ";
+  mysqli_query($con,$qur);
+}
+
+?>
+
+
+
+
+
 <!-- Page Wrapper -->
 <section class="page-wrapper success-msg">
   <div class="container">

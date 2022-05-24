@@ -111,9 +111,14 @@ include("connection.php");
 									<h5 class="card-title d-flex justify-content-center"><?php echo $pro_title ?></h5>
 									<p class="card-text d-flex justify-content-center" ><?php echo $pro_price . 'JD' ?></p>
 					
-									<a href="" class="btn btn-main d-flex justify-content-center">Add To Cart</a>
-								</div>
-								
+
+									<form action='AddToCart.php' method='get'>
+						<input type='hidden' name='p_id' value=<?php echo $pro_id; ?>>
+
+						<input type='submit' name="addtc" " class="btn btn-main d-flex justify-content-center" value='Add to cart'>
+                    </form>								</div>
+
+
 							</div>
 							
 						<?php	}?>
