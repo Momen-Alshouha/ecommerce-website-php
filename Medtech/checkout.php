@@ -167,19 +167,24 @@ include_once('header.php')
                            $Copoun_DB = mysqli_query($conn, "SELECT * FROM `coupons`");
                            $fetch_code = mysqli_fetch_assoc($Copoun_DB);
                            
-
+                               
+                   // if (mysqli_num_rows($Copoun_DB) > 0) {
+                    // while ($fetch_code = mysqli_fetch_assoc($Copoun_DB)) {
+                 // echo $fetch_code['coupon_code'];
                             if(isset($_POST['User_Copoun']))
                                {
                                  
                                  $User_Copoun = $_POST['User_Copoun'];
-
+                                       
                                  if($User_Copoun === $fetch_code['coupon_code'])
                                  {
+
                                     @$_SESSION['Total_Price'] = $_SESSION['Total_Price']   - ($_SESSION['Total_Price'] *$fetch_code['coupon_price'] ) ;
                                     echo ' <label  style = "color:green">Copoun successfully applied.</label>';
+                                  
 
                                  }
-
+                                
                                  else
                                  {
                                     echo '<div class="alert alert-danger" role="alert">
@@ -190,6 +195,8 @@ include_once('header.php')
 
 
                                }
+                              
+                           
                          ?>
                           </div>
                           </div>

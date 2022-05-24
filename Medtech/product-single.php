@@ -39,11 +39,17 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 		$message = $_POST['message'];
 		
 		
-		$sql = "INSERT INTO comments (name, message)
-		VALUES ('$name', '$message') where productid = '$cat_id'  ";
+		$insert = "insert into comments (name,message) values ('$name','$message') ";
 
-		if ($con->query($sql) === TRUE) {
-		  echo " ";
+	
+
+
+
+
+
+
+		if (mysqli_query($con, $insert)) {
+		  echo "";
 		} else {
 		  echo "Error: " . $sql . "<br>" . $con->error;
 		}
@@ -197,24 +203,31 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
    
 ?>
-<div class="container" style="background-color:lightgrey;">
-<div class="card" style="border:1px solid white;">
+
+
+
+<div class="container d-inline-flex p-2" style="background-color:white;">
+<div class="card" style="border: 1px lightgray solid ; border-radius:10px ;padding: 20px;">
   <div class="card-body"><h4><?php echo $row['name']." said :"; ?></h4></div>
   <div class="card-body"><p><?php echo $row['message']; ?></p></div>
   <div class="card-footer" ><p style="color:#1BB2FB;"><?php echo "Data and time : ".$row['Submittime']; ?></p></div>
 </div>
   </div><br>
-  <script>
+<<<<<<< HEAD
+  <!-- <script>
 			Swal.fire({
-			  title: 'Yuor comment was succssefully submitted',
+			  title: 'Your comment was succssefully submitted',
 			  showCancelButton: false,
 			  confirmButtonText: 'OK',
 			  confirmButtonColor: '#1BB2FB',
 			  cancelButtonColor: '#ff0099',
-			})</script>
+			})</script> -->
+			
+=======
+>>>>>>> fa07852533a3f01dd1872ad2d1d5cb100dc0e4bc
 <?php } }
 
-exit;
+
 ?>
 
 <!-- Modal -->
