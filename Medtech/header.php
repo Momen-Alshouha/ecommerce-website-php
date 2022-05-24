@@ -92,7 +92,7 @@ $run_cats = mysqli_query($con, $get_cats);
 
 								<div class="cart-summary">
 									<span style="font-size:20px ;">Total</span>
-									<span class="total-price"><?php echo $_SESSION['Total_Price'] . ".00jd"; ?></span>
+									<span class="total-price"> <?php echo $_SESSION['Total_Price'] . ".00jd"; ?></span>
 								</div>
 								<ul class="text-center cart-buttons">
 									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>

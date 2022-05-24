@@ -1,4 +1,6 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 <?php
+
 session_start();
 
 
@@ -6,29 +8,47 @@ include_once('header.php');
 include("connection.php");
 
 
-         $Cid =$_GET['cat']; 
+$Cid = $_GET['cat'];
 
-       $query = "SELECT * FROM  `products` p , `categories` c
+$query = "SELECT * FROM  `products` p , `categories` c
           WHERE  p.`cat_id` = c.`cat_id`  AND p.`product_id`=" . $Cid;
 
-		  $run_cat = mysqli_query($con,$query);
+$run_cat = mysqli_query($con, $query);
 
 
-		    while($row_cats=mysqli_fetch_array($run_cat)){
-        
-			$cat_title = $row_cats['product_title'];
-			$cat_desc = $row_cats['product_desc'];
-			$cat_id = $row_cats['product_id'];
-			
-			$cat_img1 = $row_cats['product_img1'];
-			$cat_img2 = $row_cats['product_img2'];
-			$cat_img3 = $row_cats['product_img3'];
-			$cat_price = $row_cats['product_price'];
-	
-	}
+while ($row_cats = mysqli_fetch_array($run_cat)) {
+
+	$cat_title = $row_cats['product_title'];
+	$cat_desc = $row_cats['product_desc'];
+	$cat_id = $row_cats['product_id'];
+
+	$cat_img1 = $row_cats['product_img1'];
+	$cat_img2 = $row_cats['product_img2'];
+	$cat_img3 = $row_cats['product_img3'];
+	$cat_price = $row_cats['product_price'];
+}
 
 ?>
+<?php
+	
+	include 'connection.php';
 
+	if (isset($_POST['post_comment'])) {
+
+		$name = $_POST['name'];
+		$message = $_POST['message'];
+		
+		
+		$sql = "INSERT INTO comments (name, message)
+		VALUES ('$name', '$message') where productid = '$cat_id'  ";
+
+		if ($con->query($sql) === TRUE) {
+		  echo " ";
+		} else {
+		  echo "Error: " . $sql . "<br>" . $con->error;
+		}
+	}
+?>
 
 
 
@@ -54,16 +74,16 @@ include("connection.php");
 							<!-- me art lab slider -->
 							<div class='carousel-inner '>
 								<div class='item active'>
-									<img src='../admin/product_images/<?php echo $cat_img1?>' alt='' data-zoom-image="images/shop/single-products/product-1.jpg" />
+									<img src='../admin/product_images/<?php echo $cat_img1 ?>' alt='' data-zoom-image="images/shop/single-products/product-1.jpg" />
 								</div>
 								<div class='item'>
-									<img src='../admin/product_images/<?php echo $cat_img2?>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
+									<img src='../admin/product_images/<?php echo $cat_img2 ?>' alt='' data-zoom-image="images/shop/single-products/product-2.jpg" />
 								</div>
 
 								<div class='item'>
-									<img src='../admin/product_images/<?php echo $cat_img2?>' alt='' data-zoom-image="images/shop/single-products/product-3.jpg" />
+									<img src='../admin/product_images/<?php echo $cat_img2 ?>' alt='' data-zoom-image="images/shop/single-products/product-3.jpg" />
 								</div>
-								
+
 
 							</div>
 
@@ -107,7 +127,7 @@ include("connection.php");
 			<div class="col-md-7">
 				<div class="single-product-details">
 					<h2><?php echo $cat_title ?></h2>
-					<p class="product-price"><?php echo $cat_price.' '.'JD'; ?></p>
+					<p class="product-price"><?php echo $cat_price . ' ' . 'JD'; ?></p>
 
 					<p class="product-description mt-20">
 						<?php echo $cat_desc; ?>
@@ -118,12 +138,15 @@ include("connection.php");
 						<span>Quantity:</span>
 						<div class="product-quantity-slider">
 							<input id="product-quantity" type="text" value="0" name="product-quantity">
+
 						</div>
 					</div>
+
 
 					<div>
 						<a href="cart.php?id=$cat_id" class="btn btn-main pull-left">add to cart</a>
 					</div>
+
 
 				</div>
 			</div>
@@ -139,29 +162,58 @@ include("connection.php");
 					<div class="tab-content patternbg">
 						<div id="details" class="tab-pane fade active in">
 							<div class="form-floating">
-						
-						<textarea class="form-control mt-20" name="comment" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-						<input type="submit"  name="review" class="btn btn-main mt-20"  >
-						
+							<form action="" method="post" class="form">
+                                <input type="text" name="name" placeholder="your name here" class="form-control mt-20">
+								<textarea class="form-control mt-20" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+								<input type="submit" name="post_comment" class="btn btn-main mt-20">
+								</form>
+								<div class="content">
+	
+	</div>
+	
 							</div>
 						</div>
+						</ul>
 						
-						
-						
-
-									
-							
-								</ul>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
+	</div>
 </section>
 
-					  
+<?php
+
+$sql = "SELECT * FROM comments";
+$result = $con->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  $count=0;
+  while($row = $result->fetch_assoc()) {
+   
+?>
+<div class="container" style="background-color:lightgrey;">
+<div class="card" style="border:1px solid white;">
+  <div class="card-body"><h4><?php echo $row['name']." said :"; ?></h4></div>
+  <div class="card-body"><p><?php echo $row['message']; ?></p></div>
+  <div class="card-footer" ><p style="color:#1BB2FB;"><?php echo "Data and time : ".$row['Submittime']; ?></p></div>
+</div>
+  </div><br>
+  <script>
+			Swal.fire({
+			  title: 'Yuor comment was succssefully submitted',
+			  showCancelButton: false,
+			  confirmButtonText: 'OK',
+			  confirmButtonColor: '#1BB2FB',
+			  cancelButtonColor: '#ff0099',
+			})</script>
+<?php } }
+
+exit;
+?>
 
 <!-- Modal -->
 <div class="modal product-modal fade" id="product-modal">
@@ -192,8 +244,8 @@ include("connection.php");
 			</div>
 		</div>
 	</div>
-</div>
-<?php  include_once('footer.php') ?>
+  </div>
+<?php include_once('footer.php') ?>
 <!-- 
     Essential Scripts
     =====================================-->
@@ -222,6 +274,7 @@ include("connection.php");
 <!-- Main Js File -->
 <script src="js/script.js"></script>
 
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 
 
 </body>

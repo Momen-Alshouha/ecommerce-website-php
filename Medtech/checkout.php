@@ -167,7 +167,8 @@ include_once('header.php')
 
                                  if($User_Copoun === $fetch_code['coupon_code'])
                                  {
-                                    $_SESSION['Total_Price'] = $_SESSION['Total_Price']   - ($_SESSION['Total_Price'] *$fetch_code['coupon_price'] ) ;
+                                    @$_SESSION['Total_Price'] = $_SESSION['Total_Price']   - ($_SESSION['Total_Price'] *$fetch_code['coupon_price'] ) ;
+                                    echo ' <label  style = "color:green">Copoun successfully applied.</label>';
 
                                  }
 

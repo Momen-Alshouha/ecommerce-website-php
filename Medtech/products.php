@@ -111,7 +111,7 @@ include("connection.php");
 									<h5 class="card-title d-flex justify-content-center"><?php echo $pro_title ?></h5>
 									<p class="card-text d-flex justify-content-center" ><?php echo $pro_price . 'JD' ?></p>
 					
-									<a href="#" class="btn btn-main d-flex justify-content-center">Add To Cart</a>
+									<a href="" class="btn btn-main d-flex justify-content-center">Add To Cart</a>
 								</div>
 								
 							</div>
