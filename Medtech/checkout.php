@@ -150,7 +150,7 @@ include_once('header.php')
                      
                         <form action="" method="post">
                            <div class="form-group">
-                           <label>Have a discount ?  </label> <input type="text" class="text" placeholder="   Enter your code here" name="User_Copoun">
+                           <label>Have a discount ?  </label> <input type="text" class="text" placeholder="press enter" name="User_Copoun">
                            </div>
                         </form>
                    

@@ -121,12 +121,9 @@ include("connection.php");
 						</div>
 					</div>
 
-					<!-- <form action="AddToCart.php" method='get'>
-
-
-					<input type='submit' name='atc' value='Add To Cart'>
-
-					</form> -->
+					<div>
+						<a href="cart.php?id=$cat_id" class="btn btn-main pull-left">add to cart</a>
+					</div>
 
 				</div>
 			</div>
