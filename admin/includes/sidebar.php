@@ -187,17 +187,6 @@ else {
 </a>
 
 </li>
-
-<li>
-
-<a href="index.php?view_orders">
-
-<i class="fa fa-fw fa-list"></i> View Orders
-
-</a>
-
-</li>
-
 <li>
 
 <a href="index.php?view_payments">

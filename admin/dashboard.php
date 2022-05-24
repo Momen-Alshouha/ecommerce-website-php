@@ -60,10 +60,8 @@ else {
 <th>Order #</th>
 <th>Customer</th>
 <th>Invoice No</th>
-<th>Product ID</th>
-<th>Qty</th>
-<th>Size</th>
-<th>Status</th>
+<th>order date</th>
+<th>Total</th>
 
 
 </tr>
@@ -88,14 +86,8 @@ $c_id = $row_order['customer_id'];
 
 $invoice_no = $row_order['invoice_no'];
 
-$product_id = $row_order['product_id'];
-
-$qty = $row_order['qty'];
-
-$size = $row_order['size'];
-
-$order_status = $row_order['order_status'];
-
+$total=$row_order['price'];
+$order_date=$row_order['orderDate'];
 
 $i++;
 
@@ -117,24 +109,13 @@ echo $customer_email;
 </td>
 
 <td><?php echo $invoice_no; ?></td>
-<td><?php echo $product_id; ?></td>
-<td><?php echo $qty; ?></td>
-<td><?php echo $size; ?></td>
 <td>
-<?php
-if($order_status=='pending'){
-
-echo $order_status='pending';
-
-}
-else {
-
-echo $order_status='Complete';
-
-}
-
-?>
+<?php echo $order_date?>
 </td>
+<td>
+<?php echo $total . " JD"?>
+</td>
+
 
 </tr>
 

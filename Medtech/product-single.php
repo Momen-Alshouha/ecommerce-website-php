@@ -204,14 +204,6 @@ if ($result->num_rows > 0) {
   <div class="card-footer" ><p style="color:#1BB2FB;"><?php echo "Data and time : ".$row['Submittime']; ?></p></div>
 </div>
   </div><br>
-  <script>
-			Swal.fire({
-			  title: 'Yuor comment was succssefully submitted',
-			  showCancelButton: false,
-			  confirmButtonText: 'OK',
-			  confirmButtonColor: '#1BB2FB',
-			  cancelButtonColor: '#ff0099',
-			})</script>
 <?php } }
 
 exit;
