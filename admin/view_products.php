@@ -61,7 +61,6 @@ else {
 <th>Title</th>
 <th>Image</th>
 <th>Price</th>
-<th>Sold</th>
 <th>Date</th>
 <th>Delete</th>
 <th>Edit</th>
@@ -76,7 +75,7 @@ else {
 
 <?php
 
-$names=['name1'=> "ahmad",'name2'=>'mohammad'.'name3'=>'hala'];
+$names=['name1'=> "ahmad",'name2'=>'mohammad','name3'=>'hala'];
 
 foreach($names as $key => $value) {
     
@@ -115,15 +114,7 @@ $i++;
 
 <td>JD <?php echo $pro_price; ?></td>
 
-<td>
-<?php
 
-$get_sold = "select * from pending_orders where product_id='$pro_id'";
-$run_sold = mysqli_query($con,$get_sold);
-$count = mysqli_num_rows($run_sold);
-echo $count;
-?>
-</td>
 
 <td><?php echo $pro_date; ?></td>
 
