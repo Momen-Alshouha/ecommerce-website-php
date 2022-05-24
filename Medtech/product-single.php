@@ -143,9 +143,11 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 					</div>
 
 
-					<div>
-						<a href="cart.php?id=$cat_id" class="btn btn-main pull-left">add to cart</a>
-					</div>
+					<form action='AddToCart.php' method='get'>
+						<input type='hidden' name='p_id' value=<?php echo $cat_id; ?>>
+
+						<input type='submit' name="addtc" " class="btn btn-main pull-left" value='add to cart'>
+                    </form>
 
 
 				</div>
