@@ -28,7 +28,7 @@ require_once("config.php");
         <ul class="list-inline dashboard-menu text-center">
 
         
-
+        <li><a class="active" href="orders.php">Orders</a></li>
           <li><a class="active" href="profile-details.php">Profile Details</a></li>
         </ul>
         <div class="dashboard-wrapper dashboard-user-profile">
