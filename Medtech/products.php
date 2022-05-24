@@ -115,27 +115,26 @@ include("connection.php");
 										<form action='AddToCart.php' method='get'>
 											<input type='hidden' name='p_id' value=<?php echo $pro_id; ?>>
 
-											<input type='submit' name="addtc" class="btn btn-main " value='Add to cart'>
+											<input type='submit' name="addtc" class="btn btn-main d-flex justify-content-center" value='Add to cart'>
 										</form>
 									</div>
+
+
 								</div>
 
+							<?php	} ?>
 
+
+
+							<!-- col md 4 -->
 							</div>
 
-						<?php	} ?>
-
-
-
-						<!-- col md 4 -->
+							<!-- col md 9 -->
 					</div>
-
-					<!-- col md 9 -->
 				</div>
-			</div>
 
+			</div>
 		</div>
-	</div>
 </section>
 
 
