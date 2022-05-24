@@ -113,10 +113,11 @@ include("connection.php");
 					
 
 									<form action='AddToCart.php' method='get'>
-						<input type='hidden' name='p_id' value=<?php echo $cat_id; ?>>
+						<input type='hidden' name='p_id' value=<?php echo $pro_id; ?>>
 
 						<input type='submit' name="addtc" " class="btn btn-main d-flex justify-content-center" value='Add to cart'>
-                    </form>								</div>
+                    </form>				
+								</div>
 
 
 							</div>
