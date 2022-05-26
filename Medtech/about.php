@@ -19,11 +19,11 @@ session_start();
 	</div>
 </section>
 
-<section class="about section">
+
 	<div class="container" >
 		<div class="row" >
-			<div class="col-md-6"><br><br>
-				<img class="img-responsive" src="images/new/about2.jpg" style="width: 100%; height:350px;">
+			<div class="col-md-6">
+				<img class="img-responsive" src="images/new/about2.jpg" >
 			</div>
 			<div class="col-md-6">
 				<h1 class="mt-40">Who We Are</h1>
@@ -34,8 +34,7 @@ session_start();
 					<p>We work with biopharma companies, care providers, pharmacies, manufacturers, governments, and others to deliver insights, products and services that make quality care more accessible and affordable.</p>
 			</div>
 		</div>
-</section>
-<section class="about section">
+<Br>
 	<div class="container" >
 		
 			<div class="col-md-6" >
@@ -49,11 +48,11 @@ session_start();
 						DIVERSITY, EQUITY & INCLUSION</p>
 			</div>
 			<div class="row" style="margin-bottom: 80px;">
-				<div class="col-md-6"><br><br>
-					<img class="img-responsive" src="images/new/leader.png" style="width: 100%; height:350px;" id="png">
+				<div class="col-md-6"><br>
+					<img class="img-responsive" src="images/new/leader.png"  id="png">
 				</div>
 		</div>
-</section>
+
 <section class="team-members ">
 	<div class="container">
 		<div class="row">

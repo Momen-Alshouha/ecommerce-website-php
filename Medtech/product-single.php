@@ -41,13 +41,6 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 		
 		$insert = "insert into comments (name,message) values ('$name','$message') ";
 
-	
-
-
-
-
-
-
 		if (mysqli_query($con, $insert)) {
 		  echo "";
 		} else {
@@ -58,7 +51,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 
 
 
-<section class="single-product">
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
@@ -191,7 +184,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 	</div>
 	</div>
 	</div>
-</section>
+
 
 <?php
 
