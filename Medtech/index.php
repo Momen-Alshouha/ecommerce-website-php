@@ -24,11 +24,6 @@ session_start();
 			//save to database
 			$query = "INSERT INTO `subcribers`( `email`) VALUES ('$eml')";
 			mysqli_query($con, $query);
-
-		}
-    else
-		{
-			echo "invalid Email!";
 		}
 	}
 
