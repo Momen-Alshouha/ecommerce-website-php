@@ -1,5 +1,5 @@
 <?php 
-session_start(); include_once('header.php') ?>
+session_start(); include_once('includes/header.php') ?>
 
 <section class="empty-cart page-wrapper">
   <div class="container">
@@ -15,7 +15,7 @@ session_start(); include_once('header.php') ?>
   </div>
 </section>
 
-<?php  include_once('footer.php') ?>
+<?php  include_once('includes/footer.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->

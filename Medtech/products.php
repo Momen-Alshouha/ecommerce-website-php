@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once('header.php');
-include("connection.php");
+include_once('includes/header.php');
+include("includes/connection.php");
 ?>
 
 
@@ -140,7 +140,7 @@ include("connection.php");
 
 
 
-<?php include_once('footer.php') ?>
+<?php include_once('includes/footer.php') ?>
 
 <!-- 
 		Essential Scripts

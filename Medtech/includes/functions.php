@@ -1,7 +1,5 @@
 <?php
 
-
-
 function random_num($length)
 {
 
