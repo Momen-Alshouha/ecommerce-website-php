@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
-include_once('header.php');
-include("connection.php");
+include_once('includes/header.php');
+include("includes/connection.php");
 
 $cid=$_SESSION['loggedIn'];
 $invnum=rand();
@@ -34,7 +34,7 @@ if(isset($_GET['chkout']))
   </div>
 </section><!-- /.page-warpper -->
 
-<?php  include_once('footer.php') ?>
+<?php  include_once('includes/footer.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->

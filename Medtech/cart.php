@@ -3,7 +3,7 @@
 session_start();
 
 // Start connection with the database server
-include 'config.php';
+include 'includes/config.php';
 
 
 ///////// When update button is clicked/////////////
@@ -62,7 +62,7 @@ if (isset($_GET['delete_all'])) {
 <body>
 
   <!-- Include the navbar code -->
-  <?php include 'header.php'; ?>
+  <?php include 'includes/header.php'; ?>
 
 
 
@@ -163,7 +163,7 @@ if (isset($_GET['delete_all'])) {
                     ?>
 
                     <tr class="table-bottom">
-                      <td><a href='products.php?cat=1' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
+                      <td><a href='products.php?cat=6' class="btn btn-main " style="margin-top:0;">Continue shopping</a></td>
                       <td colspan="3" style="font-size:20px"><b>Grand Total<b></td>
                       <td style="font-size:20px"><b>$<?php echo $grand_total; ?>/-<b></td>
                       <td><a href="cart.php?delete_all" onclick="return confirm('Are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> Delete all </a></td>
@@ -239,7 +239,7 @@ if (isset($_GET['delete_all'])) {
   ?>
 
 
-  <?php include_once('footer.php') ?>
+  <?php include_once('includes/footer.php') ?>
 
   <!-- 
     Essential Scripts

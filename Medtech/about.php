@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
- include_once('header.php') ?>
+ include_once('includes/header.php') ?>
 
 <section class="page-header">
 	<div class="container">
