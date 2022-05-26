@@ -2,8 +2,8 @@
 
 
 session_start();
-include_once('header.php');
-require_once("config.php");
+include_once('includes/header.php');
+require_once("includes/config.php");
 
 ?>
 <section class="page-header">
@@ -154,7 +154,7 @@ require_once("config.php");
     </div>
   </div>
 </section>
-<?php include_once('footer.php') ?>
+<?php include_once('includes/footer.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->

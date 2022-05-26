@@ -1,6 +1,6 @@
 
 <?php 
-session_start(); include_once('header.php') ?>
+session_start(); include_once('includes/header.php') ?>
 <section class="page-header">
 	<div class="container">
 		<div class="row">
@@ -71,7 +71,7 @@ session_start(); include_once('header.php') ?>
 
 
 
-<?php  include_once('footer.php') ?>
+<?php  include_once('includes/footer.php') ?>
 
     <!-- 
     Essential Scripts

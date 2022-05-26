@@ -3,9 +3,9 @@
 
 
 // Start connection with the database server
-include 'config.php';
+include 'includes/config.php';
 session_start();
-include_once('header.php')
+include_once('includes/header.php')
 
 
 ?>
@@ -236,7 +236,7 @@ include_once('header.php')
    </div>
 </div>
 
-<?php include_once('footer.php'); ?>
+<?php include_once('includes/footer.php'); ?>
 <!-- 
     Essential Scripts
     =====================================-->
