@@ -50,14 +50,14 @@ session_start();
 			</div>
 			<div class="row" style="margin-bottom: 80px;">
 				<div class="col-md-6"><br><br>
-					<img class="img-responsive" src="images/new/leader.png" style="width: 100%; height:350px;">
+					<img class="img-responsive" src="images/new/leader.png" style="width: 100%; height:350px;" id="png">
 				</div>
 		</div>
 </section>
 <section class="team-members ">
 	<div class="container">
 		<div class="row">
-			<div class="title"><h1><b>Team Members</b></h1></div>
+			<div class="title"><h2><b>Team Members</b></h2></div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">

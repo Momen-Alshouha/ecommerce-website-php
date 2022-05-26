@@ -831,6 +831,9 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
     display: inline-block;
     padding-left: 10px;
   }
+  #png{
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
