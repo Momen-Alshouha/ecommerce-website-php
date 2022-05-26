@@ -25,7 +25,7 @@ include_once('includes/header.php') ?>
 <section class="page-wrapper">
 	<div class="contact-section">
 		<div class="container">
-			<div class="row" style="margin-bottom: 200px;">
+			<div class="row" style="margin-bottom: 30px;">
 				
 				<!-- Contact Form -->
 				<div class="contact-form col-md-6 " >

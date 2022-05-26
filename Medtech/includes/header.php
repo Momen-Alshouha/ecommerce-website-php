@@ -2,7 +2,7 @@
 include("connection.php");
 
 session_reset();
-$WelcomeMsg = $_SESSION['loggedName'];
+@$WelcomeMsg = $_SESSION['loggedName'];
 $get_cats = "select * from categories";
 
 $run_cats = mysqli_query($con, $get_cats);

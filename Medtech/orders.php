@@ -32,7 +32,9 @@ require_once("includes/config.php");
 
 
 
-
+<?php if(isset(	$_SESSION['loggedIn']))
+{
+?>
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">
@@ -46,9 +48,10 @@ require_once("includes/config.php");
 								</tr>
 							</thead>
                             <?php 
-                            
-                            
-                            $current =	$_SESSION['loggedIn'];
+}
+else {echo 'you are not logged in';}
+                 
+                           @ $current =	$_SESSION['loggedIn'];
                             $view="SELECT * FROM pending_orders WHERE customer_id ='$current' ";
                        
                             $getresults=mysqli_query($conn,$view);
