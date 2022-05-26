@@ -2,7 +2,7 @@
 include("connection.php");
 
 session_reset();
-$WelcomeMsg = $_SESSION['loggedName'];
+@$WelcomeMsg = $_SESSION['loggedName'];
 $get_cats = "select * from categories";
 
 $run_cats = mysqli_query($con, $get_cats);
@@ -229,14 +229,16 @@ $run_cats = mysqli_query($con, $get_cats);
 							<ul class="dropdown-menu" style="background-color: white;">
 
 								<?php
-								if (!isset($_SESSION['loggedIn'])) {
-								?> <li><a href="signup.php">Register</a></li>
+								if (!isset($_SESSION['loggedIn'])) {?>
+								 <li><a href="login.php">login</a></li>
+								 <li><a href="signup.php">Register</a></li>
 
 								<?php } else { ?>
 									<li><a href="logout.php">log-out</a></li>
+									<li><a href="profile-details.php">My Profile</a></li>
 								<?php
 								}  ?>
-								<li><a href="profile-details.php">MyProfile</a></li>
+								
 
 							</ul>
 						</li><!-- / Blog -->

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include("includes/connection.php");
 $add= $_GET['p_id'];
 $b=$_SESSION['loggedIn'];
  if(isset($_GET['addtc']))

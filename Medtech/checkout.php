@@ -3,9 +3,9 @@
 
 
 // Start connection with the database server
-include 'config.php';
+include 'includes/config.php';
 session_start();
-include_once('header.php')
+include_once('includes/header.php')
 
 
 ?>
@@ -100,11 +100,18 @@ include_once('header.php')
 
 
 
-
             <!-- Order Summary -->
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
+                     
+            <form action="" method="post" >
+                           <div class="form-group" >
+                              <label>Have a discount ?  </label> <input style="height:37px;border: 1px lightgray solid" type="text" class="text" placeholder=" Enter Your Coupon" name="User_Copoun">
+
+                              <input type='submit' name="Applys" class="btn btn-sm" value='Apply Coupon' style="border: 1px lightgray solid;">
+                           </div>
+                        </form>
                      <h4 class="discount-code">Order Summary</h4>
 
                      <?php
@@ -156,13 +163,7 @@ include_once('header.php')
                      <div class="discount-code">
                         <!-- <p>Have a discount ? <a  data-target="#coupon-modal" href="#">enter it here</a></p> -->
 
-                        <form action="" method="post">
-                           <div class="form-group">
-                              <label>Have a discount ? </label> <input style="border: 1px lightgray solid" type="text" class="text" placeholder=" Enter Your Coupon" name="User_Copoun">
-
-                              <input type='submit' name="addtc" class="btn btn-sm" value='Apply Coupon' style="border: 1px lightgray solid;">
-                           </div>
-                        </form>
+                        
 
                         <?php
 
@@ -173,7 +174,7 @@ include_once('header.php')
                         // if (mysqli_num_rows($Copoun_DB) > 0) {
                         // while ($fetch_code = mysqli_fetch_assoc($Copoun_DB)) {
                         // echo $fetch_code['coupon_code'];
-                        if (isset($_POST['User_Copoun'])) {
+                        if (isset($_POST['Applys'])) {
 
                            $User_Copoun = $_POST['User_Copoun'];
 
@@ -235,7 +236,7 @@ include_once('header.php')
    </div>
 </div>
 
-<?php include_once('footer.php'); ?>
+<?php include_once('includes/footer.php'); ?>
 <!-- 
     Essential Scripts
     =====================================-->

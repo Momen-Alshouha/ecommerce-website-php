@@ -2,8 +2,8 @@
 
 
 session_start();
-include_once('header.php');
-require_once("config.php");
+include_once('includes/header.php');
+require_once("includes/config.php");
 
 ?>
 <section class="page-header">
@@ -32,7 +32,9 @@ require_once("config.php");
 
 
 
-
+<?php if(isset(	$_SESSION['loggedIn']))
+{
+?>
 				<div class="dashboard-wrapper user-dashboard">
 					<div class="table-responsive">
 						<table class="table">
@@ -46,9 +48,10 @@ require_once("config.php");
 								</tr>
 							</thead>
                             <?php 
-                            
-                            
-                            $current =	$_SESSION['loggedIn'];
+}
+else {echo 'you are not logged in';}
+                 
+                           @ $current =	$_SESSION['loggedIn'];
                             $view="SELECT * FROM pending_orders WHERE customer_id ='$current' ";
                        
                             $getresults=mysqli_query($conn,$view);
@@ -90,7 +93,7 @@ require_once("config.php");
 		</div>
 	</div>
 </section>
-<?php include_once('footer.php') ?>
+<?php include_once('includes/footer.php') ?>
     <!-- 
     Essential Scripts
     =====================================-->

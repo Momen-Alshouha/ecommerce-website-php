@@ -4,8 +4,8 @@
 session_start();
 
 
-include_once('header.php');
-include("connection.php");
+include_once('includes/header.php');
+include("includes/connection.php");
 
 
 $Cid = $_GET['cat'];
@@ -31,7 +31,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 ?>
 <?php
 	
-	include 'connection.php';
+	include 'includes/connection.php';
 
 	if (isset($_POST['post_comment'])) {
 
@@ -251,7 +251,7 @@ if ($result->num_rows > 0) {
 		</div>
 	</div>
   </div>
-<?php include_once('footer.php') ?>
+<?php include_once('includes/footer.php') ?>
 <!-- 
     Essential Scripts
     =====================================-->

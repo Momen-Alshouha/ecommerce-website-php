@@ -84,12 +84,16 @@ include("includes/db.php");
 
                                         $_SESSION['admin_email'] = $admin_email;
 
-                                        echo "<script>alert('You are Logged in into admin panel')</script>";
+                                        
 
                                         echo "<script>window.open('index.php?dashboard','_self')</script>";
                                     } else {
 
-                                        echo "<script>alert('Email or Password is Wrong')</script>";
+                                        echo "<script>Swal.fire({
+                                            icon: 'error',
+                                            title:'ERROR!',
+                                            text: 'Email or password wrong! Try Again!'
+                                          })</script>";
                                     }
                                 }
 

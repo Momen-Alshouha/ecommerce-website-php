@@ -3,12 +3,12 @@
 
 session_start();
 
-    include_once('header.php') ;
-	include("connection.php");
-	include("functions.php");
-  $get_cats = "select * from categories";
-    
+    include_once('includes/header.php') ;
+	  include("includes/connection.php");
+  	include("includes/functions.php");
+    $get_cats = "select * from categories";
     $run_cats = mysqli_query($con,$get_cats);
+<<<<<<< HEAD
 ?>
 
 <?php 
@@ -34,6 +34,10 @@ session_start();
 			echo "invalid Email!";
 		}
 	}
+=======
+    
+   
+>>>>>>> d381761f5664c71a44ccb4347051ee641a047e9e
 ?>
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/imageh.png);">
@@ -42,7 +46,7 @@ session_start();
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">TOTAL HEALTH CARE SOLUTION</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your Most Trusted <br>  Health Partner.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=2">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
         </div>
       </div>
     </div>
@@ -129,10 +133,19 @@ Start Call To Action
         <form method="POST" action="index.php">
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
+<<<<<<< HEAD
 				      <input type="email" class="form-control" placeholder="Enter Your Email Address" name="eml">
 				      <span class="input-group-btn">
 				        <button class="btn btn-main" type="submit" style="background-color:#1BB2FB" name="emailsubmit">Subscribe Now!</button>
 				      </span>
+=======
+				      <input type="mail" class="form-control" placeholder="Enter Your Email Address" required>
+				      <span class="input-group-btn">
+               
+				          <button name="subscribe" class="btn btn-main" type="submit" style="background-color:#1BB2FB">Subscribe Now!</button>
+                
+              </span>
+>>>>>>> d381761f5664c71a44ccb4347051ee641a047e9e
 				    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
 </form>
@@ -140,6 +153,7 @@ Start Call To Action
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->
 </section>   <!-- End section -->
+
 
 
 
@@ -156,8 +170,7 @@ Start Call To Action
                 <div class="type">off</div>
             </div>
             <div class="descr">
-                <strong>Mei mucius gloriatur reprimique mollis*.</strong> 
-                Ad sonet perfecto antiopam mei, denique molestie. 
+                <strong>Get 30 percent off when you buy over $100</strong> 
             </div>
             <div class="ends">
                 <small>* Conditions and restrictions apply.</small>
@@ -184,9 +197,8 @@ Start Call To Action
             </div>
             <div class="descr">
                 <strong>
-                     Solet consul tractatos ei pro*. 
+                Get 15 percent off when you buy over $50. 
                 </strong> 
-                Ei mei quot invidunt explicari, placerat percipitur intellegam.
             </div>
             <div class="ends">
                 <small>
@@ -215,9 +227,8 @@ Start Call To Action
             </div>
             <div class="descr">
                 <strong>
-                    Ea per iuvaret ocurreret*. 
+                Get 50 percent off when you buy over $300. 
                 </strong> 
-                sit ea detraxit menandri mediocritatem, in mel . 
             </div>
             <div class="ends">
                 <small>
@@ -226,7 +237,7 @@ Start Call To Action
             </div>
             <div class="coupon midnight-blue">
                 <a data-toggle="collapse" href="#code-2" class="open-code">Get a code</a>
-                <div id="code-2" class="collapse in code">
+                <div id="code-2" class="collapse code">
                     MNO123ST
                 </div>
             </div>
@@ -247,9 +258,8 @@ Start Call To Action
             </div>
             <div class="descr">
                 <strong>
-                    Cu aliquip persius alterum duo*. 
+                Get 25 percent off when you buy over $75. 
                 </strong> 
-                Possit equidem disputando usu et, sea invidunt scriptorem in. 
             </div>
             <div class="ends">
                 <small>
@@ -322,7 +332,7 @@ Start Call To Action
     </div>
 </div>
 
-<?php  include_once('footer.php') ?>
+<?php  include_once('includes/footer.php') ?>
 
     <!-- 
     Essential Scripts
