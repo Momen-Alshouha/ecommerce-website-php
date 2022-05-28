@@ -29,7 +29,7 @@ session_start(); include_once('includes/header.php') ?>
 				                <thead>
 									<tr>
 					                    <th><strong>Payment:</strong></th>
-					                    <th>33056</th>
+					                    <th></th>
 				                  	</tr>
 				                </thead>
 
@@ -37,27 +37,27 @@ session_start(); include_once('includes/header.php') ?>
 
 				                  	<tr>
 				                    	<td class=""><strong>Payment Status:</strong></td>
-				                    	<td class="">Complete</td>
+				                    	<td class=""></td>
 				                  	</tr>
 
 
 				                  	<tr>
 				                    	<td><strong>Payment Method:</strong></td>
-				                    	<td>Free Purchase</td>
+				                    	<td></td>
 				                  	</tr>
 				                  	<tr>
 				                    	<td><strong>Date:</strong></td>
-				                    	<td>December 20, 2016</td>
+				                    	<td></td>
 				                  	</tr>
 				                  	<tr>
 				                    	<td><strong>Subtotal</strong></td>
 				                    	<td>
-				                      	$18.00        </td>
+				                             </td>
 				                    </tr>
 
 				                    <tr>
 				                      	<td><strong>Total Price:</strong></td>
-				                      	<td>$18.00</td>
+				                      	<td></td>
 				                    </tr>
 				                </tbody>
 				            </table>

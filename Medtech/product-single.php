@@ -143,7 +143,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 					<div class="product-quantity">
 						<span>Quantity:</span>
 						<div class="product-quantity-slider">
-							<input id="product-quantity" type="text" value="0" name="product-quantity">
+							<input id="product-quantity" type="number"   value="1" name="product-quantity">
 
 						</div>
 					</div>
@@ -151,6 +151,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 
 					<form action='AddToCart.php' method='get'>
 						<input type='hidden' name='p_id' value=<?php echo $cat_id; ?>>
+					<!-- /*here*/ -->
 						<br>
 
 						<input type='submit' name="addtc" class="btn btn-main pull-left" value='add to cart'>

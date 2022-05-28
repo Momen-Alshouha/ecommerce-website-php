@@ -115,6 +115,8 @@ include_once('includes/header.php')
                      <h4 class="discount-code">Order Summary</h4>
 
                      <?php
+                       $w='';                  
+
                      // Query that select all content of the cart table joint with products table
 
                      $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
@@ -123,21 +125,25 @@ include_once('includes/header.php')
                      $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
                      $grand_total = 0;
 
+                     $cii=$_SESSION['loggedIn'];
+
                      if (mysqli_num_rows($select_cart) > 0) {
                         while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
                            $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
+                           $e =$fetch_cart['product_title'];
+                           $w .=  $e.'\n';
+                         
+
+                           // $_SESSION['qnty'].=$fetch_cart_quantity['quantity'];
+
                      ?>
 
 
-
                            <div class="media product-card">
-                              <!-- <a class="pull-left" href="product-single.php">
-                           <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
-                        </a> -->
+                           
 
 
                               <div class="media-body">
-                                 <!-- <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4> -->
 
 
                                  <!-- <p class="order-id">Invoice no.: </p> -->
@@ -148,14 +154,20 @@ include_once('includes/header.php')
                                  <!-- <span class="remove" >Remove</span> -->
                               </div>
                            </div>
+                           
                      <?php
+
                         };
+                        $_SESSION['pit']=$w;
+
+
+                        
                      };
+
                      ?>
                      <br><br> <b>
                         <p style="color-text:black;">Total Price: <?php echo $_SESSION['Total_Price'] ?> JOD </p>
                      </b>
-
 
 
 
@@ -188,7 +200,6 @@ include_once('includes/header.php')
                                     </div>';
                            }
                         }
-
 
                         ?>
                      </div>

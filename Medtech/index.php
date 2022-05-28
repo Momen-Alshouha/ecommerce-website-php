@@ -18,7 +18,7 @@ session_start();
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">TOTAL HEALTH CARE SOLUTION</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your Most Trusted <br>  Health Partner.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=7">Shop Now</a>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@ session_start();
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-uppercase">Best Quality At Top Prices</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Safe And Profissional.</h1>
         
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=2">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@ session_start();
         <div class="col-lg-8 text-right">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your supplier of medical <br>equipment and furniture </h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=2">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
         </div>
       </div>
     </div>

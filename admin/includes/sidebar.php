@@ -100,7 +100,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#products">
 
-<i class="fa fa-fw fa-table"></i> Products
+<i class="fa fa-th"></i> Products
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -109,7 +109,7 @@ else {
 
 <ul id="products" class="collapse">
 
-<li>
+<li  >
 <a href="index.php?insert_product"> Insert Products </a>
 </li>
 
@@ -130,7 +130,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#cat">
 
-<i class="fa fa-fw fa-arrows-v"></i> Categories
+<i class="fa fa-cubes"></i> Categories
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -157,7 +157,7 @@ else {
 
 <a href="#" data-toggle="collapse" data-target="#coupons"><!-- anchor Starts -->
 
-<i class="fa fa-fw fa-arrows-v"></i> Coupons
+<i class="fa fa-money"></i> Coupons
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -182,26 +182,26 @@ else {
 
 <a href="index.php?view_customers">
 
-<i class="fa fa-fw fa-edit"></i> View Customers
+<i class="fa fa-users"></i> View Customers
 
 </a>
 
 </li>
 <li>
 
-<a href="index.php?view_payments">
+<a href="index.php?order_status">
 
-<i class="fa fa-fw fa-pencil"></i> View Payments
+<i class="fa fa-truck"></i> Orders Status
 
 </a>
 
 </li>
-
-<li><!-- li Starts -->
+<!-- style='display:none' -->
+<li ><!-- li Starts -->
 
 <a href="#" data-toggle="collapse" data-target="#users">
 
-<i class="fa fa-fw fa-gear"></i> Admin
+<i class="fa fa-cogs"></i> Admin
 
 <i class="fa fa-fw fa-caret-down"></i>
 
@@ -210,12 +210,12 @@ else {
 
 <ul id="users" class="collapse">
 
-<li>
+<li id='ins' style='display:none'>
 <a href="index.php?insert_user"> Insert Admin </a>
 </li>
 
 <li>
-<a href="index.php?view_users"> View Admins </a>
+<a id='view' style='display:none' href="index.php?view_users"> View Admins </a>
 </li>
 
 <li>
@@ -242,4 +242,20 @@ else {
 
 </nav><!-- navbar navbar-inverse navbar-fixed-top Ends -->
 
-<?php } ?>
+<?php }
+
+if($_SESSION['ai']==1)
+{
+   echo '<script>
+
+    const myElement = document.getElementById("ins");
+    myElement.style.display = "block";
+        
+    const myElement2 = document.getElementById("view");
+    myElement2.style.display = "block";
+
+    </script>';
+}
+
+
+ ?>

@@ -2,14 +2,19 @@
 session_start(); 
 include_once('includes/header.php');
 include("includes/connection.php");
-
 $cid=$_SESSION['loggedIn'];
 $invnum=rand();
 $ttl=$_SESSION['Total_Price'];
+$ww=$_SESSION['pit'];
+// $qt= $_SESSION['qnty'];
 if(isset($_GET['chkout']))
 {
   $qur= "INSERT into `pending_orders` (customer_id,invoice_no,price) values ($cid,$invnum,$ttl) ";
   mysqli_query($con,$qur);
+
+  $qur= "INSERT into `customer_products` (customerID,productTitle) values ($cid,'$ww') ";
+  mysqli_query($con,$qur);
+
 }
 
 ?>

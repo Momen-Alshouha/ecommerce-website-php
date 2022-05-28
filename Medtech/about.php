@@ -110,36 +110,32 @@ session_start();
 						</a>
 					</li>
 					<li>
-						<a href="https://www.instagram.com/themefisher">
+						<a href="https://www.instagram.com">
 							<i class="tf-ion-social-instagram"></i>
 						</a>
 					</li>
 					<li>
-						<a href="https://www.twitter.com/themefisher">
+						<a href="https://www.twitter.com">
 							<i class="tf-ion-social-twitter"></i>
 						</a>
 					</li>
-					<li>
-						<a href="https://www.pinterest.com/themefisher/">
-							<i class="tf-ion-social-pinterest"></i>
-						</a>
-					</li>
+					
 				</ul>
 				<ul class="footer-menu text-uppercase">
 					<li>
 						<a href="contact.php">CONTACT</a>
 					</li>
 					<li>
-						<a href="shop.php">SHOP</a>
+						<a href="products.php?cat=7">SHOP</a>
 					</li>
 					<li>
-						<a href="pricing.php">Pricing</a>
+						<a href="">Pricing</a>
 					</li>
 					<li>
-						<a href="contact.php">PRIVACY POLICY</a>
+						<a href="">PRIVACY POLICY</a>
 					</li>
 				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Group'4'</a></p>
 			</div>
 		</div>
 	</div>

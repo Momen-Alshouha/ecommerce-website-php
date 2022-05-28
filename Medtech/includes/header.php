@@ -56,7 +56,7 @@ $run_cats = mysqli_query($con, $get_cats);
 						if (!isset($_SESSION['loggedIn'])) { ?>
 							<div class="contact-number">
 								<i class="tf-ion-ios-telephone" style="font-size:20px ;"></i>
-								<span style="font-size:14px ;">0129- 12323-123123</span>
+								<span style="font-size:14px ;">+0129- 12323-123123</span>
 							</div>
 						<?php
 						} else { ?>
@@ -92,7 +92,7 @@ $run_cats = mysqli_query($con, $get_cats);
 
 								<div class="cart-summary">
 									<span style="font-size:20px ;">Total</span>
-									<span class="total-price"> <?php echo $_SESSION['Total_Price'] . ".00jd"; ?></span>
+									<span class="total-price"> <?php echo @$_SESSION['Total_Price'] . ".00jd"; ?></span>
 								</div>
 								<ul class="text-center cart-buttons">
 									<li><a href="cart.php" class="btn btn-small">View Cart</a></li>
