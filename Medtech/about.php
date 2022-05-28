@@ -19,11 +19,11 @@ session_start();
 	</div>
 </section>
 
-<section class="about section">
+
 	<div class="container" >
 		<div class="row" >
-			<div class="col-md-6"><br><br>
-				<img class="img-responsive" src="images/new/about2.jpg" style="width: 100%; height:350px;">
+			<div class="col-md-6">
+				<img class="img-responsive" src="images/new/about2.jpg" >
 			</div>
 			<div class="col-md-6">
 				<h1 class="mt-40">Who We Are</h1>
@@ -34,8 +34,7 @@ session_start();
 					<p>We work with biopharma companies, care providers, pharmacies, manufacturers, governments, and others to deliver insights, products and services that make quality care more accessible and affordable.</p>
 			</div>
 		</div>
-</section>
-<section class="about section">
+<Br>
 	<div class="container" >
 		
 			<div class="col-md-6" >
@@ -49,11 +48,11 @@ session_start();
 						DIVERSITY, EQUITY & INCLUSION</p>
 			</div>
 			<div class="row" style="margin-bottom: 80px;">
-				<div class="col-md-6"><br><br>
-					<img class="img-responsive" src="images/new/leader.png" style="width: 100%; height:350px;" id="png">
+				<div class="col-md-6"><br>
+					<img class="img-responsive" src="images/new/leader.png"  id="png">
 				</div>
 		</div>
-</section>
+
 <section class="team-members ">
 	<div class="container">
 		<div class="row">
@@ -110,36 +109,32 @@ session_start();
 						</a>
 					</li>
 					<li>
-						<a href="https://www.instagram.com/themefisher">
+						<a href="https://www.instagram.com">
 							<i class="tf-ion-social-instagram"></i>
 						</a>
 					</li>
 					<li>
-						<a href="https://www.twitter.com/themefisher">
+						<a href="https://www.twitter.com">
 							<i class="tf-ion-social-twitter"></i>
 						</a>
 					</li>
-					<li>
-						<a href="https://www.pinterest.com/themefisher/">
-							<i class="tf-ion-social-pinterest"></i>
-						</a>
-					</li>
+					
 				</ul>
 				<ul class="footer-menu text-uppercase">
 					<li>
 						<a href="contact.php">CONTACT</a>
 					</li>
 					<li>
-						<a href="shop.php">SHOP</a>
+						<a href="products.php?cat=7">SHOP</a>
 					</li>
 					<li>
-						<a href="pricing.php">Pricing</a>
+						<a href="">Pricing</a>
 					</li>
 					<li>
-						<a href="contact.php">PRIVACY POLICY</a>
+						<a href="">PRIVACY POLICY</a>
 					</li>
 				</ul>
-				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></p>
+				<p class="copyright-text">Copyright &copy;2021, Designed &amp; Developed by Group'4'</a></p>
 			</div>
 		</div>
 	</div>

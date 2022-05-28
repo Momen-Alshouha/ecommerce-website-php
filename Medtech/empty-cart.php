@@ -8,7 +8,6 @@ session_start(); include_once('includes/header.php') ?>
         <div class="block text-center">
         	<i class="tf-ion-ios-cart-outline"></i>
           	<h2 class="text-center">Your cart is currently empty.</h2>
-          	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, sed.</p>
           	<a href="shop.php" class="btn btn-main mt-20">Return to shop</a>
       </div>
     </div>

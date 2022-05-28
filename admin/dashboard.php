@@ -42,7 +42,7 @@ else {
 
 <h3 class="panel-title" ><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw" ></i> New Orders
+<i></i> New Orders
 
 </h3><!-- panel-title Ends -->
 
@@ -62,8 +62,7 @@ else {
 <th>Invoice No</th>
 <th>order date</th>
 <th>Total</th>
-
-
+<th>Products</th>
 </tr>
 
 </thead><!-- thead Ends -->
@@ -74,11 +73,10 @@ else {
 
 $i = 0;
 
-$get_order = "select * from pending_orders order by 1 DESC LIMIT 0,5";
+$get_order = "select * from pending_orders group by invoice_no ";
 $run_order = mysqli_query($con,$get_order);
 
 while($row_order=mysqli_fetch_array($run_order)){
-
 
 $order_id = $row_order['order_id'];
 
@@ -88,6 +86,7 @@ $invoice_no = $row_order['invoice_no'];
 
 $total=$row_order['price'];
 $order_date=$row_order['orderDate'];
+
 
 $i++;
 
@@ -99,12 +98,12 @@ $i++;
 
 <td>
 <?php
-
-$get_customer = "select * from customers where customer_id='$c_id'";
-$run_customer = mysqli_query($con,$get_customer);
-$row_customer = mysqli_fetch_array($run_customer);
-$customer_email = $row_customer['customer_email'];
-echo $customer_email;
+    $get_customer = "select * from customers where customer_id='$c_id' ";
+    $run_customer = mysqli_query($con,$get_customer);
+    $row_customer = mysqli_fetch_array($run_customer);
+    $customer_email = $row_customer['customer_email'];
+    echo $customer_email;
+    
 ?>
 </td>
 
@@ -115,11 +114,27 @@ echo $customer_email;
 <td>
 <?php echo $total . " JD"?>
 </td>
+<td>
 
+    <?php
+$get_pro = "select DISTINCT *   from customer_products where customerID='$c_id' group by customerID ";
+$run_pro = mysqli_query($con,$get_pro);
+while($row_pro=mysqli_fetch_array($run_pro)){
+    $customer_pro = $row_pro['productTitle'];
+    //  $customer_proQ = $row_pro['quantity'];
+
+echo '[' .$customer_pro.' ' .']'.'<br>'.'<br>';
+}
+    ?>
+
+
+</td>
 
 </tr>
 
-<?php } ?>
+<?php }
+
+?>
 
 </tbody><!-- tbody Ends -->
 

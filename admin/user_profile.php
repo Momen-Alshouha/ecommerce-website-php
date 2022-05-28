@@ -81,7 +81,7 @@ $admin_about = $row_admin['admin_about'];
 
 <h3 class="panel-title" >
 
-<i class="fa fa-money fa-fw" ></i> Edit Profile
+<i class="fa fa-pencil-square-o" ></i> Edit Profile
 
 </h3>
 

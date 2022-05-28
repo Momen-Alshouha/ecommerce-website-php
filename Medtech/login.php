@@ -87,7 +87,7 @@ include("includes/functions.php");
 
                     $result = mysqli_query($con, $query);
 
-
+                    
 
                     if ($result) {
                       if ($result && mysqli_num_rows($result) > 0) {
@@ -96,8 +96,13 @@ include("includes/functions.php");
                         $_SESSION['loggedIn'] = $user_data['customer_id'];
                         $_SESSION['loggedName'] = $user_data['customer_name'];
 
+                        if ($user_data['customer_pass'] === $password && ($_SESSION['Total_Price'])>0) {
 
-                        if ($user_data['customer_pass'] === $password) {
+                          $_SESSION['user_id'] = $user_data['user_id'];
+                          header("Location: cart.php");
+                          die;
+                        }
+                        else if ($user_data['customer_pass'] === $password) {
 
                           $_SESSION['user_id'] = $user_data['user_id'];
                           header("Location: index.php");

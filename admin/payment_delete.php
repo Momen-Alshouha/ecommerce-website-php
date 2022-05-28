@@ -29,7 +29,7 @@ if($run_delete){
 
 echo "<script>alert('Payment Has Been Deleted')</script>";
 
-echo "<script>window.open('index.php?view_payments','_self')</script>";
+echo "<script>window.open('index.php?order_status','_self')</script>";
 
 
 }

@@ -43,7 +43,7 @@ else {
 
 <h3 class="panel-title" >
 
-<i class="fa fa-money fa-fw" ></i> Insert User
+<i class="fa fa-user-plus" ></i> Insert User
 
 </h3>
 

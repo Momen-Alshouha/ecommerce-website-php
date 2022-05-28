@@ -8,8 +8,25 @@ session_start();
   	include("includes/functions.php");
     $get_cats = "select * from categories";
     $run_cats = mysqli_query($con,$get_cats);
-    
-   
+
+?>
+
+<?php 
+	include("includes/connection.php");
+
+	if(isset($_POST['emailsubmit']))
+	{
+		//something was posted
+
+    $eml = $_POST['eml'];
+		if(!empty($eml))
+		{
+			//save to database
+			$query = "INSERT INTO `subcribers`( `email`) VALUES ('$eml')";
+			mysqli_query($con, $query);
+		}
+	}
+
 ?>
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/imageh.png);">
@@ -18,7 +35,7 @@ session_start();
         <div class="col-lg-8 text-center">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">TOTAL HEALTH CARE SOLUTION</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your Most Trusted <br>  Health Partner.</h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=7">Shop Now</a>
         </div>
       </div>
     </div>
@@ -30,7 +47,7 @@ session_start();
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1" class="text-uppercase">Best Quality At Top Prices</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Safe And Profissional.</h1>
         
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=2">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
         </div>
       </div>
     </div>
@@ -41,7 +58,7 @@ session_start();
         <div class="col-lg-8 text-right">
           <p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">PRODUCTS</p>
           <h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">Your supplier of medical <br>equipment and furniture </h1>
-          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=2">Shop Now</a>
+          <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" class="btn" href="products.php?cat=6">Shop Now</a>
         </div>
       </div>
     </div>
@@ -102,17 +119,17 @@ Start Call To Action
 					<h2>Subscribe To Our Newsletter</h2>
 					<p>Subscribe to our email newsletter today to receive updates on the latest news, tutorials and special offers!</p>
 				</div>
+        <form method="POST" action="index.php">
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
-				      <input type="mail" class="form-control" placeholder="Enter Your Email Address" required>
+				      <input type="email" class="form-control" placeholder="Enter Your Email Address" name="eml">
 				      <span class="input-group-btn">
-               
-				          <button name="subscribe" class="btn btn-main" type="submit" style="background-color:#1BB2FB">Subscribe Now!</button>
-                
-              </span>
+				        <button class="btn btn-main" type="submit" style="background-color:#1BB2FB" name="emailsubmit">Subscribe Now!</button>
+				      </span>
+
 				    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
-
+</form>
 			</div>
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->

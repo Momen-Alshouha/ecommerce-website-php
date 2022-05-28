@@ -10,6 +10,7 @@ include 'includes/config.php';
 if (isset($_POST['update_update_btn'])) {
   $update_value = $_POST['update_quantity'];
   $update_id = $_POST['update_quantity_id']; //update_quantity_id will take its value from the cart form 
+
   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE cartID = '$update_id'");
 
   if ($update_quantity_query) {
@@ -135,7 +136,7 @@ if (isset($_GET['delete_all'])) {
                             <form action="" method="post">
                               <input type="hidden" name="update_quantity_id" value="<?php echo $fetch_cart_quantity['cartID']; ?>">
                               <input type="number" name="update_quantity" min="1" value="<?php echo $fetch_cart_quantity['quantity']; ?>">
-                              <input type="submit" class='btn btn-main btn-small btn-round' value="update"   style="background-color:black;" name="update_update_btn">
+                              <input type="submit" class='btn btn-main btn-small btn-round' value="CONFIRM"   style="background-color:black;" name="update_update_btn">
                               
                              
                             </form>
@@ -176,9 +177,6 @@ if (isset($_GET['delete_all'])) {
                 </table>
 
 
-
-
-
                 <?php
                 function checkRegister()
                 {
@@ -186,7 +184,7 @@ if (isset($_GET['delete_all'])) {
                     <script type="text/javascript">
                       $(document).ready(function() {
                         Swal.fire({
-                          title: '<strong> Are you <a href="login.php"><u>Logged In</u></a>?</strong>',
+                          title: '<strong>You Are not <a href="login.php"><u>Logged In</u></a></strong>',
                           icon: 'info',
                           html: 'Please <b> login </b> To Proceed To CheckOut ',
 

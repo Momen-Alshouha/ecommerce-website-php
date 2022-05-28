@@ -40,7 +40,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> Insert Category
+<i class="fa fa-cart-plus"></i> Insert Category
 
 </h3><!-- panel-title Ends -->
 

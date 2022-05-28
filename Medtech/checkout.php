@@ -101,14 +101,23 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 
 
 
-
             <!-- Order Summary -->
             <div class="col-md-4">
                <div class="product-checkout-details">
                   <div class="block">
+                     
+            <form action="" method="post" >
+                           <div class="form-group" >
+                              <label>Have a discount ?  </label> <input style="height:37px;border: 1px lightgray solid" type="text" class="text" placeholder=" Enter Your Coupon" name="User_Copoun">
+
+                              <input type='submit' name="Applys" class="btn btn-sm" value='Apply Coupon' style="border: 1px lightgray solid;">
+                           </div>
+                        </form>
                      <h4 class="discount-code">Order Summary</h4>
 
                      <?php
+                       $w='';                  
+
                      // Query that select all content of the cart table joint with products table
 
                      $select_cart = mysqli_query($conn, "SELECT products.product_img1,products.product_title,products.product_price FROM `products` INNER JOIN `cart` ON cart.productID = products.product_id;");
@@ -117,21 +126,25 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
                      $select_cart_quantity = mysqli_query($conn, "SELECT * FROM `cart`");
                      $grand_total = 0;
 
+                     $cii=$_SESSION['loggedIn'];
+
                      if (mysqli_num_rows($select_cart) > 0) {
                         while ($fetch_cart = mysqli_fetch_assoc($select_cart)) {
                            $fetch_cart_quantity = mysqli_fetch_assoc($select_cart_quantity);
+                           $e =$fetch_cart['product_title'];
+                           $w .=  $e.'\n';
+                         
+
+                           // $_SESSION['qnty'].=$fetch_cart_quantity['quantity'];
+
                      ?>
 
 
-
                            <div class="media product-card">
-                              <!-- <a class="pull-left" href="product-single.php">
-                           <img class="media-object" src="images/shop/cart/cart-1.jpg" alt="Image" />
-                        </a> -->
+                           
 
 
                               <div class="media-body">
-                                 <!-- <h4 class="media-heading"><a href="product-single.php">Ambassador Heritage 1921</a></h4> -->
 
 
                                  <!-- <p class="order-id">Invoice no.: </p> -->
@@ -142,9 +155,16 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
                                  <!-- <span class="remove" >Remove</span> -->
                               </div>
                            </div>
+                           
                      <?php
+
                         };
+                        $_SESSION['pit']=$w;
+
+
+                        
                      };
+
                      ?>
                      <br><br> <b>
                         <p style="color-text:black;">Total Price: <?php echo $_SESSION['Total_Price'] ?> JOD </p>
@@ -152,18 +172,11 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
 
 
 
-
                      <!-- Discount code -->
                      <div class="discount-code">
                         <!-- <p>Have a discount ? <a  data-target="#coupon-modal" href="#">enter it here</a></p> -->
 
-                        <form action="" method="post">
-                           <div class="form-group">
-                              <label>Have a discount ? </label> <input style="border: 1px lightgray solid" type="text" class="text" placeholder=" Enter Your Coupon" name="User_Copoun">
-
-                              <input type='submit' name="addtc" class="btn btn-sm" value='Apply Coupon' style="border: 1px lightgray solid;">
-                           </div>
-                        </form>
+                        
 
                         <?php
 
@@ -174,7 +187,7 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
                         // if (mysqli_num_rows($Copoun_DB) > 0) {
                         // while ($fetch_code = mysqli_fetch_assoc($Copoun_DB)) {
                         // echo $fetch_code['coupon_code'];
-                        if (isset($_POST['User_Copoun'])) {
+                        if (isset($_POST['Applys'])) {
 
                            $User_Copoun = $_POST['User_Copoun'];
 
@@ -188,7 +201,6 @@ $_SESSION['current_page'] = $_SERVER['REQUEST_URI'];
                                     </div>';
                            }
                         }
-
 
                         ?>
                      </div>

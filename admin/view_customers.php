@@ -39,7 +39,7 @@ else {
 
 <h3 class="panel-title"><!-- panel-title Starts -->
 
-<i class="fa fa-money fa-fw"></i> View Customers
+<i class="fa fa-users"></i> View Customers
 
 </h3><!-- panel-title Ends -->
 

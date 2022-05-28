@@ -40,6 +40,8 @@ $admin_contact = $row_admin['admin_contact'];
 $admin_about = $row_admin['admin_about'];
 
 
+    $_SESSION['ai']=$admin_id;
+
 $get_products = "SELECT * FROM products";
 $run_products = mysqli_query($con,$get_products);
 $count_products = mysqli_num_rows($run_products);
@@ -129,7 +131,11 @@ if(isset($_GET['edit_product'])){
 include("edit_product.php");
 
 }
+if(isset($_GET['edit_status'])){
 
+    include("edit_order_status.php");
+    
+    }
 
 
 if(isset($_GET['insert_cat'])){
@@ -149,7 +155,11 @@ if(isset($_GET['delete_cat'])){
 include("delete_cat.php");
 
 }
+if(isset($_GET['delete_order'])){
 
+    include("delete_order.php");
+    
+    }
 if(isset($_GET['edit_cat'])){
 
 include("edit_cat.php");
@@ -178,9 +188,9 @@ include("order_delete.php");
 }
 
 
-if(isset($_GET['view_payments'])){
+if(isset($_GET['order_status'])){
 
-include("view_payments.php");
+include("order_status.php");
 
 }
 

@@ -41,7 +41,7 @@ else {
 
 <h3 class="panel-title" >
 
-<i class="fa fa-money fa-fw"></i> View Categories
+<i class="fa fa-shopping-cart"></i> View Categories
 
 </h3>
 
