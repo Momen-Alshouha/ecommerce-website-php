@@ -32,7 +32,7 @@ if(isset($_GET['chkout']))
         	<i class="tf-ion-android-checkmark-circle" style="background-color:#1BB2FB"></i>
           <h2 class="text-center">Thank you For Trusting Medtech!</h2>
           <p>We’re so glad that you found what you were looking for.</p>
-          <a href="index.php" class="btn btn-main mt-20">Continue Shopping</a>
+          <a href="products.php?cat=6" class="btn btn-main mt-20">Continue Shopping</a>
         </div>
       </div>
     </div>

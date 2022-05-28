@@ -186,7 +186,7 @@ while ($row_cats = mysqli_fetch_array($run_cat)) {
 	</div>
 	</div>
 
-
+	<br>
 <?php
 
 $sql = "SELECT * FROM comments";
