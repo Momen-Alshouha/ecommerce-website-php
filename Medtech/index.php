@@ -11,23 +11,6 @@ session_start();
 
 ?>
 
-<?php 
-	include("includes/connection.php");
-
-	if(isset($_POST['emailsubmit']))
-	{
-		//something was posted
-
-    $eml = $_POST['eml'];
-		if(!empty($eml))
-		{
-			//save to database
-			$query = "INSERT INTO `subcribers`( `email`) VALUES ('$eml')";
-			mysqli_query($con, $query);
-		}
-	}
-
-?>
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/imageh.png);">
     <div class="container">
@@ -126,12 +109,34 @@ Start Call To Action
 				      <span class="input-group-btn">
 				        <button class="btn btn-main" type="submit" style="background-color:#1BB2FB" name="emailsubmit">Subscribe Now!</button>
 				      </span>
-
 				    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
 </form>
+<?php 
+	include("includes/connection.php");
+
+	if(isset($_POST['emailsubmit']))
+	{
+		//something was posted
+
+    $eml = $_POST['eml'];
+		if(!empty($eml))
+		{
+			//save to database
+			$query = "INSERT INTO `subcribers`( `email`) VALUES ('$eml')";
+			mysqli_query($con, $query);
+
+      echo  "<br>" . "<br>"."<p style='color:#1BB2FB;'>You are now subscribed!</p>";
+		}
+
+	}
+
+?>
 			</div>
+ 
 		</div> 		<!-- End row -->
+    
+
 	</div>   	<!-- End container -->
 </section>   <!-- End section -->
 
