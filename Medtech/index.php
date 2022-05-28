@@ -8,8 +8,25 @@ session_start();
   	include("includes/functions.php");
     $get_cats = "select * from categories";
     $run_cats = mysqli_query($con,$get_cats);
-    
-   
+
+?>
+
+<?php 
+	include("includes/connection.php");
+
+	if(isset($_POST['emailsubmit']))
+	{
+		//something was posted
+
+    $eml = $_POST['eml'];
+		if(!empty($eml))
+		{
+			//save to database
+			$query = "INSERT INTO `subcribers`( `email`) VALUES ('$eml')";
+			mysqli_query($con, $query);
+		}
+	}
+
 ?>
 <div class="hero-slider">
   <div class="slider-item th-fullpage hero-area" style="background-image: url(images/slider/imageh.png);">
@@ -102,17 +119,17 @@ Start Call To Action
 					<h2>Subscribe To Our Newsletter</h2>
 					<p>Subscribe to our email newsletter today to receive updates on the latest news, tutorials and special offers!</p>
 				</div>
+        <form method="POST" action="index.php">
 				<div class="col-lg-6 col-md-offset-3">
 				    <div class="input-group subscription-form">
-				      <input type="mail" class="form-control" placeholder="Enter Your Email Address" required>
+				      <input type="email" class="form-control" placeholder="Enter Your Email Address" name="eml">
 				      <span class="input-group-btn">
-               
-				          <button name="subscribe" class="btn btn-main" type="submit" style="background-color:#1BB2FB">Subscribe Now!</button>
-                
-              </span>
+				        <button class="btn btn-main" type="submit" style="background-color:#1BB2FB" name="emailsubmit">Subscribe Now!</button>
+				      </span>
+
 				    </div><!-- /input-group -->
 			  </div><!-- /.col-lg-6 -->
-
+</form>
 			</div>
 		</div> 		<!-- End row -->
 	</div>   	<!-- End container -->

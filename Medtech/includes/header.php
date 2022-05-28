@@ -60,7 +60,7 @@ $run_cats = mysqli_query($con, $get_cats);
 							</div>
 						<?php
 						} else { ?>
-							<h3>WELCOME <?php echo '<span style="color:#1BB2FB;"> ' . strtoupper($WelcomeMsg)  . '!</span>'; ?></h3>
+							<h4>Welcome <?php echo '<span style="color:#1BB2FB;"> ' . strtoupper($WelcomeMsg)  . '!</span>'; ?></h4>
 
 						<?php
 						}
@@ -84,7 +84,7 @@ $run_cats = mysqli_query($con, $get_cats);
 					<!-- Cart -->
 					<ul class="top-menu text-right list-inline">
 						<li class="dropdown cart-nav dropdown-slide">
-							<a style="font-size: 15px;" href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i style="font-size: 20px; margin-left:100px;" class="tf-ion-android-cart"></i>Cart</a>
+							<a  href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i style="font-size: 23px; margin-left:100px;" class="tf-ion-android-cart"></i></a>
 							<div class="dropdown-menu cart-dropdown">
 								<!-- Cart Item -->
 
@@ -143,7 +143,7 @@ $run_cats = mysqli_query($con, $get_cats);
 							} else { ?>
 
 								<a href="logout.php" data-toggle="tooltip" data-placement="bottom" title="logout">
-									<i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+									<i class="fa-solid fa-arrow-right-from-bracket" style="font-size: 20px;"></i></a>
 
 							<?php } ?>
 						</li><!-- / Search -->
