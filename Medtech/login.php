@@ -112,11 +112,12 @@ include("includes/functions.php");
                     echo "wrong username or password!";
                   }
                 }
-
+                
+          
 
                 ?>
 
-                <input class="btn btn-main" id="button" type="submit" value="Login" style="background-color:#1BB2FB;font-size:13px;border-radius :5px;">
+                <input class="btn btn-main" name="btn" id="button" type="submit" value="Login" style="background-color:#1BB2FB;font-size:13px;border-radius :5px;">
               </div>
             </form>
             <p class="mt-20">New In This Site ?<a href="signup.php"> Create New Account</a></p>
